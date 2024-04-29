@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <!-- Add any additional meta tags, CSS, or JavaScript links here -->
+    <style>
+        /* CSS styles for when the body is hidden */
+        body {
+            display: none; /* Hide the body by default */
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // Check if the current domain is not "paradise-orpin.vercel.app"
+            if (window.location.hostname !== "paradise-orpin.vercel.app") {
+                // Redirect to the specified page
+                window.location.replace("https://paradise-orpin.vercel.app/denied.html");
+                return; // Stop further execution
+            }
+
+            // Check if the cookie named "ACCESS" exists and its value is true
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, do not display the body
+                document.body.style.display = "none";
+                // Redirect to another page if needed
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                // If the cookie is present and its value is true, display the body
+                document.body.style.display = "block";
+            }
+        };
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        // Function to set the "finished" cookie to true and open the specified URL in a new tab
+        function openNewTab() {
+    // Open the specified URL in a new tab
+    var newTab = window.open("https://afterlife-paradise.netlify.app/quickos", "_blank");
+    console.log("New tab opened");
+
+    // Wait for the new tab to load before sending the message
+    setTimeout(function() {
+        // Send a message to the new tab
+        if (newTab) {
+            newTab.postMessage("ascension", "https://afterlife-paradise.netlify.app");
+            window.close();
+ window.location.replace("error.html");
+        } else {
+            console.error("Failed to open new tab.");
+            alert("ok, if you see this error then something in the code did an oopsie and bassically, it's bad :(");
+        }
+    }, 10000); // Adjust the delay time (in milliseconds) as needed
+}
+    </script>
+
+    <style>
+        /* CSS styles for when the body is displayed */
+        body {
+            background-color: black; /* Set the background color to black */
+            background-image: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/GRAVITY.gif?raw=true');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff; /* Set default text color */
+        }
+        .button-column {
+            position: fixed;
+            top: 20%; /* Adjust the top position */
+            left: 10px; /* Align to the left side */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Increase the gap between buttons */
+        }
+        .button {
+            padding: 20px 40px; /* Increase padding for bigger buttons */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            color: #fff; /* Text color */
+            border: 2px solid #78FF00; /* Outline color */
+            border-radius: 15px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 18px; /* Increase font size for bigger buttons */
+        }
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background on hover */
+            color: #000; /* Text color on hover */
+        }
+       .big-text {
+          font-size: 3em; /* Adjust the font size as needed */
+          font-weight: bold;
+          color: #78FF00;
+          text-align: center;
+          /* Additional styling if desired */
+       }
+
+        .container {
+          position: absolute;
+          top: 120px; /* Adjusted to be at the top */
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+        }
+
+        .rainbow-text {
+          font-size: 24px;
+          font-weight: bold;
+          position: relative;
+          background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          display: inline-block;
+          animation: rainbow-text-animation 3s linear infinite; /* Adjusted animation duration */
+        }
+
+        @keyframes rainbow-text-animation {
+          0% { background-position: 0 50%; }
+          100% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your content goes here -->
+    <!-- This content will only be displayed if the cookie is present and its value is "true" -->
+
+    <!-- Heading -->
+   <h1 class="big-text">GR4V1TY</h1>
+
+        <h1>Brawl Stars hopefully coming soon</h1>
+
+
+    <!-- Button to run the code and open a new tab -->
+    <button class="button" style="background-color: #00FF00; color: #000;" onclick="openNewTab()">reload game access</button>
+    
+    <!-- Button Column -->
+    <div class="button-column">
+        <button class="button" onclick="window.open('https://afterlife-paradise.netlify.app/11-lol-main/1v1', '_blank')">1v1 lol</button>
+        <button class="button" onclick="window.open('https://afterlife-paradise.netlify.app/tunnel/tunnel.html', '_blank')">Tunnel Rush</button>
+        <!-- Add more buttons here if needed -->
+    </div>
+</body>
+</html>

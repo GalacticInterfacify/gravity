@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PARADISE AUTHENTICATION</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black; /* Set default background color to black */
+        background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/authentication.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #authentication-form {
+        margin-bottom: 20px;
+        opacity: 1;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        width: calc(100% + 10%);
+        margin-right: 3%; /* Adjust margin to center the textbox */
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-left: 3%; /* Adjust margin to center the button */
+    }
+
+    .fadeOut {
+        animation: fadeOut 1s forwards; /* Apply fade-out animation */
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+</style>
+<script>
+    // Preload the GIF image
+    var gifImage = new Image();
+    gifImage.src = 'https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true';
+
+    // Function to play sound and mute it after 6 seconds
+    function playSound() {
+        var audio = new Audio('https://github.com/GalacticInterfaces/GodFolder/raw/main/developer%20files/GRAVITYBACKGROUND.mp3');
+        audio.play();
+        // Mute the audio after 6 seconds
+        setTimeout(function() {
+            audio.volume = 0;
+        }, 6000); // 6 seconds in milliseconds
+    }
+
+    function checkPassword() {
+        // Get the current time in Eastern Standard Time (EST)
+        var now = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+        now = new Date(now);
+        
+        // Get the current day of the month and minute
+        var day = now.getDate();
+        var minute = now.getMinutes();
+        
+        // Predefined string for the password
+        var basePassword = "IcanStart";
+        
+        // Generate password by concatenating the base password with the current day of the month, minute, "0", and "$"
+        var expectedPassword = basePassword + day + minute + "0" + "$";
+        
+        // Get the password entered by the user
+        var enteredPassword = document.getElementById("passwordInput").value;
+
+        // Check if the entered password matches the expected password
+        var ascensionCompletion = enteredPassword === expectedPassword;
+
+        // Set the variable 'ascension-completion' based on the result
+        if (ascensionCompletion) {
+            // Set a cookie named "ACCESS" with value "true" (access granted) accessible across the entire site
+            var expirationDate = new Date(9999, 11, 31); // Last day of the year 9999
+            document.cookie = "ACCESS=true; path=/; expires=" + expirationDate.toUTCString();
+            // Change background to the GIF
+            document.body.style.backgroundImage = "url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true')";
+            // Play sound immediately after changing the background
+            playSound();
+            // Wait for 8 seconds before redirecting (instead of 11 seconds)
+            setTimeout(function() {
+                window.location.href = "PARADISE.html";
+            }, 13200); // 12 seconds in milliseconds
+
+            // Add fade-out class to the form and the button
+            var authenticationForm = document.getElementById("authentication-form");
+            authenticationForm.classList.add("fadeOut");
+            var ascendButton = document.getElementById("ascendButton");
+            ascendButton.classList.add("fadeOut");
+            
+            // Delete the form elements after they fade out
+            setTimeout(function() {
+                authenticationForm.parentNode.removeChild(authenticationForm);
+                ascendButton.parentNode.removeChild(ascendButton);
+            }, 1000); // Assuming the fade-out animation duration is 1 second (1000 milliseconds)
+        } else {
+            alert("Authentication failed! Please try again.");
+        }
+
+        // For demonstration, logging ascension-completion to console
+        console.log("Ascension Completion:", ascensionCompletion);
+    }
+</script>
+</head>
+<body>
+    <form id="authentication-form">
+        <input type="text" id="passwordInput" placeholder="Enter password for authentication">
+    </form>
+    <button id="ascendButton" onclick="checkPassword()">Ascend</button>
+
+    <!-- Hidden iframe to preload PARADISE.html -->
+    <iframe src="PARADISE.html" style="display:none;"></iframe>
+</body>
+</html>
