@@ -53,10 +53,6 @@
     }
 </style>
 <script>
-    // Preload the GIF image
-    var gifImage = new Image();
-    gifImage.src = 'https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true';
-
     // Function to play sound and mute it after 6 seconds
     function playSound() {
         var audio = new Audio('https://github.com/GalacticInterfaces/GodFolder/raw/main/developer%20files/GRAVITYBACKGROUND.mp3');
@@ -120,6 +116,15 @@
         // For demonstration, logging ascension-completion to console
         console.log("Ascension Completion:", ascensionCompletion);
     }
+
+    // Check for access cookie when the page loads
+    window.onload = function() {
+        var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
+        if (accessCookie) {
+            // Redirect to PARADISE.html if the access cookie exists
+            window.location.href = "PARADISE.html";
+        }
+    };
 </script>
 </head>
 <body>
