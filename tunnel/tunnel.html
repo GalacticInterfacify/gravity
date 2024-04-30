@@ -12,13 +12,6 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/unityloader49.js"></script>
     <script>
-       if (window.location.hostname !== "gr4vity.vercel.app") {
-    // Redirect to the specified page
-    window.location.replace("https://gr4vity.vercel.app/tunnel/tunnel.html");
-}
-
-    </script>
-    <script>
       // Check for the "ACCESS" cookie
       function checkAccessCookie() {
         var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
