@@ -14,12 +14,7 @@
     </style>
     <script>
         window.onload = function() {
-            // Check if the current domain is not "paradise-orpin.vercel.app"
-            if (window.location.hostname !== "gr4vity.vercel.app") {
-                // Redirect to the specified page
-                window.location.replace("https://gr4vity.vercel.app/denied.html");
-                return; // Stop further execution
-            }
+        
 
             // Check if the cookie named "ACCESS" exists and its value is true
             var accessCookie = getCookie("ACCESS");
