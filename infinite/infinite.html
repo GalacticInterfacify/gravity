@@ -9,9 +9,13 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        overflow: hidden; /* Hide any potential scrollbars */
     }
 
     iframe {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         border: none;
@@ -19,7 +23,7 @@
 </style>
 </head>
 <body>
-<iframe id="myFrame" src="https://infinite-craft.com/infinite-craft/"></iframe>
+<iframe allow="fullscreen" id="myFrame" src="https://infinite-craft.com/infinite-craft/"></iframe>
 
 <script>
 window.onload = function() {
