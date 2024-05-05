@@ -4,9 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checking Iframe</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
 </head>
 <body>
-<iframe id="myFrame" src="https://infinite-craft.com/infinite-craft/" style="width:100%; height:100vh;"></iframe>
+<iframe id="myFrame" src="https://infinite-craft.com/infinite-craft/"></iframe>
 
 <script>
 window.onload = function() {
