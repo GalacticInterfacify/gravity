@@ -28,6 +28,19 @@
         pointer-events: none; /* Make it non-selectable */
     }
 
+    #finishingUp {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+        font-size: 20px;
+        transition: opacity 6s ease-in-out; /* Fade out over 6 seconds */
+    }
+
     iframe {
         position: fixed;
         top: 0;
@@ -46,18 +59,23 @@
 window.onload = function() {
     var frame = document.getElementById('myFrame');
     var overlay = document.getElementById('loadingOverlay');
+    var finishingUp = document.createElement('div');
+    finishingUp.id = 'finishingUp';
+    finishingUp.textContent = 'FINISHING UP';
+    document.body.appendChild(finishingUp);
     var reloadCount = 0;
-    var remainingTime = 200; // in 0.2-second intervals
+    var remainingTime = 100; // in 0.2-second intervals
 
     function reloadFrame() {
-        if (reloadCount >= 200) { // Change reload count to time
-         window.location.href = 'error.html';
+        if (reloadCount >= 100) { // Change reload count to time
+            alert('Something went wrong with running Infinite Craft');
+            window.location.href = 'error.html'; // Redirect to error.html
             clearInterval(interval);
         } else {
             frame.src = frame.src; // Reload the iframe
             reloadCount++;
             remainingTime--;
-            overlay.textContent = 'READ THIS: Fixing the annoying connection reset error >:(. if this (estimated) time runs out before its fixed please report the issue: ' + (remainingTime * 0.2).toFixed(1) + '         - Paradise';
+            overlay.textContent = 'Forcing load, please wait. Remaining time: ' + (remainingTime * 0.2).toFixed(1) + ' seconds';
             console.log("Reloading iframe...");
         }
     }
@@ -65,6 +83,16 @@ window.onload = function() {
     frame.onload = function() {
         console.log("Iframe loaded successfully!");
         overlay.style.display = 'none'; // Hide overlay
+        setTimeout(function() {
+            finishingUp.style.opacity = '0'; // Fade out finishing up text
+            setTimeout(function() {
+                if (!frame.contentWindow || !frame.contentWindow.document || frame.contentWindow.document.readyState !== 'complete') {
+                    window.location.href = 'error.html'; // Redirect to error.html if iframe didn't load successfully
+                } else {
+                    finishingUp.remove(); // Remove finishing up text element
+                }
+            }, 6000); // Wait for 6 seconds for finishing up text to fade out
+        }, 5000); // Wait for 5 seconds after the overlay disappears
     };
 
     frame.onerror = function() {
