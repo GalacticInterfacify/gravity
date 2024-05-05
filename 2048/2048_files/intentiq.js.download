@@ -1,0 +1,20 @@
+try{window.__ezIIQ=window.__ezIIQ||{};Object.assign(window.__ezIIQ,{iiqStarted:false,iiqHandler:null,iiqResponse:false,iiqFinished:false,initCallbacks:[],subHandlerStatuses:{'gam':false},iiqTimeout:400,iiqBidSourcePrebid:1,iiqBidSourceAmazon:2,iiqBidSourceGAM:3,isChromeBrowser:function(){return /Chrome/.test(navigator.userAgent);},isIIQEnabled:function(){return window.eziiquid;},sendIIQData:function(bidSource,phID,bidCPM,prebidBid){if(!this.iiqApplied){setTimeout(this.sendIIQData.bind(this,bidSource,phID,bidCPM,prebidBid),50);return;}
+let bidSourceName='';switch(bidSource){case this.iiqBidSourcePrebid:if(!prebidBid){return;}
+bidSourceName="Prebid";break;case this.iiqBidSourceAmazon:bidSourceName="Amazon";break;case this.iiqBidSourceGAM:bidSourceName="GAM";break;}
+var reportData={biddingPlatformId:bidSource,bidderCode:prebidBid?prebidBid.bidderCode:bidSourceName,prebidAuctionId:prebidBid?prebidBid.auctionId:'',cpm:bidCPM,currency:prebidBid?prebidBid.currency:"USD",originalCpm:bidCPM,originalCurrency:prebidBid?prebidBid.originalCurrency:"USD",status:"rendered",placementId:phID,}
+this.iiqHandler.reportExternalWin(reportData);},addInitializedCallback:function(callback){if(!this.isIIQEnabled()||this.iiqApplied){callback();return;}
+this.initCallbacks.push(callback);},runInitCallbacks:function(){if(!this.iiqHandler||!this.iiqApplied){setTimeout(this.runInitCallbacks.bind(this),50);return;}
+for(var i=0;i<this.initCallbacks.length;i++){this.initCallbacks[i]();}},requestBidsIIQ:function(){if(!this.isIIQEnabled()){return;}
+if(typeof IntentIqObject!=='function'){setTimeout(this.requestBidsIIQ.bind(this),50);return;}
+if(!this.iiqStarted){this.iiqStarted=true;this.iiqHandler=new IntentIqObject({partner:2087169181,pbjs:epbjs,callback:function(){__ezIIQ.iiqResponse=true;__ezIIQ.initializeIIQForGAM();},timeoutInMillis:this.iiqTimeout,ABTestingConfigurationSource:'percentage',abPercentage:95,manualWinReportEnabled:true,domainName:window.location.host,browserBlackList:'Chrome'});return;}},initializeIIQForGAM:function(){if(this.subHandlerStatuses['gam']){return;}
+if(!this.iiqResponse||!this.iiqHandler){setTimeout(this.initializeIIQForGAM.bind(this),50);return;}
+let currentTestGroup=this.iiqHandler.intentIqConfig.abTesting.currentTestGroup;try{googletag.cmd.push(function(){googletag.pubads().setTargeting("intent_iq_group",currentTestGroup||"U");});}catch(e){googletag.cmd.push(function(){googletag.pubads().setTargeting("intent_iq_group","N");});}
+var ppid=this.extractIIQIDForGAM(this.iiqHandler.intentIqData);if(ppid){googletag.pubads().setPublisherProvidedId(ppid);}
+this.subHandlerStatuses['gam']=true;this.checkFullySetUp();},extractIIQIDForGAM:function(json){const eids=json.eids;if(!eids){return null;}
+for(let i=0;i<eids.length;i++){const eid=eids[i];if(eid.source==="intentiq.com"){const uids=eid.uids;for(let j=0;j<uids.length;j++){const uid=uids[j];if(uid.ext.stype==="ppuid"){return uid.id;}}}}
+return null;},checkFullySetUp:function(){if(this.iiqApplied){return true;}
+var unfinishedSteps=Object.keys(this.subHandlerStatuses).filter(handlers=>this.subHandlerStatuses[handlers]===false);if(unfinishedSteps.length>0){return false;}
+this.iiqApplied=true;this.runInitCallbacks();return true;},sanitizeCPM:function(filledFloor,lastFloor){var eCPM=0;try{eCPM=parseInt(filledFloor)/100.0;var lastFloor=parseInt(lastFloor)/100.0;if(!isNaN(lastFloor)){eCPM=(eCPM+lastFloor)/3.0;}
+eCPM=eCPM.toFixed(2);}catch(e){}
+return eCPM;}});var eziiqQueuedFunc=function(){};__ezIIQ.cmd=__ezIIQ.cmd||[];if(__ezIIQ.cmd.length>0){eziiqQueuedFunc=function(){for(var i=0;i<__ezIIQ.cmd.length;i++){if(typeof __ezIIQ.cmd[i]==='function'){__ezIIQ.cmd[i]();}}}}
+__ezIIQ.cmd.push=function(func){if(typeof func==='function'){func();}}}catch(err){var hREED=function(er){return function(){reportEzError(er,"/detroitchicago/intentiq.js")}};typeof reportEzError==="function"?hREED(err):window.addEventListener('reportEzErrorDefined',hREED(err),{once:true});console.error(err);}
