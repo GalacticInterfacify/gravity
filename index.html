@@ -40,18 +40,6 @@
         margin-left: 3%; /* Adjust margin to center the button */
     }
 
-    .fadeOut {
-        animation: fadeOut 1s forwards; /* Apply fade-out animation */
-    }
-
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-        }
-        to {
-            opacity: 0;
-        }
-    }
 </style>
 <script>
     // Function to play sound and mute it after 6 seconds
@@ -99,17 +87,12 @@
                 window.location.href = "PARADISE.html";
             }, 13200); // 12 seconds in milliseconds
 
-            // Add fade-out class to the form and the button
-            var authenticationForm = document.getElementById("authentication-form");
-            authenticationForm.classList.add("fadeOut");
-            var ascendButton = document.getElementById("ascendButton");
-            ascendButton.classList.add("fadeOut");
-            
             // Delete the form elements after they fade out
-            setTimeout(function() {
-                authenticationForm.parentNode.removeChild(authenticationForm);
-                ascendButton.parentNode.removeChild(ascendButton);
-            }, 1000); // Assuming the fade-out animation duration is 1 second (1000 milliseconds)
+            var authenticationForm = document.getElementById("authentication-form");
+            var ascendButton = document.getElementById("ascendButton");
+            authenticationForm.style.display = "none";
+            ascendButton.style.display = "none";
+            
         } else {
             alert("Authentication failed! Please try again.");
         }
