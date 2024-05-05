@@ -50,14 +50,14 @@ window.onload = function() {
     var remainingTime = 200; // in 0.2-second intervals
 
     function reloadFrame() {
-        if (reloadCount >= remainingTime) { // Change reload count to time
-            alert('Something went wrong with running Infinite Craft');
+        if (reloadCount >= 200) { // Change reload count to time
+         window.location.href = 'error.html';
             clearInterval(interval);
         } else {
             frame.src = frame.src; // Reload the iframe
             reloadCount++;
             remainingTime--;
-            overlay.textContent = 'Fixing the annoying connection reset error >:(. if this (estimated) time runs out before its fixed please report the issue: ' + (remainingTime * 0.2).toFixed(1) + '         - Paradise';
+            overlay.textContent = 'READ THIS: Fixing the annoying connection reset error >:(. if this (estimated) time runs out before its fixed please report the issue: ' + (remainingTime * 0.2).toFixed(1) + '         - Paradise';
             console.log("Reloading iframe...");
         }
     }
