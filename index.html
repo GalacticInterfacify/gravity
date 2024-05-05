@@ -80,4 +80,50 @@
         // Set the variable 'ascension-completion' based on the result
         if (ascensionCompletion) {
             // Set a cookie named "ACCESS" with value "true" (access granted) accessible across the entire site
-            var expirationDate = new Date(9999, 11, 31
+            var expirationDate = new Date(9999, 11, 31); // Last day of the year 9999
+            document.cookie = "ACCESS=true; path=/; expires=" + expirationDate.toUTCString();
+            // Play sound immediately after changing the background
+            playSound();
+            // Change background to the GIF
+            document.body.style.backgroundImage = "url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true')";
+            // Display the preloaded GIF
+            document.getElementById("gif-background").style.display = "block";
+            // Wait for 8 seconds before redirecting (instead of 11 seconds)
+            setTimeout(function() {
+                window.location.href = "PARADISE.html";
+            }, 13200); // 12 seconds in milliseconds
+
+            // Delete the form elements after they fade out
+            var authenticationForm = document.getElementById("authentication-form");
+            var ascendButton = document.getElementById("ascendButton");
+            authenticationForm.style.display = "none";
+            ascendButton.style.display = "none";
+            
+        } else {
+            alert("Authentication failed! Please try again.");
+        }
+
+        // For demonstration, logging ascension-completion to console
+        console.log("Ascension Completion:", ascensionCompletion);
+    }
+
+    // Check for access cookie when the page loads
+    window.onload = function() {
+        var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
+        if (accessCookie) {
+            // Redirect to PARADISE.html if the access cookie exists
+            window.location.href = "PARADISE.html";
+        }
+    };
+</script>
+</head>
+<body>
+    <form id="authentication-form">
+        <input type="text" id="passwordInput" placeholder="Enter password for authentication">
+    </form>
+    <button id="ascendButton" onclick="checkPassword()">Ascend</button>
+
+    <!-- Preload the GIF -->
+    <img id="gif-background" src="https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true" alt="GIF Background">
+</body>
+</html>
