@@ -39,7 +39,7 @@
 </style>
 </head>
 <body>
-<div id="loadingOverlay">Forcing load, please wait.</div>
+<div id="loadingOverlay">Forcing load, please wait</div>
 <iframe allow="fullscreen" id="myFrame" src="https://infinite-craft.com/infinite-craft/"></iframe>
 
 <script>
@@ -47,29 +47,28 @@ window.onload = function() {
     var frame = document.getElementById('myFrame');
     var overlay = document.getElementById('loadingOverlay');
     var reloadCount = 0;
-    
+
+    function reloadFrame() {
+        if (reloadCount >= 50) {
+            alert('Something went wrong with running Infinite Craft');
+            clearInterval(interval);
+        } else {
+            frame.src = frame.src; // Reload the iframe
+            reloadCount++;
+            console.log("Reloading iframe...");
+        }
+    }
+
     frame.onload = function() {
         console.log("Iframe loaded successfully!");
         overlay.style.display = 'none'; // Hide overlay
     };
 
     frame.onerror = function() {
-        reloadCount++;
-        console.log("Error loading iframe. Reloading...");
-        if (reloadCount >= 50) {
-            alert('Something went wrong with running Infinite Craft');
-            clearInterval(interval);
-        } else {
-            frame.src = frame.src; // Reload the iframe
-        }
+        reloadFrame();
     };
-    
-    var interval = setInterval(function() {
-        if (!frame.contentWindow || !frame.contentWindow.document || frame.contentWindow.document.readyState !== 'complete') {
-            frame.src = frame.src; // Reload the iframe if not loaded
-        }
-    }, 200);
 
+    var interval = setInterval(reloadFrame, 200);
     setTimeout(function() {
         clearInterval(interval);
     }, 5000);
