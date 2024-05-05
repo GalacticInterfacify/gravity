@@ -41,7 +41,13 @@
     }
 
     #gif-background {
-        display: none; /* Hide the GIF initially */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        z-index: -1; /* Ensure GIF is below other content */
     }
 
 </style>
