@@ -15,35 +15,39 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
   <style>
-    /* CSS styles for text outside the game */
-    .title, .game-intro, .game-explanation {
-      color: #39ff14; /* Neon green color code */
-    }
+  /* CSS styles for text outside the game */
+  .title, .game-intro, .game-explanation {
+    color: #39ff14; /* Neon green color code */
+  }
 
-    /* CSS styles for background image */
-    body {
-      background-image: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/GRAVITY.gif?raw=true');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
+  /* CSS styles for background image */
+  body {
+    background-image: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/GRAVITY.gif?raw=true');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
 
+ <script>
+  window.onload = function() {
+      checkAccessCookie(); // Call the function to check access cookie
+      // Rest of your script...
+  };
+
+  function checkAccessCookie() {
+      var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
+      if (!accessCookie) {
+        // Redirect to another page or display an error message
+        window.location.href = '../denied.html'; // Redirect to an access denied page
+      }
+  }
+</script>
+
+	
 </head>
 <body>
-	 <script>
-    window.onload = function() {
-        checkAccessCookie(); // Call the function to check access cookie
-        // Rest of your script...
-    };
-
-    function checkAccessCookie() {
-        var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
-        if (!accessCookie) {
-          // Redirect to another page or display an error message
-          window.location.href = '../denied.html'; // Redirect to an access denied page
-        }
-    }
-</script>
+	
 
 
   <div class="container">
