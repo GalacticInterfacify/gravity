@@ -69,7 +69,14 @@
             }
         </style>
     </head>
-
+<script>  function checkAccessCookie() {
+        var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
+        if (!accessCookie) {
+          // Redirect to another page or display an error message
+          window.location.href = 'access-denied.html'; // Redirect to an access denied page
+        }
+      }
+</script>
     <body>
         <div class="gm4html5_div_class" id="gm4html5_div_id">
         <img src="./retro_files/splash.png" id="GM4HTML5_loadingscreen" alt="GameMaker:HTML5 loading screen" style="display:none;">
