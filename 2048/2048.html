@@ -28,6 +28,13 @@
       background-attachment: fixed;
     }
   </style>
+	<script>  function checkAccessCookie() {
+        var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
+        if (!accessCookie) {
+          // Redirect to another page or display an error message
+          window.location.href = 'access-denied.html'; // Redirect to an access denied page
+        }
+      }</script>
 </head>
 <body>
   <div class="container">
