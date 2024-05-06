@@ -30,7 +30,7 @@
 
 </head>
 <body>
-	  <script>
+	 <script>
     window.onload = function() {
         checkAccessCookie(); // Call the function to check access cookie
         // Rest of your script...
@@ -40,10 +40,11 @@
         var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
         if (!accessCookie) {
           // Redirect to another page or display an error message
-          window.location.href = 'denied.html'; // Redirect to an access denied page
+          window.location.href = '../denied.html'; // Redirect to an access denied page
         }
     }
 </script>
+
 
   <div class="container">
     <div class="heading">
