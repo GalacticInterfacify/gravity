@@ -118,5 +118,24 @@
   <script src="./2048_files/local_storage_manager.js.download"></script>
   <script src="./2048_files/game_manager.js.download"></script>
   <script src="./2048_files/application.js.download"></script>
+	<script>
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowUp') {
+      moveTiles('up');
+    } else if (event.key === 'ArrowDown') {
+      moveTiles('down');
+    } else if (event.key === 'ArrowLeft') {
+      moveTiles('left');
+    } else if (event.key === 'ArrowRight') {
+      moveTiles('right');
+    }
+  });
+
+  function moveTiles(direction) {
+    // Implement the logic to move tiles in the specified direction
+    // This function should be similar to the one used in the original JavaScript files of the game
+    // You might need to adapt it based on how the game logic is structured in your project
+  }
+</script>
 </body>
 </html>
