@@ -119,23 +119,42 @@
   <script src="./2048_files/game_manager.js.download"></script>
   <script src="./2048_files/application.js.download"></script>
 	<script>
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowUp') {
-      moveTiles('up');
-    } else if (event.key === 'ArrowDown') {
-      moveTiles('down');
-    } else if (event.key === 'ArrowLeft') {
-      moveTiles('left');
-    } else if (event.key === 'ArrowRight') {
-      moveTiles('right');
-    }
+  // Wait for the DOM content to be fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    // Bind the arrow key event listeners after the DOM is loaded
+    bindArrowKeyListeners();
   });
 
+  function bindArrowKeyListeners() {
+    // Add event listeners for arrow key presses
+    document.addEventListener('keydown', function(event) {
+      // Determine which arrow key is pressed and call the corresponding function
+      switch (event.key) {
+        case 'ArrowUp':
+          moveTiles('up');
+          break;
+        case 'ArrowDown':
+          moveTiles('down');
+          break;
+        case 'ArrowLeft':
+          moveTiles('left');
+          break;
+        case 'ArrowRight':
+          moveTiles('right');
+          break;
+        default:
+          // Ignore other key presses
+          break;
+      }
+    });
+  }
+
   function moveTiles(direction) {
-    // Implement the logic to move tiles in the specified direction
-    // This function should be similar to the one used in the original JavaScript files of the game
-    // You might need to adapt it based on how the game logic is structured in your project
+    // Call the function responsible for moving tiles in the specified direction
+    // Replace this with the actual function used in your game logic
+    // Example: game.move(direction);
   }
 </script>
+
 </body>
 </html>
