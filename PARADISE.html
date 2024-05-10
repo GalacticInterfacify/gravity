@@ -13,7 +13,6 @@
         /* CSS styles for when the body is displayed */
         body {
             background-color: black; /* Set the background color to black */
-            background-image: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/GRAVITY.gif?raw=true');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -64,9 +63,28 @@
             transform: translate(-50%, -50%);
             text-align: center;
         }
+         .background-content {
+            position: fixed; /* Position the content fixed so it remains in the background */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.html'); /* Set the background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
+            z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
+        }
     </style>
 </head>
 <body>
+    <!-- Background content -->
+    <div class="background-content">
+        <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+    </div>
+  
+    <!--NAVIGATION -->
     <div class="navbar">
         <a href="#" class="logo">GR4V1TY</a>
         <button class="button" onclick="panic()">Panic</button>
