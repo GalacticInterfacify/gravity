@@ -11,11 +11,19 @@
         body {
             display: none; /* Hide the body by default */
         }
+
+        /* CSS for particles container */
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensure it's behind other content */
+        }
     </style>
     <script>
         window.onload = function() {
-        
-
             // Check if the cookie named "ACCESS" exists and its value is true
             var accessCookie = getCookie("ACCESS");
             if (!accessCookie || accessCookie !== "true") {
@@ -49,110 +57,72 @@
             window.location.href = url;
         }
     </script>
-
-<script>
-    function panic() {
-        window.open('https://classroom.google.com');
-    window.location.href = 'about:blank';    }
-</script>
-
-    <style>
-        /* CSS styles for when the body is displayed */
-        body {
-            background-color: black; /* Set the background color to black */
-            background-image: url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/GRAVITY.gif?raw=true');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #fff; /* Set default text color */
-        }
-        .button-column {
-            position: fixed;
-            top: 20%; /* Adjust the top position */
-            left: 10px; /* Align to the left side */
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Increase the gap between buttons */
-        }
-        .button {
-            padding: 20px 40px; /* Increase padding for bigger buttons */
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-            color: #fff; /* Text color */
-            border: 2px solid #78FF00; /* Outline color */
-            border-radius: 15px; /* Rounded corners */
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-size: 18px; /* Increase font size for bigger buttons */
-        }
-        .button:hover {
-            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background on hover */
-            color: #000; /* Text color on hover */
-        }
-       .big-text {
-          font-size: 3em; /* Adjust the font size as needed */
-          font-weight: bold;
-          color: #78FF00;
-          text-align: center;
-          /* Additional styling if desired */
-       }
-
-        .container {
-          position: absolute;
-          top: 120px; /* Adjusted to be at the top */
-          left: 50%;
-          transform: translateX(-50%);
-          text-align: center;
-        }
-
-        .rainbow-text {
-          font-size: 24px;
-          font-weight: bold;
-          position: relative;
-          background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          display: inline-block;
-          animation: rainbow-text-animation 3s linear infinite; /* Adjusted animation duration */
-        }
-
-        @keyframes rainbow-text-animation {
-          0% { background-position: 0 50%; }
-          100% { background-position: 100% 50%; }
-        }
-.right-column {
-    position: absolute;
-    top: 20%; /* Adjust the top position */
-    right: 10px; /* Align to the right side */
-}
-    </style>
 </head>
 <body>
+    <!-- Particles container -->
+    <div id="particles-container"></div>
+
     <!-- Your content goes here -->
     <!-- This content will only be displayed if the cookie is present and its value is "true" -->
 
     <!-- Heading -->
-   <h1 class="big-text">GR4V1TY</h1>
+    <h1 class="big-text">GR4V1TY</h1>
 
-
-  <!-- RAINBOW TEXT!!!!!! -->
+    <!-- RAINBOW TEXT!!!!!! -->
     <div style="display: inline-block; background-color: black; padding: 5px; text-align: left;">
         <!-- Button row -->
         <button class="button" onclick="panic()">Panic</button>
 
-
-        
-        
         <!-- Button Column -->
-    <div class="button-column" style="margin-top: 80px;">
-        <button class="button" onclick="navigateTo('11-lol-main/1v1.html')">1v1 lol</button>
-        <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
-        <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
-        <button class="button" onclick="navigateTo('bblcker.html')">ByeUnbl</button>
-        <button class="button" onclick="navigateTo('infinite/infinite.html')">Infinite Craft</button>
+        <div class="button-column" style="margin-top: 80px;">
+            <button class="button" onclick="navigateTo('11-lol-main/1v1.html')">1v1 lol</button>
+            <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
+            <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
+            <button class="button" onclick="navigateTo('bblcker.html')">ByeUnbl</button>
+            <button class="button" onclick="navigateTo('infinite/infinite.html')">Infinite Craft</button>
+        </div>
+    </div>
     
-        <!-- Add more buttons here if needed -->
-  
-
-
+    <!-- JavaScript for particles -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-container", {
+            "particles": {
+                "number": {"value": 160, "density": {"enable": true, "value_area": 800}},
+                "color": {"value": "#ffffff"},
+                "shape": {
+                    "type": "circle",
+                    "stroke": {"width": 0, "color": "#000000"},
+                    "polygon": {"nb_sides": 5},
+                    "image": {"src": "img/github.svg", "width": 100, "height": 100}
+                },
+                "opacity": {"value": 1, "random": true, "anim": {"enable": true, "speed": 1, "opacity_min": 0, "sync": false}},
+                "size": {"value": 3, "random": true, "anim": {"enable": false, "speed": 4, "size_min": 0.3, "sync": false}},
+                "line_linked": {"enable": false, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1},
+                "move": {
+                    "enable": true,
+                    "speed": 1,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {"enable": false, "rotateX": 600, "rotateY": 600}
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {"onhover": {"enable": true, "mode": "grab"}, "onclick": {"enable": false, "mode": "repulse"}, "resize": true},
+                "modes": {
+                    "grab": {"distance": 119.88011988011988, "line_linked": {"opacity": 1}},
+                    "bubble": {"distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3},
+                    "repulse": {"distance": 63.93606393606394, "duration": 0.4},
+                    "push": {"particles_nb": 4},
+                    "remove": {"particles_nb": 2}
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
