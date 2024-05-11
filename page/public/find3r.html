@@ -34,10 +34,10 @@
       // Check if input starts with "http://" or "https://"
       if (input.startsWith("http://") || input.startsWith("https://")) {
         // Redirect to the encoded URL
-        window.location.href = `/page/service/${encode(input)}`;
+        window.location.href = `/service/${encode(input)}`;
       } else {
         // If it's not a full URL, treat it as a Google search query
-        window.location.href = `/page/service/${encode("https://www.google.com/search?q=" + input)}`;
+        window.location.href = `/service/${encode("https://www.google.com/search?q=" + input)}`;
       }
     }
   </script>
