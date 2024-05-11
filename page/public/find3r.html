@@ -2,8 +2,7 @@
 <html>
 
 <head>
-  <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png" />
-  <title>Art Class</title>
+  <title>class</title>
 
   <link rel="stylesheet" href="./css/master.css" />
   <script src="/uv/uv.bundle.js" charset="UTF-8"></script>
@@ -11,54 +10,30 @@
   <script src="./js/preload.js"></script>
 
   <script>
-    // Define the encode function
-    function encode(str) {
-      if (!str) return str;
-      return encodeURIComponent(
-        str
-          .toString()
-          .split('')
-          .map((char, ind) =>
-            ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
-          )
-          .join('')
-      );
-    }
-
-    // Function to handle the search and redirection
-    function redirectToEncodedURL() {
-      var input = document.getElementById("searchInput").value;
-      // Check if input is empty
-      if (input.trim() === "") return;
-
-      // Check if input starts with "http://" or "https://"
-      if (input.startsWith("http://") || input.startsWith("https://")) {
-        // Redirect to the encoded URL
-        window.location.href = `/service/${encode(input)}`;
-      } else {
-        // If it's not a full URL, treat it as a Google search query
-        window.location.href = `/service/${encode("https://www.google.com/search?q=" + input)}`;
-      }
-    }
+    atOptions = {
+      'key': 'fc0ad22bd8c1ea22c8c08df927121e8f',
+      'format': 'iframe',
+      'height': 60,
+      'width': 468,
+      'params': {}
+    };
   </script>
 </head>
 
 <body theme="main">
+ 
+
   <div class="center-container">
-    <h1>Hyperjump</h1>
-    <input id="searchInput" class="pxyinput" type="text" placeholder="Enter URL or search google" />
+    <h1>F1ND3R</h1>
+    <input class="pxyinput" type="text" placeholder="Enter URL or search google" />
+    <div class="ad">
+      <!-- <script type="text/javascript"
+        src="//www.topcreativeformat.com/fc0ad22bd8c1ea22c8c08df927121e8f/invoke.js"></script> -->
+    </div>
   </div>
-
-  <script src="./js/index.js"></script>
-  <script src="./js/search.js"></script>
-
-  <script>
-    document.getElementById("searchInput").addEventListener("keypress", function(event) {
-      if (event.key === "Enter") {
-        redirectToEncodedURL(); // Call function to redirect to encoded URL
-      }
-    });
-  </script>
 </body>
+
+<script src="./js/index.js"></script>
+<script src="./js/search.js"></script>
 
 </html>
