@@ -9,6 +9,7 @@
     <!-- Custom styles -->
     <style>
         body {
+	    display: none;
             background-image: url('https://media.istockphoto.com/id/954305374/photo/stairs-leading-up-to-heavenly-sky-toward-the-light.jpg?s=612x612&w=0&k=20&c=iJ4eMjjYFYgkXxFYPaZH3JZj6gttp7KdR9ztBUpNQRI=');
             background-size: cover;
             font-family: Arial, sans-serif;
@@ -312,6 +313,33 @@ function panic() {
     openSiteInNewTab('https://classroom.google.com');
     window.close();
 }
+	window.onload = function() {
+            // Check if the cookie named "ACCESS" exists and its value is true
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, do not display the body
+                document.body.style.display = "none";
+                // Redirect to another page if needed
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                // If the cookie is present and its value is true, display the body
+                document.body.style.display = "block";
+            }
+        };
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
 </script>
 
 <script>
