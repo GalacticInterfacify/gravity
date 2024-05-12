@@ -6,7 +6,7 @@
     <title>INSTALL ME</title>
     <link rel="icon" href="files/favicon.png" type="image/png">
     <style>
-      /* CSS for body */
+    /* CSS for body */
 body {
     display: none; /* Hide the body by default */
     background-color: black; /* Set the background color to black */
@@ -37,19 +37,12 @@ body {
 }
 
 /* CSS for navigation bar buttons */
-.navbar > .button {
+.navbar .button {
     margin-left: 10px; /* Add some space between buttons */
 }
 
-/* CSS for button container */
-.button-container {
-    display: flex;
-    align-items: center;
-}
-
-/* CSS for buttons */
-.button-container .button {
-    margin-left: 10px; /* Add some space between buttons */
+/* CSS for button container inside navigation */
+.navbar .button-container .button {
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
@@ -59,7 +52,36 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* CSS for button hover effect */
+/* CSS for button hover effect inside navigation */
+.navbar .button-container .button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+}
+
+/* CSS for button container outside navigation */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+/* CSS for buttons outside navigation */
+.button-container .button {
+    padding: 15px 30px; /* Adjust padding to make the buttons bigger */
+    font-size: 18px; /* Adjust font size to make the text bigger */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: 2px solid #78FF00;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* CSS for button hover effect outside navigation */
 .button-container .button:hover {
     background-color: rgba(255, 255, 255, 0.5);
     color: #000;
