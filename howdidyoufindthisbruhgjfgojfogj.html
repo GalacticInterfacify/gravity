@@ -91,7 +91,8 @@
 <body>
 
 <div class="container">
-  <h1>Welcome to H̷̢̱̳̩͒Y̵͍͓͎̿͆P̵̦͘Ȩ̴͔͚͈̅R̵̡̮̰͒̃͜͝͠J̵̱̊̄U̶̩̔͆M̸̟̈̉̋P̷̧̙̥͓̊</h1>
+  <h1>H̷̢̱̳̩͒Y̵͍͓͎̿͆P̵̦͘Ȩ̴͔͚͈̅R̵̡̮̰͒̃͜͝͠J̵̱̊̄U̶̩̔͆M̸̟̈̉̋P̷̧̙̥͓̊ </h1>
+  <h5>created by and for GRAVITY</h5>
   <input type="text" class="textbox" placeholder="URL or search Google" id="input">
   <button class="button" onclick="launch()">LAUNCH</button>
 
@@ -116,16 +117,16 @@
       url = 'https://' + input;
     }
 
-    window.open(url, '_blank'); // Open the URL in a new window
+    var newWindow = window.open('about:blank');
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    newWindow.document.body.appendChild(iframe);
   }
 
-  function openExample() {
-    window.open('https://sites.google.com/view/gr4v1ty-portal/embed', '_blank');
-  }
-
-  function featured() {
-    window.open('https://sites.google.com/view/gr4v1ty-portal/qwertyuiop', '_blank');
-  }
+  
 </script>
 
 
