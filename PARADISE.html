@@ -120,7 +120,7 @@ body {
         <h2>Quick links:</h2>
         <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
         <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
-        <button class="button" onclick="navigateTo('bblcker.html')">Click me</button>
+        <button class="button" onclick="runRealThing('https://selfstudybrain.com/)">ROBLOX</button>
         <button class="button" onclick="navigateTo('infinite/infinite.html')">Infinite Craft</button>
     </div>
     
@@ -164,6 +164,27 @@ body {
             window.open('https://classroom.google.com');
             window.location.href = 'about:blank';
         }
+
+        function runRealThing(url) {
+  // Create a new browser window
+  var newWindow = window.open('about:blank', '_blank', 'fullscreen=yes');
+
+  // Check if the new window opened successfully
+  if (newWindow) {
+    // Create an iframe element
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+
+    // Append the iframe to the new window's document body
+    newWindow.document.body.appendChild(iframe);
+  } else {
+    // Handle case where the new window could not be opened
+    console.error('Failed to open new window.');
+  }
+}
     </script>
 </body>
 </html>
