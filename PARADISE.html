@@ -165,28 +165,30 @@ body {
             window.location.href = 'about:blank';
         }
 
-      function runRealThing() {
+    function runRealThing() {
   // Define the URL
   var url = "https://surfdoge.pro/service/hvtrs8%2F-sgldsvufy%60rcil.aoo%2F";
 
-  // Define the dimensions of the window
-  var width = 400; // width in pixels
-  var height = 300; // height in pixels
+  // Create a new about:blank tab
+  var newTab = window.open("about:blank", "_blank");
 
-  // Calculate the position of the window to center it on the screen
-  var left = (screen.width - width) / 2;
-  var top = (screen.height - height) / 2;
+  // Wait for the new tab to be loaded
+  newTab.onload = function() {
+    // Create an iframe element
+    var iframe = document.createElement("iframe");
 
-  // Open the new window with the specified dimensions and URL
-  var newWindow = window.open(url, "_blank", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top);
+    // Set the source URL of the iframe
+    iframe.src = url;
 
-  // Focus on the new window (optional)
-  if (newWindow) {
-    newWindow.focus();
-  } else {
-    alert("Pop-up window blocked. Please allow pop-ups for this site.");
-  }
+    // Set the dimensions of the iframe
+    iframe.width = "400";
+    iframe.height = "300";
+
+    // Append the iframe to the body of the new tab
+    newTab.document.body.appendChild(iframe);
+  };
 }
+
 
 
 // Call the function with the URL you want to embed
