@@ -120,8 +120,9 @@ body {
         <h2>Quick links:</h2>
         <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
         <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
-        <button class="button" onclick="runRealThing()">ROBLOX!</button>
         <button class="button" onclick="navigateTo('infinite/infinite.html')">Infinite Craft</button>
+        <button class="button" onclick="">you can request games that go here!</button>
+
     </div>
     
 
@@ -165,37 +166,5 @@ body {
             window.location.href = 'about:blank';
         }
 
-function runRealThing() {
-  // Define the URL
-  var url = "https://surfdoge.pro/service/hvtrs8%2F-sgldsvufy%60rcil.aoo%2F";
-
-  // Create a new about:blank tab
-  var newWindow = window.open("about:blank", "_blank", "width=600,height=400");
-
-  // Wait for the new window to be loaded
-  newWindow.onload = function() {
-    // Create an iframe element
-    var iframe = newWindow.document.createElement("iframe");
-
-    // Set the source URL of the iframe
-    iframe.src = url;
-
-    // Set the dimensions of the iframe
-    iframe.width = "600"; // Increased width
-    iframe.height = "400"; // Increased height
-
-    // Append the iframe to the body of the new window
-    newWindow.document.body.appendChild(iframe);
-  };
-}
-
-}
-
-
-
-
-// Call the function with the URL you want to embed
-
-    </script>
 </body>
 </html>
