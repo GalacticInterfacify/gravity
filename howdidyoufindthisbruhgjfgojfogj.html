@@ -21,7 +21,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px; /* Increased padding */
+      padding: 160px; /* Increased padding to make it 4 times bigger */
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -29,21 +29,23 @@
     }
 
     .textbox {
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 300px;
+      padding: 40px; /* Increased padding */
+      margin-bottom: 40px; /* Increased margin bottom */
+      border: 4px solid #ccc; /* Increased border size */
+      border-radius: 20px; /* Increased border radius */
+      width: 600px; /* Increased width */
+      font-size: 40px; /* Increased font size */
     }
 
     .button {
-      padding: 10px 20px;
+      padding: 20px 40px; /* Increased padding */
+      font-size: 40px; /* Increased font size */
       background-color: #28a745; /* Green color */
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 20px; /* Increased border radius */
       cursor: pointer;
-      margin-bottom: 10px; /* Add margin bottom */
+      margin-bottom: 40px; /* Add margin bottom */
     }
 
     .button:hover {
@@ -51,13 +53,14 @@
     }
 
     .settings .button {
-      padding: 10px 20px;
+      padding: 20px 40px; /* Increased padding */
+      font-size: 40px; /* Increased font size */
       background-color: #007bff; /* Blue color */
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 20px; /* Increased border radius */
       cursor: pointer;
-      margin-bottom: 10px; /* Add margin bottom */
+      margin-bottom: 40px; /* Add margin bottom */
     }
 
     .settings .button:hover {
@@ -65,22 +68,22 @@
     }
 
     .settings {
-      margin-top: 20px;
-      font-size: 14px;
+      margin-top: 80px; /* Increased margin top */
+      font-size: 56px; /* Increased font size */
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     label {
-      margin-right: 10px;
+      margin-right: 40px; /* Increased margin right */
     }
 
     hr {
       width: 100%;
-      margin: 10px 0;
+      margin: 40px 0; /* Increased margin top and bottom */
       border: none;
-      border-top: 1px solid #ccc; /* Gray line */
+      border-top: 4px solid #ccc; /* Gray line */
     }
 
   </style>
@@ -113,17 +116,16 @@
       url = 'https://' + input;
     }
 
-    // Open the URL in the same window
-    window.location.href = url;
+    var newWindow = window.open('about:blank');
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    newWindow.document.body.appendChild(iframe);
   }
 
-  function openExample() {
-    window.open('https://sites.google.com/view/gr4v1ty-portal/embed', '_blank');
-  }
-
-function featured() {
-    window.open('https://sites.google.com/view/gr4v1ty-portal/qwertyuiop', '_blank');
-}
+ 
 </script>
 
   </body>
