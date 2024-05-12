@@ -116,17 +116,18 @@
       url = 'https://' + input;
     }
 
-    var newWindow = window.open('about:blank');
-    var iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    newWindow.document.body.appendChild(iframe);
+    window.location.href = url; // Redirect to the entered URL
   }
 
- 
+  function openExample() {
+    window.open('https://sites.google.com/view/gr4v1ty-portal/embed', '_blank');
+  }
+
+  function featured() {
+    window.open('https://sites.google.com/view/gr4v1ty-portal/qwertyuiop', '_blank');
+  }
 </script>
+
 
   </body>
 </html>
