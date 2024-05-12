@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png" />
+  <title>Art Class</title>
+
+  <link rel="stylesheet" href="./css/master.css" />
+
+  <script src="/uv/uv.bundle.js" charset="UTF-8"></script>
+  <script src="/uv/uv.config.js"></script>
+  <script src="./js/preload.js"></script>
+
+  <script>
+    atOptions = {
+      'key': 'fc0ad22bd8c1ea22c8c08df927121e8f',
+      'format': 'iframe',
+      'height': 60,
+      'width': 468,
+      'params': {}
+    };
+  </script>
+</head>
+
+<body theme="main">
+ 
+
+  <div class="center-container">
+    <h1>How did you get here?<span>    this is sopposed to not be a thing...</span></h1>
+    <p id="splash"></p>
+    <br />
+   
+    <br />
+    <div class="ad">
+      <!-- <script type="text/javascript"
+        src="//www.topcreativeformat.com/fc0ad22bd8c1ea22c8c08df927121e8f/invoke.js"></script> -->
+    </div>
+  </div>
+
+  <div class="links">
+    <div class="left">
+      <a href="https://github.com/art-class/v4">GitHub</a>
+      <a href="https://discord.gg/tMaHQ2dyk5">Discord</a>
+    </div>
+
+    <div class="right">
+      <a href="./settings.html">Settings</a>
+    </div>
+  </div>
+</body>
+
+<script>
+  fetch('./assets/data/splash.json')
+    .then((res) => res.json())
+    .then((data) => {
+      document.querySelector('#splash').innerHTML =
+        data[Math.floor(Math.random() * data.length)]
+    })
+</script>
+
+<script src="./js/index.js"></script>
+
+</html>
