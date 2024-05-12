@@ -3,47 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen WidgetBot Widget</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100%;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    <title>WidgetBot Widget</title>
 </head>
 <body>
-    <iframe id="widgetFrame"></iframe>
-
-    <script>
-        function resizeWidget() {
-            var widgetFrame = document.getElementById("widgetFrame");
-            var width = window.innerWidth;
-            var height = window.innerHeight;
-            widgetFrame.width = width;
-            widgetFrame.height = height;
-        }
-
-        window.onload = function() {
-            resizeWidget();
-            window.addEventListener("resize", resizeWidget);
-        };
-    </script>
-
+    <widgetbot
+        server="1239064182855303228"
+        channel="1239064182855303231"
+        width="800"
+        height="600"
+    ></widgetbot>
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-    <script>
-        new WidgetBot({
-            server: "1239064182855303228",
-            channel: "1239064182855303231",
-            width: "800",
-            height: "600"
-        });
-    </script>
 </body>
 </html>
