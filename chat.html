@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GR4V CHAT</title>
+    <title>Fullscreen WidgetBot Widget</title>
     <style>
         body, html {
             margin: 0;
@@ -19,20 +19,31 @@
     </style>
 </head>
 <body>
-    <iframe srcdoc='
-        <html>
-        <head>
-            <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-        </head>
-        <body>
-            <widgetbot
-                server="1239064182855303228"
-                channel="1239064182855303231"
-                width="800"
-                height="600"
-            ></widgetbot>
-        </body>
-        </html>
-    '></iframe>
+    <iframe id="widgetFrame"></iframe>
+
+    <script>
+        function resizeWidget() {
+            var widgetFrame = document.getElementById("widgetFrame");
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            widgetFrame.width = width;
+            widgetFrame.height = height;
+        }
+
+        window.onload = function() {
+            resizeWidget();
+            window.addEventListener("resize", resizeWidget);
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+    <script>
+        new WidgetBot({
+            server: "1239064182855303228",
+            channel: "1239064182855303231",
+            width: "800",
+            height: "600"
+        });
+    </script>
 </body>
 </html>
