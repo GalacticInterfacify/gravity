@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #08of13; /* Updated background color */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .textbox {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #28a745; /* Green color */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px; /* Add margin bottom */
+    }
+
+    .button:hover {
+      background-color: #218838; /* Darker green on hover */
+    }
+
+    .settings .button {
+      padding: 10px 20px;
+      background-color: #007bff; /* Blue color */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px; /* Add margin bottom */
+    }
+
+    .settings .button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .settings {
+      margin-top: 20px;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    hr {
+      width: 100%;
+      margin: 10px 0;
+      border: none;
+      border-top: 1px solid #ccc; /* Gray line */
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Welcome to H̷̢̱̳̩͒Y̵͍͓͎̿͆P̵̦͘Ȩ̴͔͚͈̅R̵̡̮̰͒̃͜͝͠J̵̱̊̄U̶̩̔͆M̸̟̈̉̋P̷̧̙̥͓̊</h1>
+  <input type="text" class="textbox" placeholder="URL or search Google" id="input">
+  <button class="button" onclick="launch()">LAUNCH</button>
+
+  <hr> <!-- Horizontal line -->
+
+  <div class="settings">
+    
+
+  </div>
+</div>
+
+<div id="iframe-container"></div>
+
+<script>
+  function launch() {
+    var input = document.getElementById("input").value.trim();
+    var url;
+
+    if (input.startsWith('http://') || input.startsWith('https://')) {
+      url = input;
+    } else {
+      url = 'https://' + input;
+    }
+
+    var newWindow = window.open('about:blank');
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    newWindow.document.body.appendChild(iframe);
+  }
+
+  function openExample() {
+    window.open('https://sites.google.com/view/gr4v1ty-portal/embed', '_blank');
+  }
+
+function featured() {
+    window.open('https://sites.google.com/view/gr4v1ty-portal/qwertyuiop', '_blank');
+}
+</script>
+
+</body>
+</html>
