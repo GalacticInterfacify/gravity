@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WidgetBot Widget</title>
+    <title>Fullscreen WidgetBot Widget</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <widgetbot
-        server="1239064182855303228"
-        channel="1239064182855303231"
-        width="800"
-        height="600"
-    ></widgetbot>
-    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+    <iframe id="widgetFrame" src="widget.html"></iframe>
 </body>
 </html>
