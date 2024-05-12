@@ -21,10 +21,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 40px; /* Increased padding */
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px; /* Set maximum width */
     }
 
     .textbox {
@@ -112,23 +113,4 @@
       url = 'https://' + input;
     }
 
-    var newWindow = window.open('about:blank');
-    var iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    newWindow.document.body.appendChild(iframe);
-  }
-
-  function openExample() {
-    window.open('https://sites.google.com/view/gr4v1ty-portal/embed', '_blank');
-  }
-
-function featured() {
-    window.open('https://sites.google.com/view/gr4v1ty-portal/qwertyuiop', '_blank');
-}
-</script>
-
-</body>
-</html>
+   
