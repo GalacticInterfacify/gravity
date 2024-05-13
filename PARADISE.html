@@ -169,40 +169,40 @@ body {
     </script>
      <script>
         function openHtmlInNewTab() {
-            var htmlCode = `<!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>adsvgsdvavaddvssdavsdavsdva</title>
-                <style>
-                    body, html {
-                        margin: 0;
-                        padding: 0;
-                        overflow: hidden;
-                        height: 100%;
-                    }
-                    widgetbot {
-                        display: block;
-                        width: 100vw;
-                        height: 100vh;
-                    }
-                </style>
-            </head>
-            <body>
-                <widgetbot
-                    server="1239064182855303228"
-                    channel="1239064182855303231"
-                ></widgetbot>
-                <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-            </body>
-            </html>`;
+    var htmlCode = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>adsvgsdvavaddvssdavsdavsdva</title>
+            <style>
+                body, html {
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    height: 100%;
+                }
+                widgetbot {
+                    display: block;
+                    width: 100vw;
+                    height: 100vh;
+                }
+            </style>
+        </head>
+        <body>
+            <widgetbot
+                server="1239064182855303228"
+                channel="1239064182855303231"
+            ></widgetbot>
+            <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+        </body>
+        <\/html>`; // Escape </script> by adding a backslash before the forward slash
 
-            var newTab = window.open('about:blank', '_blank');
-            newTab.document.open();
-            newTab.document.write(htmlCode);
-            newTab.document.close();
-        }
+    var newTab = window.open('about:blank', '_blank');
+    newTab.document.open();
+    newTab.document.write(htmlCode);
+    newTab.document.close();
+}
     </script>
 </body>
 </html>
