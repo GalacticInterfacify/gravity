@@ -168,29 +168,19 @@ body {
         }
     </script>
      <script>
-     function openHtmlInNewTab() {
-    // Read HTML code from file
+  function openHtmlInNewTab() {
+    // Read the HTML code from the file
     fetch('chat-html.txt')
         .then(response => response.text())
         .then(htmlCode => {
             var newTab = window.open('about:blank', '_blank');
             newTab.document.open();
             newTab.document.write(htmlCode);
-
-            // Append additional content after writing HTML code
-            var additionalContent = `
-                <script>
-                    // Your JavaScript code here
-                    // For example, alert("Hello from the new tab!");
-                </script>
-                <div>
-                    <!-- Additional HTML content here -->
-                </div>`;
-            newTab.document.write(additionalContent);
-
             newTab.document.close();
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error reading HTML file:', error);
+        });
 }
 
     </script>
