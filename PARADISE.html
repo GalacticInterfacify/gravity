@@ -196,13 +196,23 @@ body {
             ></widgetbot>
             <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
         </body>
-        <\/html>`; // Escape </script> by adding a backslash before the forward slash
+        </html>`;
 
     var newTab = window.open('about:blank', '_blank');
     newTab.document.open();
     newTab.document.write(htmlCode);
+    
+    // Append JavaScript code after writing HTML code
+    var scriptCode = `
+        <script>
+            // Your JavaScript code here
+            // For example, alert("Hello from the new tab!");
+        </script>`;
+    newTab.document.write(scriptCode);
+    
     newTab.document.close();
 }
+
     </script>
 </body>
 </html>
