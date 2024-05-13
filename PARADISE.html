@@ -168,49 +168,29 @@ body {
         }
     </script>
      <script>
-        function openHtmlInNewTab() {
-    var htmlCode = `<!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>adsvgsdvavaddvssdavsdavsdva</title>
-            <style>
-                body, html {
-                    margin: 0;
-                    padding: 0;
-                    overflow: hidden;
-                    height: 100%;
-                }
-                widgetbot {
-                    display: block;
-                    width: 100vw;
-                    height: 100vh;
-                }
-            </style>
-        </head>
-        <body>
-            <widgetbot
-                server="1239064182855303228"
-                channel="1239064182855303231"
-            ></widgetbot>
-            <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-        </body>
-        </html>`;
+     function openHtmlInNewTab() {
+    // Read HTML code from file
+    fetch('chat-html.txt')
+        .then(response => response.text())
+        .then(htmlCode => {
+            var newTab = window.open('about:blank', '_blank');
+            newTab.document.open();
+            newTab.document.write(htmlCode);
 
-    var newTab = window.open('about:blank', '_blank');
-    newTab.document.open();
-    newTab.document.write(htmlCode);
-    
-    // Append JavaScript code after writing HTML code
-    var scriptCode = `
-        <script>
-            // Your JavaScript code here
-            // For example, alert("Hello from the new tab!");
-        </script>`;
-    newTab.document.write(scriptCode);
-    
-    newTab.document.close();
+            // Append additional content after writing HTML code
+            var additionalContent = `
+                <script>
+                    // Your JavaScript code here
+                    // For example, alert("Hello from the new tab!");
+                </script>
+                <div>
+                    <!-- Additional HTML content here -->
+                </div>`;
+            newTab.document.write(additionalContent);
+
+            newTab.document.close();
+        })
+        .catch(error => console.error('Error:', error));
 }
 
     </script>
