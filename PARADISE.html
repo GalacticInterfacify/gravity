@@ -97,6 +97,31 @@ body {
     pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
     z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
 }
+      /* CSS for changelog container */
+.changelog-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.changelog-container p {
+    margin-bottom: 5px;
+}
+
+.changelog-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.changelog-container ul li {
+    margin-bottom: 5px;
+}
+
     </style>
 </head>
 <body>
@@ -127,6 +152,16 @@ body {
         <button class="button" onclick="navigateTo('infinite/infinite.html')">Infinite Craft</button>
     </div>
     
+    <!-- Changelog container -->
+<div class="changelog-container">
+    <p>Changelog V2.6:</p>
+    <ul>
+        <li>Changed the app icon. hopefully working but doesnt matter much</li>
+        <li>Fixed some things</li>
+        <li>Added this changelog & decided a version number based on my updates so far.</li>
+    </ul>
+</div>
+
 
     <script>
         window.onload = function() {
