@@ -21,7 +21,7 @@
 <body>
     <widgetbot
         server="1239064182855303228"
-        channel="1239064182855303231"
+        channel="1239735205271441479"
     ></widgetbot>
     <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
 </body>
