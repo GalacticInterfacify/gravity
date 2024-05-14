@@ -1,0 +1,15 @@
+{
+  "name": "GR4V1TY",
+  "short_name": "GR4V APP",
+  "start_url": "/PARADISE.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "files/ok.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
