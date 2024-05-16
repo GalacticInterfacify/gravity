@@ -3,7 +3,7 @@
 
 <head>
   <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png" />
-  <title>CLassroom</title>
+  <title>Art Class</title>
 
   <link rel="stylesheet" href="./css/master.css" />
   <script src="/uv/uv.bundle.js" charset="UTF-8"></script>
@@ -22,11 +22,30 @@
 </head>
 
 <body theme="main">
+  <nav>
+    <div class="logo">
+      <img src="./assets/images/icon.png" alt="Logo" draggable="false" />
+      <h1>Art Class</h1>
+    </div>
 
     <p id="time"></p>
-  <h1>Art Class Games</h1>
+
+    <div class="navitems">
+      <div class="navitem"><a href="/">Home</a></div>
+      <div class="navitem"><a selected href="/gs.html">Games</a></div>
+      <div class="navitem"><a href="/apps.html">Apps</a></div>
+      <div class="navitem"><a href="/emulator.html">Emulator</a></div>
+      <div class="navitem"><a href="/search.html">Search</a></div>
+    </div>
+  </nav>
+
+  <h1>Games</h1>
   <input type="text" class="input" id="search" placeholder="Search Games" style="text-align: center" />
 
+  <div class="ad">
+    <!-- <script type="text/javascript"
+      src="//www.topcreativeformat.com/fc0ad22bd8c1ea22c8c08df927121e8f/invoke.js"></script> -->
+  </div>
 
   <div class="cardgroup" id="favoritedgames"></div>
   <div class="cardgroup" id="gamecards"></div>
