@@ -1,224 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classes</title>
-    <link rel="icon" href="files/ok.png" type="image/png">
-    <link rel="manifest" href="manifest.json">
-    <style>
-body {
-    display: none; /* Hide the body by default */
-    background-color: black; /* Set the background color to black */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fff; /* Set default text color */
-    font-family: Arial, sans-serif; /* Set font family */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #000; /* Updated background color to black */
+    }
 
-/* CSS for navigation bar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-}
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 160px; /* Increased padding to make it 4 times bigger */
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px; /* Set maximum width */
+    }
 
-/* CSS for logo */
-.logo {
-    font-size: 2em;
-    font-weight: bold;
-    color: #78FF00;
-    text-decoration: none; /* Remove underline */
-}
+    .textbox {
+      padding: 40px; /* Increased padding */
+      margin-bottom: 40px; /* Increased margin bottom */
+      border: 4px solid #ccc; /* Increased border size */
+      border-radius: 20px; /* Increased border radius */
+      width: 600px; /* Increased width */
+      font-size: 40px; /* Increased font size */
+    }
 
-/* CSS for navigation bar buttons */
-.navbar .button {
-    margin-left: 10px; /* Add some space between buttons */
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: 2px solid #78FF00;
-    border-radius: 15px; /* Rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .button {
+      padding: 20px 40px; /* Increased padding */
+      font-size: 40px; /* Increased font size */
+      background-color: #28a745; /* Green color */
+      color: #fff;
+      border: none;
+      border-radius: 20px; /* Increased border radius */
+      cursor: pointer;
+      margin-bottom: 40px; /* Add margin bottom */
+    }
 
-/* CSS for button container */
-.button-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column; /* Stack buttons vertically */
-}
+    .button:hover {
+      background-color: #218838; /* Darker green on hover */
+    }
 
-/* CSS for buttons */
-.button-container .button {
-    margin-top: 10px; /* Add some space between buttons */
-    padding: 20px 40px; /* Increase padding for larger buttons */
-    font-size: 1.2em; /* Increase font size for larger buttons */
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: 2px solid #78FF00;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-        
-/* CSS for button hover effect */
-.button-container .button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #000;
-}
+    .settings .button {
+      padding: 20px 40px; /* Increased padding */
+      font-size: 40px; /* Increased font size */
+      background-color: #007bff; /* Blue color */
+      color: #fff;
+      border: none;
+      border-radius: 20px; /* Increased border radius */
+      cursor: pointer;
+      margin-bottom: 40px; /* Add margin bottom */
+    }
 
-/* CSS for container */
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
+    .settings .button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
 
-/* CSS for background content */
-.background-content {
-    position: fixed; /* Position the content fixed so it remains in the background */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('background.html'); /* Set the background */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
-    z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
-}
-      /* CSS for changelog container */
-.changelog-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 14px;
-}
+    .settings {
+      margin-top: 80px; /* Increased margin top */
+      font-size: 56px; /* Increased font size */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.changelog-container p {
-    margin-bottom: 5px;
-}
+    label {
+      margin-right: 40px; /* Increased margin right */
+    }
 
-.changelog-container ul {
-    list-style-type: none;
-    padding: 0;
-}
+    hr {
+      width: 100%;
+      margin: 40px 0; /* Increased margin top and bottom */
+      border: none;
+      border-top: 4px solid #ccc; /* Gray line */
+    }
 
-.changelog-container ul li {
-    margin-bottom: 5px;
-}
+    /* Style for full-screen iframe */
+    #fullscreen-iframe {
+      position: fixed;
+      top: 50px; /* Adjusted top position to leave space for the top bar */
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 50px); /* Adjusted height to fit the screen */
+      z-index: 9999;
+      border: none;
+    }
 
-    </style>
+    /* Style for top bar */
+    #top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #333; /* Dark gray background color */
+      color: #fff; /* White text color */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px; /* Added padding for button spacing */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for top bar */
+      z-index: 10000; /* Higher z-index to be above the iframe */
+    }
+
+    .top-button {
+      font-size: 24px; /* Adjusted font size */
+      padding: 8px 16px; /* Adjusted button padding */
+      border: none;
+      background-color: transparent; /* Transparent background */
+      color: #fff; /* White text color */
+      cursor: pointer;
+    }
+
+    .top-button:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Light gray background on hover */
+    }
+
+  </style>
 </head>
 <body>
-    <!-- Background content -->
-    <div class="background-content">
-        <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
-    </div>
-  
- <!--NAVIGATION -->
-<div class="navbar">
-    <a href="#" class="logo">GR4V1TY</a>
-    <div class="navbar-buttons">
-        <button class="button" onclick="panic()">Panic!</button>
-        <button class="button" onclick="navigateTo('doge.html')">D0G3</button>
-        <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
-        <button class="button" onclick="openHtmlInNewTab()">Chat</button>
 
-    </div>
-</div>
-    
-    
-    <!-- Button column -->
-    <div class="button-container">
-        <h2>Quick links:</h2>
-        <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
-        <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
-        <button class="button" onclick="navigateTo('infinite/dino.html')">Dino (leaving soon)</button>
-        <button class="button" onclick="navigateTo('2048/2048.html')">2048</button>
-        <button class="button" onclick="navigateTo('infinite/infinite.html')">Infinite Craft</button>
-    </div>
-    
-    <!-- Changelog container -->
-<div class="changelog-container">
-    <p>Changelog V2.63:</p>
-    <ul>
-        <li> - Added 2048</li>
-        <li> - Worked on some stuff for the next update. It's going to be insane. 😉</li>
-    </ul>
+<!-- Top bar for browser-like navigation -->
+<div id="top-bar">
+  <button class="top-button" onclick="goBack()">&#9664;</button> <!-- Back button -->
+  <button class="top-button" onclick="goForward()">&#9654;</button> <!-- Forward button -->
+  <button class="top-button" onclick="reloadIframe()">↻</button> <!-- Reload button -->
+  <button class="top-button" onclick="reloadPage()">🏠</button> <!-- Home button -->
 </div>
 
+<div class="container">
+  <h1>H̷̢̱̳̩͒Y̵͍͓͎̿͆P̵̦͘Ȩ̴͔͚͈̅R̵̡̮̰͒̃͜͝͠J̵̱̊̄U̶̩̔͆M̸̟̈̉̋P̷̧̙̥͓̊ </h1>
+  <h5>created by and for GRAVITY</h5>
+  <input type="text" class="textbox" placeholder="URL or search Google" id="input">
+  <button class="button" onclick="launch()">LAUNCH</button>
 
-    <script>
-        window.onload = function() {
-            // Check if the cookie named "ACCESS" exists and its value is true
-            var accessCookie = getCookie("ACCESS");
-            if (!accessCookie || accessCookie !== "true") {
-                // Cookie doesn't exist or its value is not true, do not display the body
-                document.body.style.display = "none";
-                // Redirect to another page if needed
-                setTimeout(function() {
-                    window.location.replace("denied.html");
-                }, 2000); // Redirect after 2 seconds
-            } else {
-                // If the cookie is present and its value is true, display the body
-                document.body.style.display = "block";
-            }
-        };
+  <hr> <!-- Horizontal line -->
 
-        // Function to get the value of a cookie by its name
-        function getCookie(name) {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
-                    return cookie.substring(name.length + 1);
-                }
-            }
-            return null;
-        }
+  <div class="settings">
+    
 
-        // Function to navigate to the specified URL
-        function navigateTo(url) {
-            // Navigate to the specified URL
-            window.location.href = url;
-        }
+  </div>
+</div>
 
-        function panic() {
-            window.open('https://classroom.google.com');
-            window.location.href = 'about:blank';
-        }
-    </script>
-     <script>
-  function openHtmlInNewTab() {
-    // Read the HTML code from the file
-    fetch('chat-html.txt')
-        .then(response => response.text())
-        .then(htmlCode => {
-            var newTab = window.open('about:blank', '_blank');
-            newTab.document.open();
-            newTab.document.write(htmlCode);
-            newTab.document.close();
-        })
-        .catch(error => {
-            console.error('Error reading HTML file:', error);
-        });
-}
+<!-- Full-screen iframe container -->
+<iframe id="fullscreen-iframe"></iframe>
 
-    </script>
-</body>
-</html>
+<script>
+  function encode(str) {
+    if (!str) return str;
+    return encodeURIComponent(
+      str
+        .toString()
+        .split('')
+        .map((char, ind) =>
+          ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+        )
+        .join('')
+    );
+  }
+
+  // Function to go back in iframe history
+  function goBack() {
+    document.getElementById('fullscreen-iframe').contentWindow.history.back();
+  }
+
+  // Function to go forward in iframe history
+  function goForward() {
+    document.getElementById('fullscreen-iframe').contentWindow.history.forward();
+  }
+
+  // Function to reload the iframe
+  function reloadIframe() {
+    document.getElementById('fullscreen-iframe').contentWindow.location.reload();
+  }
+
+  // Function to reload the
