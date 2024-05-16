@@ -96,6 +96,7 @@
       height: calc(100vh - 50px); /* Adjusted height to fit the screen */
       z-index: -1; /* Negative z-index when hidden */
       border: none;
+      pointer-events: none; /* Disable pointer events when hidden */
     }
 
     /* Style for top bar */
@@ -221,6 +222,8 @@
 
     // Make the iframe visible
     iframe.style.display = 'block';
+    // Enable pointer events when making iframe visible
+    iframe.style.pointerEvents = 'auto';
   }
 </script>
 
