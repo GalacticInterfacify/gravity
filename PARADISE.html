@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classes</title>
     <link rel="icon" href="files/ok.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
     <style>
         /* Styles for body */
         body {
@@ -18,8 +19,8 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            position: relative;
             overflow: hidden;
+            position: relative;
         }
 
         /* Styles for navbar */
@@ -31,6 +32,8 @@
             padding: 10px 20px;
             width: 100%;
             box-sizing: border-box;
+            position: fixed;
+            top: 0;
             z-index: 1;
         }
 
@@ -66,7 +69,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 60px; /* Adjusted to ensure buttons are not under navbar */
             z-index: 1;
         }
 
