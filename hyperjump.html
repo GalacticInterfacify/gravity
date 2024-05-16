@@ -26,7 +26,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       max-width: 600px; /* Set maximum width */
-      position: relative; /* Ensure relative positioning for children */
     }
 
     .textbox {
@@ -95,26 +94,9 @@
       left: 0;
       width: 100vw;
       height: calc(100vh - 50px); /* Adjusted height to fit the screen */
-      z-index: 9999;
+      z-index: -1; /* Negative z-index when hidden */
       border: none;
-      pointer-events: auto; /* Enable pointer events when visible */
-    }
-
-    /* Style for loading screen */
-    #loading-screen {
-      display: none; /* Initially hidden */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
-      z-index: 9998; /* Below iframe */
-      color: #fff;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      pointer-events: none; /* Disable pointer events when hidden */
     }
 
     /* Style for top bar */
@@ -157,6 +139,7 @@
   <button class="top-button" onclick="goForward()">&#9654;</button> <!-- Forward button -->
   <button class="top-button" onclick="reloadIframe()">↻</button> <!-- Reload button -->
   <button class="top-button" onclick="reloadPage()">🏠</button> <!-- Home button -->
+  <button class="top-button" onclick="openInBlank()">⇗</button> <!-- Open in blank button -->
 </div>
 
 <div class="container">
@@ -171,11 +154,6 @@
     
 
   </div>
-</div>
-
-<!-- Loading screen -->
-<div id="loading-screen">
-  Loading...
 </div>
 
 <script>
@@ -212,10 +190,21 @@
     location.reload();
   }
 
-  function launch() {
-    // Show loading screen
-    document.getElementById('loading-screen').style.display = 'flex';
+  // Function to open the current iframe link in a new window with a blank URL
+  function openInBlank() {
+    var iframeUrl = document.getElementById('fullscreen-iframe').src;
+    if (iframeUrl) {
+      var newWindow = window.open('about:blank');
+      var newIframe = document.createElement('iframe');
+      newIframe.src = iframeUrl;
+      newIframe.style.width = '100%';
+      newIframe.style.height = '100%';
+      newIframe.style.border = 'none';
+      newWindow.document.body.appendChild(newIframe);
+    }
+  }
 
+  function launch() {
     var input = document.getElementById("input").value.trim();
     var url;
 
@@ -250,11 +239,6 @@
     iframe.style.display = 'block';
     // Enable pointer events when making iframe visible
     iframe.style.pointerEvents = 'auto';
-
-    // Hide loading screen after a delay
-    setTimeout(function() {
-      document.getElementById('loading-screen').style.display = 'none';
-    }, 1000); // Adjust delay as needed
   }
 </script>
 
