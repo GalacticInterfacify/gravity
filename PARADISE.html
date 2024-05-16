@@ -185,4 +185,33 @@
     document.getElementById('fullscreen-iframe').contentWindow.location.reload();
   }
 
-  // Function to reload the
+  // Function to reload the page (reset to home)
+  function reloadPage() {
+    location.reload();
+  }
+
+  function launch() {
+    var input = document.getElementById("input").value.trim();
+    var url;
+
+    if (input.startsWith('http://') || input.startsWith('https://')) {
+      url = input;
+    } else {
+      url = 'https://' + input;
+    }
+
+    var encodedUrl = encode(url);
+
+    // Get the fullscreen iframe element
+    var iframe = document.getElementById('fullscreen-iframe');
+
+    // Set the source of the iframe to the encoded URL
+    iframe.src = window.location.protocol + "//" + window.location.hostname + "/service/" + encodedUrl;
+
+    // Make the iframe visible
+    iframe.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
