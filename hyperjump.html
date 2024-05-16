@@ -7,18 +7,94 @@
     <title>Untitled Proxy</title>
     <link rel="icon" href="files/ok.png" type="image/png">
     <style>
-        /* Your existing CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000; /* Updated background color to black */
+        }
 
-        /* Additional style for iframe */
-        #fullscreen-iframe {
-            display: none;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px; /* Adjusted padding */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Set maximum width */
+            width: 100%; /* Ensure container spans full width */
+        }
+
+        .textbox {
+            margin-bottom: 20px; /* Adjusted margin */
+            border: 2px solid #ccc; /* Adjusted border */
+            border-radius: 8px; /* Adjusted border radius */
+            width: 100%; /* Adjusted width */
+            font-size: 16px; /* Adjusted font size */
+            padding: 10px; /* Adjusted padding */
+        }
+
+        .button {
+            padding: 10px 20px; /* Adjusted padding */
+            font-size: 16px; /* Adjusted font size */
+            background-color: #28a745; /* Green color */
+            color: #fff;
+            border: none;
+            border-radius: 8px; /* Adjusted border radius */
+            cursor: pointer;
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+
+        .button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        #top-bar {
+            width: 100%; /* Ensure top bar spans full width */
             position: fixed;
-            top: 50px;
+            top: 0;
+            left: 0;
+            background-color: #333; /* Dark gray background color */
+            color: #fff; /* White text color */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px; /* Adjusted padding for button spacing */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for top bar */
+            z-index: 10000; /* Higher z-index to be above the iframe */
+        }
+
+        .top-button {
+            font-size: 20px; /* Adjusted font size */
+            padding: 8px 12px; /* Adjusted button padding */
+            border: none;
+            background-color: transparent; /* Transparent background */
+            color: #fff; /* White text color */
+            cursor: pointer;
+        }
+
+        .top-button:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Light gray background on hover */
+        }
+
+        /* Style for full-screen iframe */
+        #fullscreen-iframe {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50px; /* Adjusted top position to leave space for the top bar */
             left: 0;
             width: 100vw;
-            height: calc(100vh - 50px);
-            z-index: 9999;
+            height: calc(100vh - 50px); /* Adjusted height to fit the screen */
+            z-index: -1; /* Negative z-index when hidden */
             border: none;
+            pointer-events: none; /* Disable pointer events when hidden */
         }
     </style>
 </head>
@@ -27,11 +103,11 @@
 
     <!-- Top bar for browser-like navigation -->
     <div id="top-bar">
-        <button class="top-button" onclick="goBack()">&#9664;</button>
-        <button class="top-button" onclick="goForward()">&#9654;</button>
-        <button class="top-button" onclick="reloadIframe()">↻</button>
-        <button class="top-button" onclick="reloadPage()">🏠</button>
-        <button class="top-button" onclick="openInBlank()">⇗</button>
+        <button class="top-button" onclick="goBack()">&#9664;</button> <!-- Back button -->
+        <button class="top-button" onclick="goForward()">&#9654;</button> <!-- Forward button -->
+        <button class="top-button" onclick="reloadIframe()">↻</button> <!-- Reload button -->
+        <button class="top-button" onclick="reloadPage()">🏠</button> <!-- Home button -->
+        <button class="top-button" onclick="openInBlank()">⇗</button> <!-- Open in blank button -->
     </div>
 
     <div class="container">
@@ -52,57 +128,7 @@
     <iframe id="fullscreen-iframe"></iframe>
 
     <script>
-        // Function to encode URL using the provided encode() method
-        function encode(str) {
-            if (!str) return str;
-            return encodeURIComponent(
-                str
-                    .toString()
-                    .split('')
-                    .map((char, ind) =>
-                        ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
-                    )
-                    .join('')
-            );
-        }
-
-        // Function to launch the iframe with the encoded URL
-        function launch() {
-            var input = document.getElementById("input").value.trim();
-            var url;
-
-            if (input.startsWith('http://') || input.startsWith('https://')) {
-                url = input;
-            } else {
-                url = 'https://' + input;
-            }
-
-            var encodedUrl = encode(url);
-
-            var iframe = document.getElementById('fullscreen-iframe');
-            if (!iframe) {
-                iframe = document.createElement('iframe');
-                iframe.id = 'fullscreen-iframe';
-                iframe.style.display = 'none';
-                iframe.style.position = 'fixed';
-                iframe.style.top = '50px';
-                iframe.style.left = '0';
-                iframe.style.width = '100vw';
-                iframe.style.height = 'calc(100vh - 50px)';
-                iframe.style.zIndex = '9999';
-                iframe.style.border = 'none';
-
-                document.body.appendChild(iframe);
-            }
-
-            // Set the source of the iframe to the encoded URL
-            iframe.src = window.location.protocol + "//" + window.location.hostname + "/service/" + encodedUrl;
-
-            // Make the iframe visible
-            iframe.style.display = 'block';
-        }
-
-        // Your existing JavaScript functions (goBack(), goForward(), reloadIframe(), reloadPage(), openInBlank()) here...
+        // Your existing JavaScript code here...
     </script>
 
 </body>
