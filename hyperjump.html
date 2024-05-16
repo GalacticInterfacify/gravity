@@ -52,8 +52,21 @@
     <iframe id="fullscreen-iframe"></iframe>
 
     <script>
-        // Your existing JavaScript code here
+        // Function to encode URL using the provided encode() method
+        function encode(str) {
+            if (!str) return str;
+            return encodeURIComponent(
+                str
+                    .toString()
+                    .split('')
+                    .map((char, ind) =>
+                        ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+                    )
+                    .join('')
+            );
+        }
 
+        // Function to launch the iframe with the encoded URL
         function launch() {
             var input = document.getElementById("input").value.trim();
             var url;
@@ -64,7 +77,7 @@
                 url = 'https://' + input;
             }
 
-            var encodedUrl = encodeURIComponent(url);
+            var encodedUrl = encode(url);
 
             var iframe = document.getElementById('fullscreen-iframe');
             if (!iframe) {
@@ -88,6 +101,8 @@
             // Make the iframe visible
             iframe.style.display = 'block';
         }
+
+        // Your existing JavaScript functions (goBack(), goForward(), reloadIframe(), reloadPage(), openInBlank()) here...
     </script>
 
 </body>
