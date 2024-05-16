@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Classes</title>
+  <title>Portal</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -213,6 +213,9 @@
   }
 
   function launch() {
+    // Show loading screen
+    document.getElementById('loading-screen').style.display = 'flex';
+
     var input = document.getElementById("input").value.trim();
     var url;
 
@@ -223,9 +226,6 @@
     }
 
     var encodedUrl = encode(url);
-
-    // Show loading screen
-    document.getElementById('loading-screen').style.display = 'flex';
 
     // Create iframe only when launch is clicked
     var iframe = document.getElementById('fullscreen-iframe');
