@@ -107,6 +107,19 @@
 <div id="iframe-container"></div>
 
 <script>
+  function encode(str) {
+    if (!str) return str;
+    return encodeURIComponent(
+      str
+        .toString()
+        .split('')
+        .map((char, ind) =>
+          ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+        )
+        .join('')
+    );
+  }
+
   function launch() {
     var input = document.getElementById("input").value.trim();
     var url;
@@ -117,12 +130,19 @@
       url = 'https://' + input;
     }
 
-    window.location.href = url; // Redirect to the entered URL
-  }
+    var encodedUrl = encode(url);
 
-  
+    // Create iframe
+    var iframe = document.createElement('iframe');
+    iframe.src = "[site domain host name]/service/" + encodedUrl;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+
+    // Append iframe to container
+    document.getElementById('iframe-container').appendChild(iframe);
+  }
 </script>
 
-
-  </body>
+</body>
 </html>
