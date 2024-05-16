@@ -1,7 +1,7 @@
 {
-  "name": "artclass",
+  "name": "artclass-for-gravity",
   "version": "4.0.0",
-  "description": "More than just a game site",
+  "description": "uhhh artclass ported to gravity so I can add games and shit?",
   "type": "module",
   "engines": {
     "npm": ">=7.0.0",
