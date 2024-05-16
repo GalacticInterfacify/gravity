@@ -5,52 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classes</title>
     <link rel="icon" href="files/ok.png" type="image/png">
-    <link rel="manifest" href="manifest.json">
     <style>
-        /* Styles for body */
         body {
-            background-color: black;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow: hidden;
-            position: relative;
+            display: none; /* Hide the body by default */
+            background-color: black; /* Set the background color to black */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff; /* Set default text color */
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
         }
 
-        /* Styles for navbar */
+        /* CSS for navigation bar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
-            width: 100%;
-            box-sizing: border-box;
-            position: fixed;
-            top: 0;
-            z-index: 1;
         }
 
+        /* CSS for logo */
         .logo {
             font-size: 2em;
             font-weight: bold;
             color: #78FF00;
-            text-decoration: none;
+            text-decoration: none; /* Remove underline */
         }
 
-        .navbar-buttons {
-            display: flex;
-        }
-
-        .button {
-            margin-left: 10px;
+        /* CSS for navigation bar buttons */
+        .navbar .button {
+            margin-left: 10px; /* Add some space between buttons */
             padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: 2px solid #78FF00;
+            border-radius: 15px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* CSS for button container */
+        .button-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Stack buttons vertically */
+        }
+
+        /* CSS for buttons */
+        .button-container .button {
+            margin-top: 10px; /* Add some space between buttons */
+            padding: 20px 40px; /* Increase padding for larger buttons */
+            font-size: 1.2em; /* Increase font size for larger buttons */
             background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
             border: 2px solid #78FF00;
@@ -58,22 +66,38 @@
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        .button:hover {
+        
+        /* CSS for button hover effect */
+        .button-container .button:hover {
             background-color: rgba(255, 255, 255, 0.5);
             color: #000;
         }
 
-        /* Styles for button container */
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 60px; /* Adjusted to ensure buttons are not under navbar */
-            z-index: 1;
+        /* CSS for container */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
         }
 
-        /* Styles for changelog container */
+        /* CSS for background content */
+        .background-content {
+            position: fixed; /* Position the content fixed so it remains in the background */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.html'); /* Set the background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
+            z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
+        }
+
+        /* CSS for changelog container */
         .changelog-container {
             position: fixed;
             bottom: 20px;
@@ -83,7 +107,6 @@
             border-radius: 5px;
             color: #fff;
             font-size: 14px;
-            z-index: 1;
         }
 
         .changelog-container p {
@@ -98,121 +121,137 @@
         .changelog-container ul li {
             margin-bottom: 5px;
         }
-
-        /* Styles for background iframe */
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            z-index: -1;
-        }
     </style>
 </head>
 <body>
-
-<iframe src="background.html" class="background"></iframe>
-
-<!--NAVIGATION -->
-<div class="navbar">
-    <a href="#" class="logo">GR4V1TY</a>
-    <div class="navbar-buttons">
-        <button class="button" onclick="panic()">Panic!</button>
-        <button class="button" onclick="navigateTo('hyperjump.html')">HYP3RJUMP</button>
-        <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
-        <button class="button" onclick="navigateTo('infinite/infinite.html')">OG infinite</button>
-        <button class="button" onclick="openHtmlInNewTab()">Chat</button>
+    <!-- Background content -->
+    <div class="background-content">
+        <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
     </div>
-</div>
+  
+    <!--NAVIGATION -->
+    <div class="navbar">
+        <a href="#" class="logo">GR4V1TY</a>
+        <div class="navbar-buttons">
+            <button class="button" onclick="panic()">Panic!</button>
+            <button class="button" onclick="navigateTo('hyperjump.html')">HYP3RJUMP</button>
+            <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
+            <button class="button" onclick="navigateTo('infinite/infinite.html')">OG infinite</button>
+            <button class="button" onclick="openHtmlInNewTab()">Chat</button>
+        </div>
+    </div>
+   
+    <!-- Button column -->
+    <div class="button-container">
+        <h2>Quick links:</h2>
+        <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
+        <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
+        <button class="button" onclick="navigateTo('infinite/dino.html')">Dino (leaving soon)</button>
+        <button class="button" onclick="navigateTo('2048/2048.html')">2048</button>
+        <button class="button" onclick="navigateTo('infinite.html')">Infinite Craft</button>
+        <button class="button" onclick="navigateTo('9007199254740992.html')">9007199254740992</button>
+    </div>
+    
+    <!-- Changelog container -->
+    <div class="changelog-container">
+        <p>Changelog V3:</p>
+        <ul>
+            <li> - Added 2048</li>
+            <li> - Added hyperjump. IF THIS IS NOT WORKING FOR YOU TELL ME AND I CAN FIX IT.</li>
+            <li> - Sorry about infinitecraft progress loss. I will continue to have the old infinitecraft with your old progress :D</li>
+            <li> - Afterlife premium updated a bit.</li>
+            <li> - Im losing sleep for you 😭</li>
+            <li> - Be chill in the chat please. I will remove it if I have to.</li>
+        </ul>
+    </div>
 
-<!-- Button column -->
-<div class="button-container">
-    <h2>Quick links:</h2>
-    <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
-    <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
-    <button class="button" onclick="navigateTo('infinite/dino.html')">Dino (leaving soon)</button>
-    <button class="button" onclick="navigateTo('2048/2048.html')">2048</button>
-    <button class="button" onclick="navigateTo('infinite.html')">Infinite Craft</button>
-    <button class="button" onclick="navigateTo('9007199254740992.html')">9007199254740992</button>
-</div>
-
-<!-- Changelog container -->
-<div class="changelog-container">
-    <p>Changelog V3:</p>
-    <ul>
-        <li> - Added 2048</li>
-        <li> - Added hyperjump. IF THIS IS NOT WORKING FOR YOU TELL ME AND I CAN FIX IT.</li>
-        <li> - Sorry about infinitecraft progress loss. I will continue to have the old infinitecraft with your old progress :D</li>
-        <li> - Afterlife premium updated a bit.</li>
-        <li> - Im losing sleep for you 😭</li>
-        <li> - Be chill in the chat please. I will remove it if I have to.</li>
-    </ul>
-</div>
-
-<script>
-    // Function to navigate to the specified URL
-    function navigateTo(url) {
-        window.location.href = url;
-    }
-
-    function panic() {
-        window.open('https://classroom.google.com');
-        window.location.href = 'about:blank';
-    }
-
-    function openHtmlInNewTab() {
-        // Read the HTML code from the file
-        fetch('chat-html.txt')
-            .then(response => response.text())
-            .then(htmlCode => {
-                var newTab = window.open('about:blank', '_blank');
-                newTab.document.open();
-                newTab.document.write(htmlCode);
-                newTab.document.close();
-            })
-            .catch(error => {
-                console.error('Error reading HTML file:', error);
-            });
-    }
-
-    // Function to start the proxy
-    function startProxy() {
-        console.log("Starting proxy...");
-        // Add proxy startup logic here
-    }
-
-    window.onload = function() {
-        startProxy();  // Ensure this function is called when the page loads
-        console.log("Proxy starting...");
-
-        // Check if the cookie named "ACCESS" exists and its value is true
-        var accessCookie = getCookie("ACCESS");
-        if (!accessCookie || accessCookie !== "true") {
-            // Cookie doesn't exist or its value is not true, do not display the body
-            document.body.style.display = "none";
-            // Redirect to another page if needed
-            setTimeout(function() {
-                window.location.replace("denied.html");
-            }, 2000); // Redirect after 2 seconds
-        } else {
-            // If the cookie is present and its value is true, display the body
-            document.body.style.display = "flex";
-        }
-    };
-
-    // Function to get the value of a cookie by its name
-    function getCookie(name) {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.indexOf(name + '=') === 0) {
-                return cookie.substring(name.length + 1);
+    <script>
+        window.onload = function() {
+            // Check if the cookie named "ACCESS" exists and its value is true
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, do not display the body
+                document.body.style.display = "none";
+                // Redirect to another page if needed
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                // Check if the cookie named "SERVER-working" exists
+                var serverCookie = getCookie("SERVER-working");
+                if (!serverCookie) {
+                    // Start the proxy and set the "SERVER-working" cookie
+                    startProxy();
+                } else {
+                    // If the cookie is present, display the body
+                    document.body.style.display = "block";
+                }
             }
+        };
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
         }
-        return null;
-    }
-</script>
+
+        // Function to start the proxy and set the "SERVER-working" cookie
+        function startProxy() {
+            var url = "https://gr4vity.pages.dev/activation";
+            var encodedUrl = encode(url);
+
+            // Set the "SERVER-working" cookie to expire in 24 hours
+            var expires = new Date();
+            expires.setTime(expires.getTime() + (24 * 60 * 60 * 1000));
+            document.cookie = "SERVER-working=true; expires=" + expires.toUTCString() + "; path=/";
+
+            // Navigate to the encoded URL
+            window.location.href = encodedUrl;
+        }
+
+        // Function to encode the URL
+        function encode(str) {
+            if (!str) return str;
+            return encodeURIComponent(
+                str
+                .toString()
+                .split('')
+                .map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)
+                .join('')
+            );
+        }
+
+        // Function to navigate to the specified URL
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
+        function panic() {
+            window.open('https://classroom.google.com');
+            window.location.href = 'about:blank';
+        }
+
+        // Function to open HTML in a new tab
+        function openHtmlInNewTab() {
+            // Read the HTML code from the file
+            fetch('chat-html.txt')
+                .then(response => response.text())
+                .then(htmlCode => {
+                    var newTab = window.open('about:blank', '_blank');
+                    newTab.document.open();
+                    newTab.document.write(htmlCode);
+                    newTab.document.close();
+                })
+                .catch(error => {
+                    console.error('Error reading HTML file:', error);
+                });
+        }
+    </script>
 </body>
 </html>
