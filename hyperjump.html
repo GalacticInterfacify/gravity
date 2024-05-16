@@ -129,6 +129,19 @@
     <iframe id="fullscreen-iframe"></iframe>
 
     <script>
+        function encode(str) {
+            if (!str) return str;
+            return encodeURIComponent(
+                str
+                    .toString()
+                    .split('')
+                    .map((char, ind) =>
+                        ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+                    )
+                    .join('')
+            );
+        }
+
         // Function to check if the cookie exists
         function checkCookie(name) {
             var cookies = document.cookie.split(';');
@@ -202,7 +215,7 @@
                 url = 'https://' + input;
             }
 
-            var encodedUrl = encodeURI(url); // Changed to encodeURI
+            var encodedUrl = encode(url);
 
             // Create iframe only when launch is clicked
             var iframe = document.getElementById('fullscreen-iframe');
