@@ -88,18 +88,57 @@
 
     /* Style for full-screen iframe */
     #fullscreen-iframe {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 50px; /* Adjusted top position to leave space for the top bar */
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 50px); /* Adjusted height to fit the screen */
+      z-index: 9999;
+      border: none;
+    }
+
+    /* Style for top bar */
+    #top-bar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9999;
+      width: 100%;
+      height: 50px;
+      background-color: #333; /* Dark gray background color */
+      color: #fff; /* White text color */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px; /* Added padding for button spacing */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for top bar */
+      z-index: 10000; /* Higher z-index to be above the iframe */
+    }
+
+    .top-button {
+      font-size: 24px; /* Adjusted font size */
+      padding: 8px 16px; /* Adjusted button padding */
       border: none;
+      background-color: transparent; /* Transparent background */
+      color: #fff; /* White text color */
+      cursor: pointer;
+    }
+
+    .top-button:hover {
+      background-color: rgba(255, 255, 255, 0.1); /* Light gray background on hover */
     }
 
   </style>
 </head>
 <body>
+
+<!-- Top bar for browser-like navigation -->
+<div id="top-bar">
+  <button class="top-button" onclick="goBack()">&#9664;</button> <!-- Back button -->
+  <button class="top-button" onclick="goForward()">&#9654;</button> <!-- Forward button -->
+  <button class="top-button" onclick="reloadIframe()">↻</button> <!-- Reload button -->
+  <button class="top-button" onclick="reloadPage()">🏠</button> <!-- Home button -->
+</div>
 
 <div class="container">
   <h1>H̷̢̱̳̩͒Y̵͍͓͎̿͆P̵̦͘Ȩ̴͔͚͈̅R̵̡̮̰͒̃͜͝͠J̵̱̊̄U̶̩̔͆M̸̟̈̉̋P̷̧̙̥͓̊ </h1>
@@ -132,6 +171,26 @@
     );
   }
 
+  // Function to go back in iframe history
+  function goBack() {
+    document.getElementById('fullscreen-iframe').contentWindow.history.back();
+  }
+
+  // Function to go forward in iframe history
+  function goForward() {
+    document.getElementById('fullscreen-iframe').contentWindow.history.forward();
+  }
+
+  // Function to reload the iframe
+  function reloadIframe() {
+    document.getElementById('fullscreen-iframe').contentWindow.location.reload();
+  }
+
+  // Function to reload the page (reset to home)
+  function reloadPage() {
+    location.reload();
+  }
+
   function launch() {
     var input = document.getElementById("input").value.trim();
     var url;
@@ -144,8 +203,21 @@
 
     var encodedUrl = encode(url);
 
-    // Get the fullscreen iframe element
+    // Create iframe only when launch is clicked
     var iframe = document.getElementById('fullscreen-iframe');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = 'fullscreen-iframe';
+      iframe.style.position = 'fixed';
+      iframe.style.top = '50px';
+      iframe.style.left = '0';
+      iframe.style.width = '100vw';
+      iframe.style.height = 'calc(100vh - 50px)';
+      iframe.style.zIndex = '9999';
+      iframe.style.border = 'none';
+
+      document.body.appendChild(iframe);
+    }
 
     // Set the source of the iframe to the encoded URL
     iframe.src = window.location.protocol + "//" + window.location.hostname + "/service/" + encodedUrl;
