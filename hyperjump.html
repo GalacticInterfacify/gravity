@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal</title>
+  <title>Classes</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -26,6 +26,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       max-width: 600px; /* Set maximum width */
+      position: relative; /* Ensure relative positioning for children */
     }
 
     .textbox {
@@ -94,9 +95,26 @@
       left: 0;
       width: 100vw;
       height: calc(100vh - 50px); /* Adjusted height to fit the screen */
-      z-index: -1; /* Negative z-index when hidden */
+      z-index: 9999;
       border: none;
-      pointer-events: none; /* Disable pointer events when hidden */
+      pointer-events: auto; /* Enable pointer events when visible */
+    }
+
+    /* Style for loading screen */
+    #loading-screen {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+      z-index: 9998; /* Below iframe */
+      color: #fff;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Style for top bar */
@@ -155,6 +173,11 @@
   </div>
 </div>
 
+<!-- Loading screen -->
+<div id="loading-screen">
+  Loading...
+</div>
+
 <script>
   function encode(str) {
     if (!str) return str;
@@ -201,6 +224,9 @@
 
     var encodedUrl = encode(url);
 
+    // Show loading screen
+    document.getElementById('loading-screen').style.display = 'flex';
+
     // Create iframe only when launch is clicked
     var iframe = document.getElementById('fullscreen-iframe');
     if (!iframe) {
@@ -224,6 +250,11 @@
     iframe.style.display = 'block';
     // Enable pointer events when making iframe visible
     iframe.style.pointerEvents = 'auto';
+
+    // Hide loading screen after a delay
+    setTimeout(function() {
+      document.getElementById('loading-screen').style.display = 'none';
+    }, 1000); // Adjust delay as needed
   }
 </script>
 
