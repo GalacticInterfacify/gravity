@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal</title>
-    <link rel="icon" href="files/ok.png" type="image/png">
+    <link rel="icon" href="files/hyper.png" type="image/png">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,6 +20,8 @@
         }
 
         .container {
+            position: relative; /* Ensure container stays above iframe */
+            z-index: 1; /* Set higher z-index for the container */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -86,13 +88,12 @@
 
         /* Style for full-screen iframe */
         #fullscreen-iframe {
-            display: none; /* Initially hidden */
             position: fixed;
             top: 50px; /* Adjusted top position to leave space for the top bar */
             left: 0;
             width: 100vw;
             height: calc(100vh - 50px); /* Adjusted height to fit the screen */
-            z-index: -1; /* Negative z-index when hidden */
+            z-index: 0; /* Lower z-index to be below the container */
             border: none;
             pointer-events: none; /* Disable pointer events when hidden */
         }
@@ -167,82 +168,4 @@
 
         // Function to restart HYPERJUMP
         function restartHyperjump() {
-            setCookie('BrowserWorkingGravityCheck', 'true', 1);
-            window.location.href = 'activation.html';
-        }
-
-        // Function to go back in iframe history
-        function goBack() {
-            document.getElementById('fullscreen-iframe').contentWindow.history.back();
-        }
-
-        // Function to go forward in iframe history
-        function goForward() {
-            document.getElementById('fullscreen-iframe').contentWindow.history.forward();
-        }
-
-        // Function to reload the iframe
-        function reloadIframe() {
-            document.getElementById('fullscreen-iframe').contentWindow.location.reload();
-        }
-
-        // Function to reload the page (reset to home)
-        function reloadPage() {
-            location.reload();
-        }
-
-        // Function to open the current iframe link in a new window with a blank URL
-        function openInBlank() {
-            var iframeUrl = document.getElementById('fullscreen-iframe').src;
-            if (iframeUrl) {
-                var newWindow = window.open('about:blank');
-                var newIframe = document.createElement('iframe');
-                newIframe.src = iframeUrl;
-                newIframe.style.width = '100%';
-                newIframe.style.height = '100%';
-                newIframe.style.border = 'none';
-                newWindow.document.body.appendChild(newIframe);
-            }
-        }
-
-        function launch() {
-            var input = document.getElementById("input").value.trim();
-            var url;
-
-            if (input.startsWith('http://') || input.startsWith('https://')) {
-                url = input;
-            } else {
-                url = 'https://' + input;
-            }
-
-            var encodedUrl = encode(url);
-
-            // Create iframe only when launch is clicked
-            var iframe = document.getElementById('fullscreen-iframe');
-            if (!iframe) {
-                iframe = document.createElement('iframe');
-                iframe.id = 'fullscreen-iframe';
-                iframe.style.position = 'fixed';
-                iframe.style.top = '50px';
-                iframe.style.left = '0';
-                iframe.style.width = '100vw';
-                iframe.style.height = 'calc(100vh - 50px)';
-                iframe.style.zIndex = '9999';
-                iframe.style.border = 'none';
-
-                document.body.appendChild(iframe);
-            }
-
-            // Set the source of the iframe to the encoded URL
-            iframe.src = window.location.protocol + "//" + window.location.hostname + "/service/" + encodedUrl;
-
-            // Make the iframe visible
-            iframe.style.display = 'block';
-            // Enable pointer events when making iframe visible
-            iframe.style.pointerEvents = 'auto';
-        }
-    </script>
-
-</body>
-
-</html>
+            setCookie('BrowserWorkingGravityCheck', 'true', 
