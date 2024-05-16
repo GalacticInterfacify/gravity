@@ -202,17 +202,30 @@
         }
 
         // Function to start the proxy and set the "SERVER-working" cookie
-        function startProxy() {
+         function startProxy() {
             var url = "https://gr4vity.pages.dev/activation";
             var encodedUrl = encode(url);
+            var fullUrl = `${window.location.hostname}/service/${encodedUrl}`;
 
             // Set the "SERVER-working" cookie to expire in 24 hours
             var expires = new Date();
             expires.setTime(expires.getTime() + (24 * 60 * 60 * 1000));
             document.cookie = "SERVER-working=true; expires=" + expires.toUTCString() + "; path=/";
 
-            // Navigate to the encoded URL
-            window.location.href = encodedUrl;
+            // Navigate to the full URL
+            window.location.href = fullUrl;
+        }
+
+        // Function to encode the URL
+        function encode(str) {
+            if (!str) return str;
+            return encodeURIComponent(
+                str
+                .toString()
+                .split('')
+                .map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)
+                .join('')
+            );
         }
 
         // Function to encode the URL
