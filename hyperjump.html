@@ -1,247 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal</title>
-     <link rel="icon" href="files/ok.png" type="image/png">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #000; /* Updated background color to black */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Proxy</title>
+    <link rel="icon" href="files/ok.png" type="image/png">
+    <style>
+        /* Your existing CSS styles here */
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 120px; /* Reduced padding to make it slightly smaller */
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 600px; /* Set maximum width */
-    }
-
-    .textbox {
-      padding: 40px; /* Increased padding */
-      margin-bottom: 40px; /* Increased margin bottom */
-      border: 4px solid #ccc; /* Increased border size */
-      border-radius: 20px; /* Increased border radius */
-      width: 600px; /* Increased width */
-      font-size: 40px; /* Increased font size */
-    }
-
-    .button {
-      padding: 20px 40px; /* Increased padding */
-      font-size: 40px; /* Increased font size */
-      background-color: #28a745; /* Green color */
-      color: #fff;
-      border: none;
-      border-radius: 20px; /* Increased border radius */
-      cursor: pointer;
-      margin-bottom: 40px; /* Add margin bottom */
-    }
-
-    .button:hover {
-      background-color: #218838; /* Darker green on hover */
-    }
-
-    .settings .button {
-      padding: 20px 40px; /* Increased padding */
-      font-size: 40px; /* Increased font size */
-      background-color: #007bff; /* Blue color */
-      color: #fff;
-      border: none;
-      border-radius: 20px; /* Increased border radius */
-      cursor: pointer;
-      margin-bottom: 40px; /* Add margin bottom */
-    }
-
-    .settings .button:hover {
-      background-color: #0056b3; /* Darker blue on hover */
-    }
-
-    .settings {
-      margin-top: 80px; /* Increased margin top */
-      font-size: 56px; /* Increased font size */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    label {
-      margin-right: 40px; /* Increased margin right */
-    }
-
-    hr {
-      width: 100%;
-      margin: 40px 0; /* Increased margin top and bottom */
-      border: none;
-      border-top: 4px solid #ccc; /* Gray line */
-    }
-
-    /* Style for full-screen iframe */
-    #fullscreen-iframe {
-      display: none; /* Initially hidden */
-      position: fixed;
-      top: 50px; /* Adjusted top position to leave space for the top bar */
-      left: 0;
-      width: 100vw;
-      height: calc(100vh - 50px); /* Adjusted height to fit the screen */
-      z-index: -1; /* Negative z-index when hidden */
-      border: none;
-      pointer-events: none; /* Disable pointer events when hidden */
-    }
-
-    /* Style for top bar */
-    #top-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background-color: #333; /* Dark gray background color */
-      color: #fff; /* White text color */
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6px; /* Adjusted padding for button spacing */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for top bar */
-      z-index: 10000; /* Higher z-index to be above the iframe */
-    }
-
-    .top-button {
-      font-size: 24px; /* Adjusted font size */
-      padding: 8px 12px; /* Adjusted button padding */
-      border: none;
-      background-color: transparent; /* Transparent background */
-      color: #fff; /* White text color */
-      cursor: pointer;
-    }
-
-    .top-button:hover {
-      background-color: rgba(255, 255, 255, 0.1); /* Light gray background on hover */
-    }
-
-  </style>
+        /* Additional style for iframe */
+        #fullscreen-iframe {
+            display: none;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - 50px);
+            z-index: 9999;
+            border: none;
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- Top bar for browser-like navigation -->
-<div id="top-bar">
-  <button class="top-button" onclick="goBack()">&#9664;</button> <!-- Back button -->
-  <button class="top-button" onclick="goForward()">&#9654;</button> <!-- Forward button -->
-  <button class="top-button" onclick="reloadIframe()">↻</button> <!-- Reload button -->
-  <button class="top-button" onclick="reloadPage()">🏠</button> <!-- Home button -->
-  <button class="top-button" onclick="openInBlank()">⇗</button> <!-- Open in blank button -->
-</div>
+    <!-- Top bar for browser-like navigation -->
+    <div id="top-bar">
+        <button class="top-button" onclick="goBack()">&#9664;</button>
+        <button class="top-button" onclick="goForward()">&#9654;</button>
+        <button class="top-button" onclick="reloadIframe()">↻</button>
+        <button class="top-button" onclick="reloadPage()">🏠</button>
+        <button class="top-button" onclick="openInBlank()">⇗</button>
+    </div>
 
-<div class="container">
-  <h1>H̷̢̱̳̩͒Y̵͍͓͎̿͆P̵̦͘Ȩ̴͔͚͈̅R̵̡̮̰͒̃͜͝͠J̵̱̊̄U̶̩̔͆M̸̟̈̉̋P̷̧̙̥͓̊ </h1>
-  <h5>created by and for GRAVITY</h5>
-  <input type="text" class="textbox" placeholder="URL or search Google" id="input">
-  <button class="button" onclick="launch()">LAUNCH</button>
+    <div class="container">
+        <h1>H̷̢̱̳̩͒Y̵͍͓͎̿͆P̵̦͘Ȩ̴͔͚͈̅R̵̡̮̰͒̃͜͝͠J̵̱̊̄U̶̩̔͆M̸̟̈̉̋P̷̧̙̥͓̊ </h1>
+        <h5>created by and for GRAVITY</h5>
+        <input type="text" class="textbox" placeholder="URL or search Google" id="input">
+        <button class="button" onclick="launch()">LAUNCH</button>
 
-  <hr> <!-- Horizontal line -->
+        <hr> <!-- Horizontal line -->
 
-  <div class="settings">
-    
+        <div class="settings">
 
-  </div>
-</div>
 
-<script>
-  function encode(str) {
-    if (!str) return str;
-    return encodeURIComponent(
-      str
-        .toString()
-        .split('')
-        .map((char, ind) =>
-          ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
-        )
-        .join('')
-    );
-  }
+        </div>
+    </div>
 
-  // Function to go back in iframe history
-  function goBack() {
-    document.getElementById('fullscreen-iframe').contentWindow.history.back();
-  }
+    <!-- iframe for loading external content -->
+    <iframe id="fullscreen-iframe"></iframe>
 
-  // Function to go forward in iframe history
-  function goForward() {
-    document.getElementById('fullscreen-iframe').contentWindow.history.forward();
-  }
+    <script>
+        // Your existing JavaScript code here
 
-  // Function to reload the iframe
-  function reloadIframe() {
-    document.getElementById('fullscreen-iframe').contentWindow.location.reload();
-  }
+        function launch() {
+            var input = document.getElementById("input").value.trim();
+            var url;
 
-  // Function to reload the page (reset to home)
-  function reloadPage() {
-    location.reload();
-  }
+            if (input.startsWith('http://') || input.startsWith('https://')) {
+                url = input;
+            } else {
+                url = 'https://' + input;
+            }
 
-  // Function to open the current iframe link in a new window with a blank URL
-  function openInBlank() {
-    var iframeUrl = document.getElementById('fullscreen-iframe').src;
-    if (iframeUrl) {
-      var newWindow = window.open('about:blank');
-      var newIframe = document.createElement('iframe');
-      newIframe.src = iframeUrl;
-      newIframe.style.width = '100%';
-      newIframe.style.height = '100%';
-      newIframe.style.border = 'none';
-      newWindow.document.body.appendChild(newIframe);
-    }
-  }
+            var encodedUrl = encodeURIComponent(url);
 
-  function launch() {
-    var input = document.getElementById("input").value.trim();
-    var url;
+            var iframe = document.getElementById('fullscreen-iframe');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.id = 'fullscreen-iframe';
+                iframe.style.display = 'none';
+                iframe.style.position = 'fixed';
+                iframe.style.top = '50px';
+                iframe.style.left = '0';
+                iframe.style.width = '100vw';
+                iframe.style.height = 'calc(100vh - 50px)';
+                iframe.style.zIndex = '9999';
+                iframe.style.border = 'none';
 
-    if (input.startsWith('http://') || input.startsWith('https://')) {
-      url = input;
-    } else {
-      url = 'https://' + input;
-    }
+                document.body.appendChild(iframe);
+            }
 
-    var encodedUrl = encode(url);
+            // Set the source of the iframe to the encoded URL
+            iframe.src = window.location.protocol + "//" + window.location.hostname + "/service/" + encodedUrl;
 
-    // Create iframe only when launch is clicked
-    var iframe = document.getElementById('fullscreen-iframe');
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.id = 'fullscreen-iframe';
-      iframe.style.position = 'fixed';
-      iframe.style.top = '50px';
-      iframe.style.left = '0';
-      iframe.style.width = '100vw';
-      iframe.style.height = 'calc(100vh - 50px)';
-      iframe.style.zIndex = '9999';
-      iframe.style.border = 'none';
-
-      document.body.appendChild(iframe);
-    }
-
-    // Set the source of the iframe to the encoded URL
-    iframe.src = window.location.protocol + "//" + window.location.hostname + "/service/" + encodedUrl;
-
-    // Make the iframe visible
-    iframe.style.display = 'block';
-    // Enable pointer events when making iframe visible
-    iframe.style.pointerEvents = 'auto';
-  }
-</script>
+            // Make the iframe visible
+            iframe.style.display = 'block';
+        }
+    </script>
 
 </body>
+
 </html>
