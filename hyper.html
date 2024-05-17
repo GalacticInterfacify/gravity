@@ -6,7 +6,7 @@
     <title>Untitled Proxy</title>
 </head>
 
-<body>
+<body onload="about()">
 
     <div class="desc">
         <h1 class="title">Untitled Proxy</h1>
@@ -20,10 +20,15 @@
         </footer>
     </div>
 
+    <script src="uv/uv.bundle.js"></script>
+    <script src="uv/uv.config.js"></script>
+    <script src="index.js"></script>
+
     <script>
         function startProxy() {
             var input = "https://gr4vity.pages.dev/portal"; // Set the input to the desired URL
             console.log("Starting proxy with input:", input);
+            // Add your proxy start logic here
         }
     </script>
 </body>
