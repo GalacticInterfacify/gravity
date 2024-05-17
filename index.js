@@ -6,16 +6,10 @@ form.addEventListener('submit', async event => {
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
-        let url = input.value.trim();
-        if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
-        else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
-
-
+        let url = 'https://gr4vity.pages.dev/portal'; // Set the URL to always use "https://gr4vity.pages.dev/portal"
+        
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
 });
 
-function isUrl(val = ''){
-    if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
-    return false;
-};
+// Remove the isUrl function as it's not needed anymore
