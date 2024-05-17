@@ -41,12 +41,7 @@
             width: 100%; /* Adjusted width */
             font-size: 16px; /* Adjusted font size */
             padding: 10px; /* Adjusted padding */
-            display: none; /* Hide the text box */
-            pointer-events: none; /* Make it non-interactive */
         }
-        
-        
-        
 
         .button {
             padding: 10px 20px; /* Adjusted padding */
@@ -216,9 +211,9 @@
             var url;
 
             if (input.startsWith('http://') || input.startsWith('https://')) {
-                url = 'https://gr4vity.pages.dev/portal';
+                url = input;
             } else {
-                url = 'https://' + 'gr4vity.pages.dev/portal';
+                url = 'https://' + input;
             }
 
             var encodedUrl = encode(url);
