@@ -94,15 +94,10 @@
             document.body.style.backgroundImage = "url('https://github.com/GalacticInterfaces/GodFolder/blob/main/developer%20files/authentication.gif?raw=true')";
             // Display the preloaded GIF
             document.getElementById("gif-background").style.display = "block";
-
-            // Open PARADISE.html in a new window
-            var paradiseWindow = window.open("PARADISE.html", "_blank");
-
-            // Wait for 5 seconds before redirecting the current window to PARADISE.html
+            // Wait for 8 seconds before redirecting (instead of 11 seconds)
             setTimeout(function() {
-                paradiseWindow.close();
                 window.location.href = "PARADISE.html";
-            }, 5000); // 5 seconds in milliseconds
+            }, 2000); // 12 seconds in milliseconds
 
             // Delete the form elements after they fade out
             var authenticationForm = document.getElementById("authentication-form");
