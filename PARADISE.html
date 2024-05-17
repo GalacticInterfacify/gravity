@@ -6,121 +6,121 @@
     <title>Classes</title>
     <link rel="icon" href="files/ok.png" type="image/png">
     <style>
-        body {
-            display: none; /* Hide the body by default */
-            background-color: black; /* Set the background color to black */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #fff; /* Set default text color */
-            font-family: Arial, sans-serif; /* Set font family */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
-        }
+body {
+    display: none; /* Hide the body by default */
+    background-color: black; /* Set the background color to black */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff; /* Set default text color */
+    font-family: Arial, sans-serif; /* Set font family */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
 
-        /* CSS for navigation bar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-        }
+/* CSS for navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+}
 
-        /* CSS for logo */
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: #78FF00;
-            text-decoration: none; /* Remove underline */
-        }
+/* CSS for logo */
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #78FF00;
+    text-decoration: none; /* Remove underline */
+}
 
-        /* CSS for navigation bar buttons */
-        .navbar .button {
-            margin-left: 10px; /* Add some space between buttons */
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            border: 2px solid #78FF00;
-            border-radius: 15px; /* Rounded corners */
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+/* CSS for navigation bar buttons */
+.navbar .button {
+    margin-left: 10px; /* Add some space between buttons */
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: 2px solid #78FF00;
+    border-radius: 15px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        /* CSS for button container */
-        .button-container {
-            display: flex;
-            align-items: center;
-            flex-direction: column; /* Stack buttons vertically */
-        }
+/* CSS for button container */
+.button-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Stack buttons vertically */
+}
 
-        /* CSS for buttons */
-        .button-container .button {
-            margin-top: 10px; /* Add some space between buttons */
-            padding: 20px 40px; /* Increase padding for larger buttons */
-            font-size: 1.2em; /* Increase font size for larger buttons */
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            border: 2px solid #78FF00;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+/* CSS for buttons */
+.button-container .button {
+    margin-top: 10px; /* Add some space between buttons */
+    padding: 20px 40px; /* Increase padding for larger buttons */
+    font-size: 1.2em; /* Increase font size for larger buttons */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: 2px solid #78FF00;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
         
-        /* CSS for button hover effect */
-        .button-container .button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: #000;
-        }
+/* CSS for button hover effect */
+.button-container .button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+}
 
-        /* CSS for container */
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
+/* CSS for container */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
-        /* CSS for background content */
-        .background-content {
-            position: fixed; /* Position the content fixed so it remains in the background */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('background.html'); /* Set the background */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
-            z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
-        }
+/* CSS for background content */
+.background-content {
+    position: fixed; /* Position the content fixed so it remains in the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('background.html'); /* Set the background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
+    z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
+}
+      /* CSS for changelog container */
+.changelog-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
 
-        /* CSS for changelog container */
-        .changelog-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 5px;
-            color: #fff;
-            font-size: 14px;
-        }
+.changelog-container p {
+    margin-bottom: 5px;
+}
 
-        .changelog-container p {
-            margin-bottom: 5px;
-        }
+.changelog-container ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-        .changelog-container ul {
-            list-style-type: none;
-            padding: 0;
-        }
+.changelog-container ul li {
+    margin-bottom: 5px;
+}
 
-        .changelog-container ul li {
-            margin-bottom: 5px;
-        }
     </style>
 </head>
 <body>
@@ -129,18 +129,20 @@
         <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
     </div>
   
-    <!--NAVIGATION -->
-    <div class="navbar">
-        <a href="#" class="logo">GR4V1TY</a>
-        <div class="navbar-buttons">
-            <button class="button" onclick="panic()">Panic!</button>
-            <button class="button" onclick="navigateTo('hyperjump.html')">HYP3RJUMP</button>
-            <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
-            <button class="button" onclick="navigateTo('infinite/infinite.html')">OG infinite</button>
-            <button class="button" onclick="openHtmlInNewTab()">Chat</button>
-        </div>
+ <!--NAVIGATION -->
+<div class="navbar">
+    <a href="#" class="logo">GR4V1TY</a>
+    <div class="navbar-buttons">
+        <button class="button" onclick="panic()">Panic!</button>
+        <button class="button" onclick="navigateTo('hyperjump.html')">HYP3RJUMP</button>
+        <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
+        <button class="button" onclick="navigateTo('infinite/infinite.html')">OG infinite</button>
+        <button class="button" onclick="openHtmlInNewTab()">Chat</button>
+
     </div>
+</div>
    
+    
     <!-- Button column -->
     <div class="button-container">
         <h2>Quick links:</h2>
@@ -153,17 +155,18 @@
     </div>
     
     <!-- Changelog container -->
-    <div class="changelog-container">
-        <p>Changelog V3:</p>
-        <ul>
-            <li> - Added 2048</li>
-            <li> - Added hyperjump. IF THIS IS NOT WORKING FOR YOU TELL ME AND I CAN FIX IT.</li>
-            <li> - Sorry about infinitecraft progress loss. I will continue to have the old infinitecraft with your old progress :D</li>
-            <li> - Afterlife premium updated a bit.</li>
-            <li> - Im losing sleep for you 😭</li>
-            <li> - Be chill in the chat please. I will remove it if I have to.</li>
-        </ul>
-    </div>
+<div class="changelog-container">
+    <p>Changelog V3:</p>
+    <ul>
+        <li> - Added 2048</li>
+        <li> - Added hyperjump. IF THIS IS NOT WORKING FOR YOU TELL ME AND I CAN FIX IT.</li>
+         <li> - Sorry about infinitecraft progress loss. I will continue to have the old infinitecraft with your old progress :D</li>
+        <li> - Afterlife premium updated a bit.</li>
+        <li> - Im losing sleep for you 😭</li>
+        <li> - Be chill in the chat please. I will remove it if I have to.</li>
+    </ul>
+</div>
+
 
     <script>
         window.onload = function() {
@@ -177,15 +180,8 @@
                     window.location.replace("denied.html");
                 }, 2000); // Redirect after 2 seconds
             } else {
-                // Check if the cookie named "SERVER-working" exists
-                var serverCookie = getCookie("SERVER-working");
-                if (!serverCookie) {
-                    // Start the proxy and set the "SERVER-working" cookie
-                    startProxy();
-                } else {
-                    // If the cookie is present, display the body
-                    document.body.style.display = "block";
-                }
+                // If the cookie is present and its value is true, display the body
+                document.body.style.display = "block";
             }
         };
 
@@ -194,54 +190,16 @@
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
+                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
                     return cookie.substring(name.length + 1);
                 }
             }
             return null;
         }
 
-        // Function to start the proxy and set the "SERVER-working" cookie
-         function startProxy() {
-            var url = "https://gr4vity.pages.dev/activation";
-            var encodedUrl = encode(url);
-            var fullUrl = `${window.location.hostname}/service/${encodedUrl}`;
-
-            // Set the "SERVER-working" cookie to expire in 24 hours
-            var expires = new Date();
-            expires.setTime(expires.getTime() + (24 * 60 * 60 * 1000));
-            document.cookie = "SERVER-working=true; expires=" + expires.toUTCString() + "; path=/";
-
-            // Navigate to the full URL
-            window.location.href = fullUrl;
-        }
-
-        // Function to encode the URL
-        function encode(str) {
-            if (!str) return str;
-            return encodeURIComponent(
-                str
-                .toString()
-                .split('')
-                .map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)
-                .join('')
-            );
-        }
-
-        // Function to encode the URL
-        function encode(str) {
-            if (!str) return str;
-            return encodeURIComponent(
-                str
-                .toString()
-                .split('')
-                .map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)
-                .join('')
-            );
-        }
-
         // Function to navigate to the specified URL
         function navigateTo(url) {
+            // Navigate to the specified URL
             window.location.href = url;
         }
 
@@ -249,22 +207,23 @@
             window.open('https://classroom.google.com');
             window.location.href = 'about:blank';
         }
+    </script>
+     <script>
+  function openHtmlInNewTab() {
+    // Read the HTML code from the file
+    fetch('chat-html.txt')
+        .then(response => response.text())
+        .then(htmlCode => {
+            var newTab = window.open('about:blank', '_blank');
+            newTab.document.open();
+            newTab.document.write(htmlCode);
+            newTab.document.close();
+        })
+        .catch(error => {
+            console.error('Error reading HTML file:', error);
+        });
+}
 
-        // Function to open HTML in a new tab
-        function openHtmlInNewTab() {
-            // Read the HTML code from the file
-            fetch('chat-html.txt')
-                .then(response => response.text())
-                .then(htmlCode => {
-                    var newTab = window.open('about:blank', '_blank');
-                    newTab.document.open();
-                    newTab.document.write(htmlCode);
-                    newTab.document.close();
-                })
-                .catch(error => {
-                    console.error('Error reading HTML file:', error);
-                });
-        }
     </script>
 </body>
 </html>
