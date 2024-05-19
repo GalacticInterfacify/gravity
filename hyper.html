@@ -43,34 +43,7 @@
 </head>
 
 <body onload="about()">
-    <script>
-        // Function to check if the cookie named "ACCESS" exists and its value is true
-        function checkAccessCookie() {
-            var accessCookie = getCookie("ACCESS");
-            if (!accessCookie || accessCookie !== "true") {
-                // Cookie doesn't exist or its value is not true, redirect to denied.html
-                window.location.replace("denied.html");
-            } else {
-                // If the cookie is present and its value is true, show the body
-                document.body.style.display = "block";
-            }
-        }
-
-        // Function to get the value of a cookie by its name
-        function getCookie(name) {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
-                    return cookie.substring(name.length + 1);
-                }
-            }
-            return null;
-        }
-
-        // Call the function to check the access cookie when the page loads
-        checkAccessCookie();
-    </script>
+    
 
     <div class="desc">
         <h1 class="title">Title Here</h1>
@@ -102,7 +75,7 @@
     <br>
     <script src="uv/uv.bundle.js"></script>
     <script src="uv/uv.config.js"></script>
-    <script src="example.js"> defer</script>
+    <script src="example.js"></script>
 
     <script>
         function startProxy() {
