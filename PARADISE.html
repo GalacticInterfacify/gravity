@@ -16,7 +16,6 @@ body {
     font-family: Arial, sans-serif; /* Set font family */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
-    overflow: hidden; /* Hide scrollbars */
 }
 
 /* CSS for navigation bar */
@@ -67,7 +66,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+        
 /* CSS for button hover effect */
 .button-container .button:hover {
     background-color: rgba(255, 255, 255, 0.5);
@@ -97,8 +96,7 @@ body {
     pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
     z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
 }
-
-/* CSS for changelog container */
+      /* CSS for changelog container */
 .changelog-container {
     position: fixed;
     bottom: 20px;
@@ -123,14 +121,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* CSS for left iframe */
-.left-iframe {
-    position: fixed;
-    top: 50%;
-    left: 20px; /* Adjusted left position */
-    transform: translateY(-50%);
-    border: none;
-}
     </style>
 </head>
 <body>
@@ -138,22 +128,21 @@ body {
     <div class="background-content">
         <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
     </div>
+  
+ <!--NAVIGATION -->
+<div class="navbar">
+    <a href="#" class="logo">GR4V1TY</a>
+    <div class="navbar-buttons">
+        <button class="button" onclick="panic()">Panic!</button>
+        <button class="button" onclick="navigateTo('hyper.html')">HYP3RJUMP</button>
+        <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
+        <button class="button" onclick="navigateTo('infinite/infinite.html')">OG infinite</button>
+        <button class="button" onclick="openHtmlInNewTab()">Chat</button>
 
-    <!-- Left iframe -->
-    <iframe src="hyper.html" class="left-iframe" width="20" height="80"></iframe>
-
-    <!--NAVIGATION -->
-    <div class="navbar">
-        <a href="#" class="logo">GR4V1TY</a>
-        <div class="navbar-buttons">
-            <button class="button" onclick="panic()">Panic!</button>
-            <button class="button" onclick="navigateTo('hyper.html')">HYP3RJUMP</button>
-            <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
-            <button class="button" onclick="navigateTo('infinite/infinite.html')">OG infinite</button>
-            <button class="button" onclick="openHtmlInNewTab()">Chat</button>
-        </div>
     </div>
-
+</div>
+   
+    
     <!-- Button column -->
     <div class="button-container">
         <h2>Quick links:</h2>
@@ -161,22 +150,22 @@ body {
         <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
         <button class="button" onclick="navigateTo('infinite/dino.html')">Dino (leaving soon)</button>
     </div>
-    <div class="button-container">
+     <div class="button-container">
         <h2>(start hyperjump to use) HYPERJUMP links:</h2>
-        <button class="button" onclick="navigateTo('hyper.html')">START HYP3RJUMP</button>
-        <button class="button" onclick="navigateTo('2048/2048.html')">2048 (HYPERJUMP)</button>
+         <button class="button" onclick="navigateTo('hyper.html')">START HYP3RJUMP</button>
+         <button class="button" onclick="navigateTo('2048/2048.html')">2048 (HYPERJUMP)</button>
         <button class="button" onclick="navigateTo('infinite.html')">Infinite Craft (HYPERJUMP)</button>
         <button class="button" onclick="navigateTo('9007199254740992.html')">9007199254740992 (HYPERJUMP)</button>
-    </div>
-
+    
     <!-- Changelog container -->
-    <div class="changelog-container">
-        <p>Changelog V3:</p>
-        <ul>
-            <li> -- START HYPERJUMP IN ORDER TO GAIN ACCESS TO HYPERJUMP GAMES</li>
-            <li> - fixed hyperjump (could be better but Im doing this for free so...)</li>
-        </ul>
-    </div>
+<div class="changelog-container">
+    <p>Changelog V3:</p>
+    <ul>
+        <li> -- START HYPERJUMP IN ORDER TO GAIN ACCESS TO HYPERJUMP GAMES</li>
+        <li> - fixed hyperjump (could be better but Im doing this for free so...)</li>
+    </ul>
+</div>
+
 
     <script>
         window.onload = function() {
@@ -200,7 +189,7 @@ body {
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
+                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
                     return cookie.substring(name.length + 1);
                 }
             }
@@ -218,21 +207,22 @@ body {
             window.location.href = 'about:blank';
         }
     </script>
-    <script>
-        function openHtmlInNewTab() {
-            // Read the HTML code from the file
-            fetch('chat-html.txt')
-                .then(response => response.text())
-                .then(htmlCode => {
-                    var newTab = window.open('about:blank', '_blank');
-                    newTab.document.open();
-                    newTab.document.write(htmlCode);
-                    newTab.document.close();
-                })
-                .catch(error => {
-                    console.error('Error reading HTML file:', error);
-                });
-        }
+     <script>
+  function openHtmlInNewTab() {
+    // Read the HTML code from the file
+    fetch('chat-html.txt')
+        .then(response => response.text())
+        .then(htmlCode => {
+            var newTab = window.open('about:blank', '_blank');
+            newTab.document.open();
+            newTab.document.write(htmlCode);
+            newTab.document.close();
+        })
+        .catch(error => {
+            console.error('Error reading HTML file:', error);
+        });
+}
+
     </script>
 </body>
 </html>
