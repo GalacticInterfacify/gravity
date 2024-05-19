@@ -17,6 +17,28 @@
         .search-input {
             display: none;
         }
+
+        * {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        button.start-button {
+            width: 220px;
+            height: 40px;
+            border-radius: 12px;
+            background-color: #080808;
+            font-family: Arial, Helvetica, sans-serif;
+            border: none;
+            transition: background-color 500ms, transform 200ms;
+            cursor: pointer;
+        }
+
+        button.start-button:hover {
+            background-color: #333333;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -48,34 +70,8 @@
     </script>
 
     <div class="text-center">
-        <style>
-            * {
-                color: white;
-                font-family: Arial, Helvetica, sans-serif;
-                text-align: center
-            }
-
-            button.start-button {
-                width: 220px;
-                height: 40px;
-                border-radius: 12px;
-                background-color: #080808;
-                font-family: Arial, Helvetica, sans-serif;
-                border: none;
-                transition: background-color 500ms
-            }
-
-            button.start-button:hover {
-                background-color: #080808
-            }
-        </style>
     </div>
     <br>
-    <div>
-        <footer style="bottom: 0; position: fixed;">
-            <p>&copy; origonal by Untitled Proxy</p> <a href="https://discord.gg/vj8Uaa5P">Discord</a>
-        </footer>
-    </div>
     <script src="uv/uv.bundle.js"></script>
     <script src="uv/uv.config.js"></script>
     <script src="index.js"></script>
