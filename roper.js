@@ -6,7 +6,7 @@ form.addEventListener('submit', async event => {
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
-        let url = 'https://gamernet.org/embed/roper-pass-game'; 
+        let url = 'https://kdata1.com/2023/05/roper-fancade/'; 
         
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
