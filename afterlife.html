@@ -213,21 +213,8 @@
                         }
                     });
                     speed *= 2;
-                },  50);
+                },  0);
 
-                setTimeout(() => {
-                    clearInterval(interval);
-                }, 15000);
-            } else if (updatenumber === 4) {
-                let toggle = true;
-                setInterval(() => {
-                    document.body.style.backgroundColor = toggle ? 'black' : 'white';
-                    toggle = !toggle;
-                }, 200);
-            } else if (updatenumber === 5) {
-                openSite('6x.html');
-            }
-        }
 
         // CSS for spin animation
         const style = document.createElement('style');
