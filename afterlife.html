@@ -258,7 +258,7 @@
             var maxY = window.innerHeight - rect.height;
 
             moveInterval = setInterval(function() {
-                var rect = button.getBoundingClientRect();
+                rect = button.getBoundingClientRect();
                 var left = rect.left + directionX * speed;
                 var top = rect.top + directionY * speed;
 
