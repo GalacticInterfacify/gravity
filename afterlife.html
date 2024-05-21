@@ -190,35 +190,42 @@
         function countdown() {
             updatenumber++;
             const button = document.getElementById('updateButton');
-            const pageTitle = document.getElementById('pageTitle');
-
+            const title = document.getElementById('pageTitle');
+            
             if (updatenumber === 1) {
                 button.style.animation = 'spin 1s linear infinite';
             } else if (updatenumber === 2) {
-                pageTitle.textContent = "Please do not share this easter egg!!!! (V5)";
+                button.style.transform = 'scale(2)';
+                title.textContent = 'Please do not share this easter egg!!!! (V5)';
             } else if (updatenumber === 3) {
-                const elements = document.querySelectorAll('h1, .button-column button:not(:nth-child(4) button)');
-                let speed = 2; // Adjusted speed for smoother movement
+                const elements = document.querySelectorAll('h1, .button-column button');
+                let speed = 5;
                 elements.forEach((el) => {
-                    el.style.position = 'relative';
+                    if (el !== button) {
+                        el.style.position = 'relative';
+                    }
                 });
 
                 let interval = setInterval(() => {
                     elements.forEach((el) => {
-                        el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
+                        if (el !== button) {
+                            el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
+                        }
                     });
-                    speed *= 1.1; // Adjusted acceleration
-                }, 20); // Decreased interval for smoother movement
+                    speed *= 1.1; // Increase speed slightly to smooth the movement
+                }, 50);
 
                 setTimeout(() => {
                     clearInterval(interval);
-                }, 5000); // Adjusted duration to 5 seconds
+                }, 5000); // Reduced the duration to 5 seconds
             } else if (updatenumber === 4) {
                 let toggle = true;
                 setInterval(() => {
-                    document.body.style.backgroundImage = toggle ? 'url(https://i.giphy.com/3osxYgD4kfm3mGM0Ra.webp)' : '';
+                    document.body.style.backgroundColor = toggle ? 'black' : 'white';
                     toggle = !toggle;
                 }, 200);
+            } else if (updatenumber === 5) {
+                openSite('6x.html');
             }
         }
 
