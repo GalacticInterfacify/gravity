@@ -47,19 +47,21 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    border: 2px solid transparent; /* Initial transparent border */
+    border: 6px solid transparent; /* Initial transparent border */
     border-radius: 10px; /* Match the border radius of the textbox */
     z-index: -1; /* Ensure it's behind the content */
-    animation: animateOutline 5s linear infinite; /* Animation properties */
+    animation: animateRainbowOutline 7s linear infinite; /* Animation properties */
 }
 
-/* Keyframes for animated RGB outline */
-@keyframes animateOutline {
-    0% { border-color: rgba(255, 0, 0, 0.5); } /* Start with red */
-    25% { border-color: rgba(0, 255, 0, 0.5); } /* Change to green at 25% */
-    50% { border-color: rgba(0, 0, 255, 0.5); } /* Change to blue at 50% */
-    75% { border-color: rgba(255, 255, 0, 0.5); } /* Change to yellow at 75% */
-    100% { border-color: rgba(255, 0, 255, 0.5); } /* End with magenta */
+/* Keyframes for animated rainbow outline */
+@keyframes animateRainbowOutline {
+    0% { border-color: rgba(255, 0, 0, 0.5); } /* Red */
+    16.67% { border-color: rgba(255, 127, 0, 0.5); } /* Orange */
+    33.33% { border-color: rgba(255, 255, 0, 0.5); } /* Yellow */
+    50% { border-color: rgba(0, 255, 0, 0.5); } /* Green */
+    66.67% { border-color: rgba(0, 0, 255, 0.5); } /* Blue */
+    83.33% { border-color: rgba(75, 0, 130, 0.5); } /* Indigo */
+    100% { border-color: rgba(143, 0, 255, 0.5); } /* Violet */
 }
 
 
