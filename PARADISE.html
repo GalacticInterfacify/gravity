@@ -27,15 +27,39 @@ body {
     padding: 10px 20px;
 }
 
-    /* CSS for news textbox */
+/* CSS for news textbox */
 .news-textbox {
     width: 80%; /* Adjust width as needed */
     max-width: 600px; /* Limit maximum width */
     margin: 0 auto; /* Center the textbox horizontally */
     padding: 20px; /* Add padding */
     font-size: 1em; /* Adjust font size */
-    border: 2px solid rgba(255, 0, 0, 0.5); /* Thin RGB outline */
     border-radius: 10px; /* Add border radius */
+    position: relative; /* Position for pseudo-elements */
+    overflow: hidden; /* Hide overflowing border animation */
+}
+
+/* CSS for animated RGB outline */
+.news-textbox::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position the outline */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent; /* Initial transparent border */
+    border-radius: 10px; /* Match the border radius of the textbox */
+    z-index: -1; /* Ensure it's behind the content */
+    animation: animateOutline 5s linear infinite; /* Animation properties */
+}
+
+/* Keyframes for animated RGB outline */
+@keyframes animateOutline {
+    0% { border-color: rgba(255, 0, 0, 0.5); } /* Start with red */
+    25% { border-color: rgba(0, 255, 0, 0.5); } /* Change to green at 25% */
+    50% { border-color: rgba(0, 0, 255, 0.5); } /* Change to blue at 50% */
+    75% { border-color: rgba(255, 255, 0, 0.5); } /* Change to yellow at 75% */
+    100% { border-color: rgba(255, 0, 255, 0.5); } /* End with magenta */
 }
 
 
