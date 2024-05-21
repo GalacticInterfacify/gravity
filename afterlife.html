@@ -9,7 +9,7 @@
     <!-- Custom styles -->
     <style>
         body {
-	    display: none;
+            display: none;
             background-image: url('https://media.istockphoto.com/id/954305374/photo/stairs-leading-up-to-heavenly-sky-toward-the-light.jpg?s=612x612&w=0&k=20&c=iJ4eMjjYFYgkXxFYPaZH3JZj6gttp7KdR9ztBUpNQRI=');
             background-size: cover;
             font-family: Arial, sans-serif;
@@ -40,169 +40,124 @@
             float: left;
             margin-right: 20px; /* Add some space between columns */
         }
-	.button-column button {
-  	  user-select: none;
-	}
-
-	h1 {
-    	color: white; /* Change title text color to white */
-    	user-select: none; /* Make title not selectable */
-	}
-
-
-button {
+        .button-column button {
+            user-select: none;
+        }
+        h1 {
+            color: white; /* Change title text color to white */
+            user-select: none; /* Make title not selectable */
+        }
+        button {
             transition: transform 0.2s ease;
         }
-
         button:hover {
             transform: scale(1.05);
         }
     </style>
-<style>
-    /* Existing styles */
-
-    /* Third column button text color */
-    .button-column:nth-child(4) button {
-        color: red;
-        background-color: black;
-    
-button:hover 
-        background-color: #303030; /* Dark grey on hover */
-    }
-</style>
-
-<style>
-    /* Existing styles */
-
-    /* Third column button text color */
-    .button-column:nth-child(5) button {
-        color: black;
-        background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/fjdkhsfsgodguigsdfigudfiuoddudsidgio.png');
-    
-button:hover 
-        background-color: #303030; /* Dark grey on hover */
-    }
-</style>
-
-<style>
-    /* Existing styles */
-
-    /* Third column button text color */
-    .button-column:nth-child(6) button {
-        color: black;
-        background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/Update-button.jpg');
-    
-button:hover 
-        background-color: #303030; /* Dark grey on hover */
-    }
-</style>
-
+    <style>
+        /* Third column button text color */
+        .button-column:nth-child(4) button {
+            color: red;
+            background-color: black;
+        }
+        .button-column:nth-child(4) button:hover {
+            background-color: #303030; /* Dark grey on hover */
+        }
+    </style>
+    <style>
+        /* Fifth column button text color */
+        .button-column:nth-child(5) button {
+            color: black;
+            background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/fjdkhsfsgodguigsdfigudfiuoddudsidgio.png');
+        }
+        .button-column:nth-child(5) button:hover {
+            background-color: #303030; /* Dark grey on hover */
+        }
+    </style>
+    <style>
+        /* Sixth column button text color */
+        .button-column:nth-child(6) button {
+            color: black;
+            background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/Update-button.jpg');
+        }
+        .button-column:nth-child(6) button:hover {
+            background-color: #303030; /* Dark grey on hover */
+        }
+    </style>
 </head>
 <body>
     <h1>A F T E R L I F E (V5)</h1>
 
     <!-- Container for the buttons -->
     <div class="button-column">
-
         <!-- Existing buttons -->
-
-
         <!-- 1v1 lol -->
         <div><button onclick="openSite('11-lol-main/1v1.html')">1v1 lol</button></div>
-
         <!-- Slope -->
         <div><button onclick="openSite('slope/slope.html')">Slope</button></div>
-
         <!-- Roper -->
         <div><button onclick="openSite('roper.html')">Roper</button></div>
-
         <!-- Cookie Clicker -->
         <div><button onclick="openSiteInNewTab('cookie.html')">Cookie Clicker</button></div>
-
-	<!-- Infinite -->
+        <!-- Infinite -->
         <div><button onclick="openSite('infinitestartup.html')">Infinite Craft</button></div>
-
-	<!-- TUNNEL -->
+        <!-- TUNNEL -->
         <div><button onclick="openSite('tunnel/tunnel.html')">Tunnel Rush</button></div>
-
-	<!-- 2048 -->
+        <!-- 2048 -->
         <div><button onclick="openSite('numberstartup.html')">2048</button></div>
-
-	<!-- CASE CLICKER ONLINE -->
+        <!-- CASE CLICKER ONLINE -->
         <div><button onclick="openSite('caseclick.html')">Case Clicker Online</button></div>
-
-	<!-- STICKMAN HOOK -->
+        <!-- STICKMAN HOOK -->
         <div><button onclick="openSite('stickman.html')">Stickman Hook</button></div>
-
-	<!-- Gray box testing (soon)-->
+        <!-- Gray box testing (soon)-->
         <!-- <div><button onclick="openSite('https://html-classic.itch.zone/html/2259008/webv0_1_5/index.html?v=1591301690')">Gray Box Testing</button></div> -->
     </div>
 
     <!-- New column for additional buttons -->
+    <div class="button-column"></div>
+
+    <!-- Third column of buttons -->
     <div class="button-column">
-
-	
-
-
-    </div>
- <!-- third column of buttons -->
-    <div class="button-column">
-        
-
-	<!-- Quit -->
+        <!-- Quit -->
         <div><button onclick="rebirth();">Close Gr4vity</button></div>
-
-	<!-- Reload -->
+        <!-- Reload -->
         <div><button onclick="location.reload();">Reload page</button></div>
-
-	<!-- Github -->
+        <!-- Github -->
         <div><button onclick="githubPassword()">Github</button></div>
-	
-	
-</div>
-<!-- FINAL -->
- <div class="button-column">
+    </div>
 
-	<!-- BLANKIFY -->
+    <!-- Final column of buttons -->
+    <div class="button-column">
+        <!-- BLANKIFY -->
         <div><button onclick="blankify()">BLANKIFY</button></div>
-
-	<!-- PANIC -->
+        <!-- PANIC -->
         <div><button onclick="panic();">PANIC</button></div>
-
-	<!-- EMULATOR -->
+        <!-- EMULATOR -->
         <div><button onclick="openSite('https://emulator-js-unbl.vercel.app/')">EMULATOR</button></div>
-	
-	<!-- Request a game -->
+        <!-- Request a game -->
         <div><button onclick="openSite('https://forms.gle/JrhD79yqizE6JY5W8')">Feedback/Game request</button></div>
+    </div>
 
-
-</div>
-<!-- FINAL -->
- <div class="button-column">
-
-	<!-- Update Paradise -->
-        <div><button onclick="location.reload();">UPDATE PARADISE</button></div>
-
-
-<script>
-function rebirth() {
-    // Get all child windows opened by the main window
-    var childWindows = [];
-    for (var i = 0; i < window.frames.length; i++) {
-        childWindows.push(window.frames[i]);
-    }
-    
-    // Close all child windows
-    childWindows.forEach(function(win) {
-        win.close();
-    });
-    
-    // Close the main window
-    window.close();
-}
-</script>
+    <!-- Final column of buttons -->
+    <div class="button-column">
+        <!-- Fake update button -->
+        <div><button id="updateButton" onclick="countdown();">UPDATE PARADISE</button></div>
+    </div>
 
     <script>
+        var updatenumber = 0;
+
+        function rebirth() {
+            var childWindows = [];
+            for (var i = 0; i < window.frames.length; i++) {
+                childWindows.push(window.frames[i]);
+            }
+            childWindows.forEach(function(win) {
+                win.close();
+            });
+            window.close();
+        }
+
         function openSite(url) {
             var win = window.open();
             win.document.body.style.margin = "0";
@@ -219,117 +174,143 @@ function rebirth() {
         }
 
         function openSiteInNewTab(url) {
-	window.open(url, '_blank');
+            window.open(url, '_blank');
         }
-    </script>
-<script>
-function blankify() {
-	let blankifysite = prompt("Please enter your website.", "");
-	       if (blankifysite !== null) {
-        // Check if the input contains a scheme
-        if (!/^https?:\/\//i.test(blankifysite)) {
-            // If not, prepend "https://"
-            blankifysite = "https://" + blankifysite;
-        }
-        // Open the website
-        openSite(blankifysite);
-    } else {
-        // Handle cancel button click
-        console.log("User cancelled the operation.");
-    }
-}
-</script>
 
-<script>
-function githubPassword() {
-    let passwordgit = prompt("Please enter the developer password", "");
-    if (passwordgit !== null) {
-        if (passwordgit === 'IamDevlol123') {  
-            // Open the website
-            openSiteInNewTab('https://github.com/GalacticInterfaces/GodFolder');
-        } else {
-            // Handle incorrect password
-            console.log("Incorrect password.");
-	    alert('!INCORRECT!');
-	    githubPassword();
+        function blankify() {
+            let blankifysite = prompt("Please enter your website.", "");
+            if (blankifysite !== null) {
+                if (!/^https?:\/\//i.test(blankifysite)) {
+                    blankifysite = "https://" + blankifysite;
+                }
+                openSite(blankifysite);
+            } else {
+                console.log("User cancelled the operation.");
+            }
         }
-    } else {
-        // Handle cancel button click
-        console.log("User cancelled the operation.");
-    }
-}
-</script>
 
-<script>
-function panic() {
-    openSiteInNewTab('https://classroom.google.com');
-    window.close();
-}
-	window.onload = function() {
-            // Check if the cookie named "ACCESS" exists and its value is true
+        function githubPassword() {
+            let passwordgit = prompt("Please enter the developer password", "");
+            if (passwordgit !== null) {
+                if (passwordgit === 'IamDevlol123') {
+                    openSiteInNewTab('https://github.com/GalacticInterfaces/GodFolder');
+                } else {
+                    console.log("Incorrect password.");
+                    alert('!INCORRECT!');
+                    githubPassword();
+                }
+            } else {
+                console.log("User cancelled the operation.");
+            }
+        }
+
+        function panic() {
+            openSiteInNewTab('https://classroom.google.com');
+            window.close();
+        }
+
+        window.onload = function() {
             var accessCookie = getCookie("ACCESS");
             if (!accessCookie || accessCookie !== "true") {
-                // Cookie doesn't exist or its value is not true, do not display the body
                 document.body.style.display = "none";
-                // Redirect to another page if needed
                 setTimeout(function() {
                     window.location.replace("denied.html");
-                }, 2000); // Redirect after 2 seconds
+                }, 2000);
             } else {
-                // If the cookie is present and its value is true, display the body
                 document.body.style.display = "block";
             }
         };
 
-        // Function to get the value of a cookie by its name
         function getCookie(name) {
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
+                if (cookie.indexOf(name + '=') === 0) {
                     return cookie.substring(name.length + 1);
                 }
             }
             return null;
         }
-</script>
 
-<script>
-function UpdateParadise() {
-    fetch('https://api.github.com/repos/GalacticInterfaces/GodFolder/releases/latest')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch latest release');
+        function countdown() {
+            updatenumber += 1;
+            var button = document.getElementById("updateButton");
+
+            if (updatenumber === 1) {
+                startMovingButton(button);
+            } else if (updatenumber === 2) {
+                increaseButtonSpeed();
+            } else if (updatenumber === 3) {
+                button.style.transform = "scale(0.5)";
+            } else if (updatenumber >= 4) {
+                window.location.replace('6x.html');
             }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Latest release data:', data); // Log the entire data object
-            
-            const latestVersion = data.tag_name; // Get the tag name of the latest release
-            const latestVersionCheck = '5.0'; // Define the predefined value for the latest version
-            
-            if (latestVersion === latestVersionCheck) {
-                alert('This button is here from the origonal Afterlife, but it is pointless for you because you have premium!!!!');
-            } else {
-                const asset = data.assets.find(asset => asset.name === 'Paradise.zip');
-                if (asset) {
-                    // Construct the download link
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = asset.browser_download_url;
-                    downloadLink.textContent = 'Download Paradise.zip';
-                    downloadLink.download = 'Paradise.zip'; // Optional: Set the filename for download
-                    document.body.appendChild(downloadLink);
-                    downloadLink.click(); // Optional: Automatically trigger the download
-                    document.body.removeChild(downloadLink); // Optional: Remove the link after download
-                } else {
-                    console.error('File not found in the latest release.');
+        }
+
+        var moveInterval;
+        var speed = 2;
+        var directionX = 1;
+        var directionY = 1;
+
+        function startMovingButton(button) {
+            var rect = button.getBoundingClientRect();
+            var maxX = window.innerWidth - rect.width;
+            var maxY = window.innerHeight - rect.height;
+
+            moveInterval = setInterval(function() {
+                var rect = button.getBoundingClientRect();
+                var left = rect.left + directionX * speed;
+                var top = rect.top + directionY * speed;
+
+                if (left <= 0 || left >= maxX) {
+                    directionX *= -1;
                 }
-            }
-        })
-        .catch(error => console.error('Error fetching latest release:', error));
-}
+                if (top <= 0 || top >= maxY) {
+                    directionY *= -1;
+                }
 
-</script>
+                button.style.position = "fixed";
+                button.style.left = left + "px";
+                button.style.top = top + "px";
+            }, 20);
+        }
+
+        function increaseButtonSpeed() {
+            speed *= 2;
+        }
+
+        function UpdateParadise() {
+            fetch('https://api.github.com/repos/GalacticInterfaces/GodFolder/releases/latest')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch latest release');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Latest release data:', data);
+                    const latestVersion = data.tag_name;
+                    const latestVersionCheck = '5.0';
+
+                    if (latestVersion === latestVersionCheck) {
+                        alert('This button is here from the original Afterlife, but it is pointless for you because you have premium!!!!');
+                    } else {
+                        const asset = data.assets.find(asset => asset.name === 'Paradise.zip');
+                        if (asset) {
+                            const downloadLink = document.createElement('a');
+                            downloadLink.href = asset.browser_download_url;
+                            downloadLink.textContent = 'Download Paradise.zip';
+                            downloadLink.download = 'Paradise.zip';
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+                        } else {
+                            console.error('File not found in the latest release.');
+                        }
+                    }
+                })
+                .catch(error => console.error('Error fetching latest release:', error));
+        }
+    </script>
 </body>
 </html>
