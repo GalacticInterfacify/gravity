@@ -17,9 +17,10 @@
             padding: 20px;
         }
         h1 {
-            color: black;
+            color: white; /* Change title text color to white */
             font-weight: bold;
             text-align: center; /* Center the text */
+            user-select: none; /* Make title not selectable */
         }
         p {
             color: black;
@@ -35,10 +36,29 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: bold; /* Bold text */
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
         }
         .button-column {
             float: left;
             margin-right: 20px; /* Add some space between columns */
+        }
+        .button-column button {
+            user-select: none;
+        }
+        .button-column:nth-child(4) button {
+            color: red;
+            background-color: black;
+        }
+        .button-column:nth-child(5) button {
+            color: black;
+            background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/fjdkhsfsgodguigsdfigudfiuoddudsidgio.png');
+        }
+        .button-column:nth-child(6) button {
+            color: black;
+            background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/Update-button.jpg');
         }
     </style>
 </head>
@@ -48,117 +68,45 @@
     <!-- Container for the buttons -->
     <div class="button-column">
         <!-- Existing buttons -->
-        <!-- 1v1 lol -->
         <div><button onclick="openSite('11-lol-main/1v1.html')">1v1 lol</button></div>
-        <!-- Slope -->
         <div><button onclick="openSite('slope/slope.html')">Slope</button></div>
-        <!-- Roper -->
         <div><button onclick="openSite('roper.html')">Roper</button></div>
-        <!-- Cookie Clicker -->
         <div><button onclick="openSiteInNewTab('cookie.html')">Cookie Clicker</button></div>
-        <!-- Infinite -->
         <div><button onclick="openSite('infinitestartup.html')">Infinite Craft</button></div>
-        <!-- TUNNEL -->
         <div><button onclick="openSite('tunnel/tunnel.html')">Tunnel Rush</button></div>
-        <!-- 2048 -->
         <div><button onclick="openSite('numberstartup.html')">2048</button></div>
-        <!-- CASE CLICKER ONLINE -->
         <div><button onclick="openSite('caseclick.html')">Case Clicker Online</button></div>
-        <!-- STICKMAN HOOK -->
         <div><button onclick="openSite('stickman.html')">Stickman Hook</button></div>
     </div>
 
-    <!-- New column for additional buttons -->
-    <div class="button-column"></div>
-
-    <!-- Third column of buttons -->
     <div class="button-column">
-        <!-- Quit -->
         <div><button onclick="rebirth();">Close Gr4vity</button></div>
-        <!-- Reload -->
         <div><button onclick="location.reload();">Reload page</button></div>
-        <!-- Github -->
         <div><button onclick="githubPassword()">Github</button></div>
     </div>
 
-    <!-- Final column of buttons -->
     <div class="button-column">
-        <!-- BLANKIFY -->
         <div><button onclick="blankify()">BLANKIFY</button></div>
-        <!-- PANIC -->
         <div><button onclick="panic();">PANIC</button></div>
-        <!-- EMULATOR -->
         <div><button onclick="openSite('https://emulator-js-unbl.vercel.app/')">EMULATOR</button></div>
-        <!-- Request a game -->
         <div><button onclick="openSite('https://forms.gle/JrhD79yqizE6JY5W8')">Feedback/Game request</button></div>
-        <!-- Update Paradise -->
     </div>
-        <div class="button-column">
-                <div><button onclick="countdown();">UPDATE PARADISE</button></div>
-        </div>
+
+    <div class="button-column">
+        <div><button onclick="countdown();">UPDATE PARADISE</button></div>
+    </div>
 
     <script>
-        var updatenumber = 0; // Initialize updatenumber
-
-        function countdown() {
-            updatenumber++; // Increment updatenumber
-
-            if (updatenumber === 1) {
-                // Start bouncing around the screen
-                startBouncing();
-            } else if (updatenumber === 2) {
-                // Increase bouncing speed
-                speed *= 2;
-            } else if (updatenumber === 3) {
-                // Halve the size of the button
-                document.querySelector('.button-column:nth-child(7) button').style.fontSize = '8px';
-                document.querySelector('.button-column:nth-child(7) button').style.padding = '5px 10px';
-            } else if (updatenumber === 4) {
-                // Redirect to '6x.html'
-                window.location.href = '6x.html';
-            }
-        }
-
-        // Bouncing around the screen
-        function startBouncing() {
-            var interval = setInterval(move, 16.66);
-            var directionX = 1;
-            var directionY = 1;
-            var speed = 4;
-            var box = document.querySelector('.button-column:nth-child(7) button');
-            var ww = window.innerWidth;
-            var wh = window.innerHeight;
-            var x = Math.floor(Math.random() * (ww - box.offsetWidth));
-            var y = Math.floor(Math.random() * (wh - box.offsetHeight));
-
-            function move() {
-                if (x <= 0 || x >= ww - box.offsetWidth) {
-                    directionX *= -1;
-                }
-                if (y <= 0 || y >= wh - box.offsetHeight) {
-                    directionY *= -1;
-                }
-                x += directionX * speed;
-                y += directionY * speed;
-
-                box.style.left = x + 'px';
-                box.style.top = y + 'px';
-            }
-        }
+        let updatenumber = 0;
 
         function rebirth() {
-            // Get all child windows opened by the main window
             var childWindows = [];
             for (var i = 0; i < window.frames.length; i++) {
                 childWindows.push(window.frames[i]);
             }
-
-            // Close all child windows
             childWindows.forEach(function(win) {
                 win.close();
             });
-
-            // Close the main window
             window.close();
         }
 
@@ -167,8 +115,7 @@
             win.document.body.style.margin = "0";
             win.document.body.style.height = "100vh";
             var iframe = win.document.createElement("iframe");
-            iframe.style.border = "
-none";
+            iframe.style.border = "none";
             iframe.style.width = "100%";
             iframe.style.height = "100%";
             iframe.style.margin = "0";
@@ -185,15 +132,11 @@ none";
         function blankify() {
             let blankifysite = prompt("Please enter your website.", "");
             if (blankifysite !== null) {
-                // Check if the input contains a scheme
                 if (!/^https?:\/\//i.test(blankifysite)) {
-                    // If not, prepend "https://"
                     blankifysite = "https://" + blankifysite;
                 }
-                // Open the website
                 openSite(blankifysite);
             } else {
-                // Handle cancel button click
                 console.log("User cancelled the operation.");
             }
         }
@@ -202,16 +145,13 @@ none";
             let passwordgit = prompt("Please enter the developer password", "");
             if (passwordgit !== null) {
                 if (passwordgit === 'IamDevlol123') {  
-                    // Open the website
                     openSiteInNewTab('https://github.com/GalacticInterfaces/GodFolder');
                 } else {
-                    // Handle incorrect password
                     console.log("Incorrect password.");
                     alert('!INCORRECT!');
                     githubPassword();
                 }
             } else {
-                // Handle cancel button click
                 console.log("User cancelled the operation.");
             }
         }
@@ -222,32 +162,73 @@ none";
         }
 
         window.onload = function() {
-            // Check if the cookie named "ACCESS" exists and its value is true
             var accessCookie = getCookie("ACCESS");
             if (!accessCookie || accessCookie !== "true") {
-                // Cookie doesn't exist or its value is not true, do not display the body
                 document.body.style.display = "none";
-                // Redirect to another page if needed
                 setTimeout(function() {
                     window.location.replace("denied.html");
-                }, 2000); // Redirect after 2 seconds
+                }, 2000);
             } else {
-                // If the cookie is present and its value is true, display the body
                 document.body.style.display = "block";
             }
         };
 
-        // Function to get the value of a cookie by its name
         function getCookie(name) {
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
+                if (cookie.indexOf(name + '=') === 0) {
                     return cookie.substring(name.length + 1);
                 }
             }
             return null;
         }
+
+        function countdown() {
+            updatenumber++;
+            const button = document.querySelector('.button-column:nth-child(4) button');
+            
+            if (updatenumber === 1) {
+                button.style.animation = 'spin 1s linear infinite';
+            } else if (updatenumber === 2) {
+                button.style.transform = 'scale(2)';
+            } else if (updatenumber === 3) {
+                const elements = document.querySelectorAll('h1, .button-column button:not(:nth-child(4) button)');
+                let speed = 10;
+                elements.forEach((el) => {
+                    el.style.position = 'relative';
+                });
+
+                let interval = setInterval(() => {
+                    elements.forEach((el) => {
+                        el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
+                    });
+                    speed *= 2;
+                }, 200);
+
+                setTimeout(() => {
+                    clearInterval(interval);
+                }, 9000);
+            } else if (updatenumber === 4) {
+                let toggle = true;
+                setInterval(() => {
+                    document.body.style.backgroundColor = toggle ? 'black' : 'white';
+                    toggle = !toggle;
+                }, 200);
+            } else if (updatenumber === 5) {
+                openSite('6x.html');
+            }
+        }
+
+        // CSS for spin animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
