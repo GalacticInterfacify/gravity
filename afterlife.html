@@ -63,7 +63,7 @@
     </style>
 </head>
 <body>
-    <h1 id="pageTitle">A F T E R L I F E (V5)</h1>
+    <h1 id="pageTitle">A F T E R L I F E (V5.2)</h1>
 
     <!-- Container for the buttons -->
     <div class="button-column">
@@ -155,7 +155,7 @@
                     githubPassword();
                 }
             } else {
-                console.log("User cancelled the operation.");
+                console.log("User cancelled the operation
             }
         }
 
@@ -190,34 +190,29 @@
         function countdown() {
             updatenumber++;
             const button = document.getElementById('updateButton');
-            const title = document.getElementById('pageTitle');
+            const pageTitle = document.getElementById('pageTitle');
             
             if (updatenumber === 1) {
                 button.style.animation = 'spin 1s linear infinite';
             } else if (updatenumber === 2) {
-                button.style.transform = 'scale(2)';
-                title.textContent = 'Please do not share this easter egg!!!! (V5)';
+                button.textContent = 'Please do not share this easter egg!!!! (V5)';
             } else if (updatenumber === 3) {
-                const elements = document.querySelectorAll('h1, .button-column button');
-                let speed = 5;
+                const elements = document.querySelectorAll('h1, .button-column button:not(#updateButton)');
+                let speed = 1; // Initial speed
                 elements.forEach((el) => {
-                    if (el !== button) {
-                        el.style.position = 'relative';
-                    }
+                    el.style.position = 'relative';
                 });
 
                 let interval = setInterval(() => {
                     elements.forEach((el) => {
-                        if (el !== button) {
-                            el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
-                        }
+                        el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
                     });
-                    speed *= 1.1; // Increase speed slightly to smooth the movement
-                }, 50);
+                    speed += 1; // Increment speed
+                }, 50); // Adjust interval for smoother movement
 
                 setTimeout(() => {
                     clearInterval(interval);
-                }, 5000); // Reduced the duration to 5 seconds
+                }, 5000); // Adjust duration for smoother movement
             } else if (updatenumber === 4) {
                 let toggle = true;
                 setInterval(() => {
