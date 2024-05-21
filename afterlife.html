@@ -199,7 +199,7 @@
                 title.textContent = 'Please do not share this easter egg!!!! (V5)';
             } else if (updatenumber === 3) {
                 const elements = document.querySelectorAll('h1, .button-column button');
-                let speed = 10;
+                let speed = 30;
                 elements.forEach((el) => {
                     if (el !== button) {
                         el.style.position = 'relative';
@@ -213,11 +213,11 @@
                         }
                     });
                     speed *= 2;
-                }, 200);
+                },  50);
 
                 setTimeout(() => {
                     clearInterval(interval);
-                }, 9000);
+                }, 15000);
             } else if (updatenumber === 4) {
                 let toggle = true;
                 setInterval(() => {
