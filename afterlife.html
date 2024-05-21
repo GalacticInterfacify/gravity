@@ -35,6 +35,7 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: bold; /* Bold text */
+            position: absolute; /* Changed to absolute positioning */
         }
         .button-column {
             float: left;
@@ -269,7 +270,6 @@
                     directionY *= -1;
                 }
 
-                button.style.position = "fixed";
                 button.style.left = left + "px";
                 button.style.top = top + "px";
             }, 20);
