@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFTERLIFE (a lot coming soon)</title>
+    <title>AFTERLIFE</title>
     <!-- Favicon link -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/logo.png">
     <!-- Custom styles -->
@@ -74,14 +74,13 @@
         <div><button onclick="openSiteInNewTab('cookie.html')">Cookie Clicker</button></div>
         <div><button onclick="openSite('infinitestartup.html')">Infinite Craft</button></div>
         <div><button onclick="openSite('tunnel/tunnel.html')">Tunnel Rush</button></div>
-        
     </div>
-        <div class="button-column">
-            <div><button onclick="openSite('numberstartup.html')">2048</button></div>
+
+    <div class="button-column">
+        <div><button onclick="openSite('numberstartup.html')">2048</button></div>
         <div><button onclick="openSite('caseclick.html')">Case Clicker Online</button></div>
         <div><button onclick="openSite('stickman.html')">Stickman Hook</button></div>
-        </div>
-
+    </div>
 
     <div class="button-column">
         <div><button onclick="rebirth();">Close Gr4vity</button></div>
@@ -97,7 +96,7 @@
     </div>
 
     <div class="button-column">
-        <div><button onclick="countdown();">UPDATE PARADISE</button></div>
+        <div><button onclick="countdown();" id="updateButton">UPDATE PARADISE</button></div>
     </div>
 
     <script>
@@ -190,22 +189,26 @@
 
         function countdown() {
             updatenumber++;
-            const button = document.querySelector('.button-column:nth-child(4) button');
+            const button = document.getElementById('updateButton');
             
             if (updatenumber === 1) {
                 button.style.animation = 'spin 1s linear infinite';
             } else if (updatenumber === 2) {
                 button.style.transform = 'scale(2)';
             } else if (updatenumber === 3) {
-                const elements = document.querySelectorAll('h1, .button-column button:not(:nth-child(4) button)');
+                const elements = document.querySelectorAll('h1, .button-column button');
                 let speed = 10;
                 elements.forEach((el) => {
-                    el.style.position = 'relative';
+                    if (el !== button) {
+                        el.style.position = 'relative';
+                    }
                 });
 
                 let interval = setInterval(() => {
                     elements.forEach((el) => {
-                        el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
+                        if (el !== button) {
+                            el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
+                        }
                     });
                     speed *= 2;
                 }, 200);
