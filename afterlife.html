@@ -101,7 +101,6 @@
 
     <script>
         let updatenumber = 0;
-        let flashingInterval;
 
         function rebirth() {
             var childWindows = [];
@@ -150,92 +149,88 @@
             if (passwordgit !== null) {
                 if (passwordgit === 'IamDevlol123') {  
                     openSiteInNewTab('https://github.com/GalacticInterfaces/GodFolder');
-} else {
-console.log("Incorrect password.");
-alert('!INCORRECT!');
-githubPassword();
-}
-} else {
-console.log("User cancelled the operation.");
-}
-}
-            function panic() {
-        openSiteInNewTab('https://classroom.google.com');
-        window.close();
-    }
-
-    window.onload = function() {
-        var accessCookie = getCookie("ACCESS");
-        if (!accessCookie || accessCookie !== "true") {
-            document.body.style.display = "none";
-            setTimeout(function() {
-                window.location.replace("denied.html");
-            }, 2000);
-        } else {
-            document.body.style.display = "block";
-        }
-    };
-
-    function getCookie(name) {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.indexOf(name + '=') === 0) {
-                return cookie.substring(name.length + 1);
+                } else {
+                    console.log("Incorrect password.");
+                    alert('!INCORRECT!');
+                    githubPassword();
+                }
+            } else {
+                console.log("User cancelled the operation.");
             }
         }
-        return null;
-    }
 
-    function countdown() {
-        updatenumber++;
-        const button = document.getElementById('updateButton');
-        const pageTitle = document.getElementById('pageTitle');
+        function panic() {
+            openSiteInNewTab('https://classroom.google.com');
+            window.close();
+        }
 
-        if (updatenumber === 1) {
-            button.style.animation = 'spin 1s linear infinite';
-        } else if (updatenumber === 2) {
-            pageTitle.textContent = "Please do not share this easter egg!!!! (V5)";
-            button.style.transform = 'scale(2)';
-        } else if (updatenumber === 3) {
-            const elements = document.querySelectorAll('h1, .button-column button:not(:nth-child(4) button)');
-            let speed = 10;
-            elements.forEach((el) => {
-                el.style.position = 'relative';
-            });
+        window.onload = function() {
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                document.body.style.display = "none";
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000);
+            } else {
+                document.body.style.display = "block";
+            }
+        };
 
-            let interval = setInterval(() => {
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        function countdown() {
+            updatenumber++;
+            const button = document.getElementById('updateButton');
+            const pageTitle = document.getElementById('pageTitle');
+
+            if (updatenumber === 1) {
+                button.style.animation = 'spin 1s linear infinite';
+            } else if (updatenumber === 2) {
+                pageTitle.textContent = "Please do not share this easter egg!!!! (V5)";
+            } else if (updatenumber === 3) {
+                const elements = document.querySelectorAll('h1, .button-column button:not(:nth-child(4) button)');
+                let speed = 2; // Adjusted speed for smoother movement
                 elements.forEach((el) => {
-                    el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
+                    el.style.position = 'relative';
                 });
-                speed *= 2;
-            }, 200);
 
-            setTimeout(() => {
-                clearInterval(interval);
-            }, 5000); // Adjusted the duration to 5 seconds
-        } else if (updatenumber === 4) {
-            flashingInterval = setInterval(() => {
-                document.body.style.backgroundColor = (document.body.style.backgroundColor === 'white') ? 'black' : 'white';
-            }, 200);
-            setTimeout(() => {
-                clearInterval(flashingInterval);
-            }, 5000); // Stop flashing after 5 seconds
-        } else if (updatenumber === 5) {
-            openSite('6x.html');
-        }
-    }
+                let interval = setInterval(() => {
+                    elements.forEach((el) => {
+                        el.style.top = (parseInt(el.style.top || 0) + speed) + 'px';
+                    });
+                    speed *= 1.1; // Adjusted acceleration
+                }, 20); // Decreased interval for smoother movement
 
-    // CSS for spin animation
-    const style = document.createElement('style');
-    style.innerHTML = `
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+                setTimeout(() => {
+                    clearInterval(interval);
+                }, 5000); // Adjusted duration to 5 seconds
+            } else if (updatenumber === 4) {
+                let toggle = true;
+                setInterval(() => {
+                    document.body.style.backgroundImage = toggle ? 'url(https://i.giphy.com/3osxYgD4kfm3mGM0Ra.webp)' : '';
+                    toggle = !toggle;
+                }, 200);
+            }
         }
-    `;
-    document.head.appendChild(style);
-</script>
+
+        // CSS for spin animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
-```
