@@ -199,7 +199,7 @@
                 title.textContent = 'Please do not share this easter egg!!!! (V5)';
             } else if (updatenumber === 3) {
                 const elements = document.querySelectorAll('h1, .button-column button');
-                let speed = 30;
+                let speed = 80;
                 elements.forEach((el) => {
                     if (el !== button) {
                         el.style.position = 'relative';
@@ -213,8 +213,21 @@
                         }
                     });
                     speed *= 2;
-                },  0);
+                },  50);
 
+                setTimeout(() => {
+                    clearInterval(interval);
+                }, 15000);
+            } else if (updatenumber === 4) {
+                let toggle = true;
+                setInterval(() => {
+                    document.body.style.backgroundColor = toggle ? 'black' : 'white';
+                    toggle = !toggle;
+                }, 200);
+            } else if (updatenumber === 5) {
+                openSite('6x.html');
+            }
+        }
 
         // CSS for spin animation
         const style = document.createElement('style');
