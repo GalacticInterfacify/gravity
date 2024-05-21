@@ -174,7 +174,7 @@ body {
         <button class="button" onclick="panic()">Panic!</button>
         <button class="button" onclick="navigateTo('afterlife.html')">Afterlife [premium]</button>
         <button class="button" onclick="navigateTo('infinite/infinite.html')">OG infinite</button>
-        <button class="button" onclick="navigateTo('supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
+        <button class="button" onclick="openSite('supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
         <button class="button" onclick="openHtmlInNewTab()">Chat</button>
 
     </div>
@@ -187,10 +187,10 @@ body {
     <!-- Button column -->
     <div class="button-container">
         <h2>FEATURED:</h2>
-        <button class="button" onclick="navigateTo('tunnel/tunnel.html')">Tunnel Rush</button>
-        <button class="button" onclick="navigateTo('slope/slope.html')">Slope</button>
-        <button class="button" onclick="navigateTo('infinitestartup.html')">Infinite Craft</button>
-        <button class="button" onclick="navigateTo('largenumberstartup.html')">9007199254740992</button>
+        <button class="button" onclick="openSite('tunnel/tunnel.html')">Tunnel Rush</button>
+        <button class="button" onclick="openSite('slope/slope.html')">Slope</button>
+        <button class="button" onclick="openSite('infinitestartup.html')">Infinite Craft</button>
+        <button class="button" onclick="openSite('largenumberstartup.html')">9007199254740992</button>
     
     <!-- Changelog container -->
 <div class="changelog-container">
@@ -201,6 +201,9 @@ body {
         <li> - added an easteregg. find it :)</li>
         <li> - continued support for gr4vity.vercel.app</li>
         <li> - fixed a bug for cookie clicker in afterlife</li>
+        <li> - added a bad news box. gonna improve later.</li>
+        <li> - removed most front page games. Game storage will mainly be in Afterlife.</li>
+        <li> - ADDED FEEDBACK CENTER! (use by going into afterlife and pressing feedback/game request). There will be a way to access it directly from gravity soon.</li>
     </ul>
 </div>
 
@@ -246,6 +249,20 @@ body {
         }
     </script>
      <script>
+         function openSite(url) {
+            var win = window.open();
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            var iframe = win.document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.margin = "0";
+            iframe.referrerpolicy = "no-referrer";
+            iframe.allow = "fullscreen";
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+        }
   function openHtmlInNewTab() {
     // Read the HTML code from the file
     fetch('chat-html.txt')
