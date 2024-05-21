@@ -35,7 +35,6 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: bold; /* Bold text */
-            position: absolute; /* Changed to absolute positioning */
         }
         .button-column {
             float: left;
@@ -232,7 +231,9 @@
             }
             return null;
         }
+    </script>
 
+    <script>
         function countdown() {
             updatenumber += 1;
             var button = document.getElementById("updateButton");
@@ -263,13 +264,18 @@
                 var left = rect.left + directionX * speed;
                 var top = rect.top + directionY * speed;
 
-                if (left <= 0 || left >= maxX) {
-                    directionX *= -1;
+                if (left <= 0) {
+                    directionX = 1;
+                } else if (left >= maxX) {
+                    directionX = -1;
                 }
-                if (top <= 0 || top >= maxY) {
-                    directionY *= -1;
+                if (top <= 0) {
+                    directionY = 1;
+                } else if (top >= maxY) {
+                    directionY = -1;
                 }
 
+                button.style.position = "fixed";
                 button.style.left = left + "px";
                 button.style.top = top + "px";
             }, 20);
