@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFTERLIFE</title>
+    <title>AFTERLIFE (a lot coming soon)</title>
     <!-- Favicon link -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/logo.png">
     <!-- Custom styles -->
@@ -63,7 +63,7 @@
     </style>
 </head>
 <body>
-    <h1>A F T E R L I F E (V5)</h1>
+    <h1 id="pageTitle">A F T E R L I F E (V5.2)</h1>
 
     <!-- Container for the buttons -->
     <div class="button-column">
@@ -190,11 +190,13 @@
         function countdown() {
             updatenumber++;
             const button = document.getElementById('updateButton');
+            const title = document.getElementById('pageTitle');
             
             if (updatenumber === 1) {
                 button.style.animation = 'spin 1s linear infinite';
             } else if (updatenumber === 2) {
                 button.style.transform = 'scale(2)';
+                title.textContent = 'Please do not share this easter egg!!!! (V5)';
             } else if (updatenumber === 3) {
                 const elements = document.querySelectorAll('h1, .button-column button');
                 let speed = 10;
