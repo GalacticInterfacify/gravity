@@ -40,49 +40,6 @@
             float: left;
             margin-right: 20px; /* Add some space between columns */
         }
-        .button-column button {
-            user-select: none;
-        }
-        h1 {
-            color: white; /* Change title text color to white */
-            user-select: none; /* Make title not selectable */
-        }
-        button {
-            transition: transform 0.2s ease;
-        }
-        button:hover {
-            transform: scale(1.05);
-        }
-    </style>
-    <style>
-        /* Third column button text color */
-        .button-column:nth-child(4) button {
-            color: red;
-            background-color: black;
-        }
-        .button-column:nth-child(4) button:hover {
-            background-color: #303030; /* Dark grey on hover */
-        }
-    </style>
-    <style>
-        /* Fifth column button text color */
-        .button-column:nth-child(5) button {
-            color: black;
-            background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/fjdkhsfsgodguigsdfigudfiuoddudsidgio.png');
-        }
-        .button-column:nth-child(5) button:hover {
-            background-color: #303030; /* Dark grey on hover */
-        }
-    </style>
-    <style>
-        /* Sixth column button text color */
-        .button-column:nth-child(6) button {
-            color: black;
-            background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/Update-button.jpg');
-        }
-        .button-column:nth-child(6) button:hover {
-            background-color: #303030; /* Dark grey on hover */
-        }
     </style>
 </head>
 <body>
@@ -109,8 +66,6 @@
         <div><button onclick="openSite('caseclick.html')">Case Clicker Online</button></div>
         <!-- STICKMAN HOOK -->
         <div><button onclick="openSite('stickman.html')">Stickman Hook</button></div>
-        <!-- Gray box testing (soon)-->
-        <!-- <div><button onclick="openSite('https://html-classic.itch.zone/html/2259008/webv0_1_5/index.html?v=1591301690')">Gray Box Testing</button></div> -->
     </div>
 
     <!-- New column for additional buttons -->
@@ -136,25 +91,74 @@
         <div><button onclick="openSite('https://emulator-js-unbl.vercel.app/')">EMULATOR</button></div>
         <!-- Request a game -->
         <div><button onclick="openSite('https://forms.gle/JrhD79yqizE6JY5W8')">Feedback/Game request</button></div>
+        <!-- Update Paradise -->
     </div>
-
-    <!-- Final column of buttons -->
-    <div class="button-column">
-        <!-- Fake update button -->
-        <div><button id="updateButton" onclick="countdown();">UPDATE PARADISE</button></div>
-    </div>
+        <div class="button-column">
+                <div><button onclick="countdown();">UPDATE PARADISE</button></div>
+        </div>
 
     <script>
-        var updatenumber = 0;
+        var updatenumber = 0; // Initialize updatenumber
+
+        function countdown() {
+            updatenumber++; // Increment updatenumber
+
+            if (updatenumber === 1) {
+                // Start bouncing around the screen
+                startBouncing();
+            } else if (updatenumber === 2) {
+                // Increase bouncing speed
+                speed *= 2;
+            } else if (updatenumber === 3) {
+                // Halve the size of the button
+                document.querySelector('.button-column:nth-child(7) button').style.fontSize = '8px';
+                document.querySelector('.button-column:nth-child(7) button').style.padding = '5px 10px';
+            } else if (updatenumber === 4) {
+                // Redirect to '6x.html'
+                window.location.href = '6x.html';
+            }
+        }
+
+        // Bouncing around the screen
+        function startBouncing() {
+            var interval = setInterval(move, 16.66);
+            var directionX = 1;
+            var directionY = 1;
+            var speed = 4;
+            var box = document.querySelector('.button-column:nth-child(7) button');
+            var ww = window.innerWidth;
+            var wh = window.innerHeight;
+            var x = Math.floor(Math.random() * (ww - box.offsetWidth));
+            var y = Math.floor(Math.random() * (wh - box.offsetHeight));
+
+            function move() {
+                if (x <= 0 || x >= ww - box.offsetWidth) {
+                    directionX *= -1;
+                }
+                if (y <= 0 || y >= wh - box.offsetHeight) {
+                    directionY *= -1;
+                }
+                x += directionX * speed;
+                y += directionY * speed;
+
+                box.style.left = x + 'px';
+                box.style.top = y + 'px';
+            }
+        }
 
         function rebirth() {
+            // Get all child windows opened by the main window
             var childWindows = [];
             for (var i = 0; i < window.frames.length; i++) {
                 childWindows.push(window.frames[i]);
             }
+
+            // Close all child windows
             childWindows.forEach(function(win) {
                 win.close();
             });
+
+            // Close the main window
             window.close();
         }
 
@@ -163,7 +167,8 @@
             win.document.body.style.margin = "0";
             win.document.body.style.height = "100vh";
             var iframe = win.document.createElement("iframe");
-            iframe.style.border = "none";
+            iframe.style.border = "
+none";
             iframe.style.width = "100%";
             iframe.style.height = "100%";
             iframe.style.margin = "0";
@@ -180,11 +185,15 @@
         function blankify() {
             let blankifysite = prompt("Please enter your website.", "");
             if (blankifysite !== null) {
+                // Check if the input contains a scheme
                 if (!/^https?:\/\//i.test(blankifysite)) {
+                    // If not, prepend "https://"
                     blankifysite = "https://" + blankifysite;
                 }
+                // Open the website
                 openSite(blankifysite);
             } else {
+                // Handle cancel button click
                 console.log("User cancelled the operation.");
             }
         }
@@ -192,14 +201,17 @@
         function githubPassword() {
             let passwordgit = prompt("Please enter the developer password", "");
             if (passwordgit !== null) {
-                if (passwordgit === 'IamDevlol123') {
+                if (passwordgit === 'IamDevlol123') {  
+                    // Open the website
                     openSiteInNewTab('https://github.com/GalacticInterfaces/GodFolder');
                 } else {
+                    // Handle incorrect password
                     console.log("Incorrect password.");
                     alert('!INCORRECT!');
                     githubPassword();
                 }
             } else {
+                // Handle cancel button click
                 console.log("User cancelled the operation.");
             }
         }
@@ -210,112 +222,31 @@
         }
 
         window.onload = function() {
+            // Check if the cookie named "ACCESS" exists and its value is true
             var accessCookie = getCookie("ACCESS");
             if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, do not display the body
                 document.body.style.display = "none";
+                // Redirect to another page if needed
                 setTimeout(function() {
                     window.location.replace("denied.html");
-                }, 2000);
+                }, 2000); // Redirect after 2 seconds
             } else {
+                // If the cookie is present and its value is true, display the body
                 document.body.style.display = "block";
             }
         };
 
+        // Function to get the value of a cookie by its name
         function getCookie(name) {
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
+                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
                     return cookie.substring(name.length + 1);
                 }
             }
             return null;
-        }
-    </script>
-
-    <script>
-        function countdown() {
-            updatenumber += 1;
-            var button = document.getElementById("updateButton");
-
-            if (updatenumber === 1) {
-                startMovingButton(button);
-            } else if (updatenumber === 2) {
-                increaseButtonSpeed();
-            } else if (updatenumber === 3) {
-                button.style.transform = "scale(0.5)";
-            } else if (updatenumber >= 4) {
-                window.location.replace('6x.html');
-            }
-        }
-
-        var moveInterval;
-        var speed = 2;
-        var directionX = 1;
-        var directionY = 1;
-
-        function startMovingButton(button) {
-            var rect = button.getBoundingClientRect();
-            var maxX = window.innerWidth - rect.width;
-            var maxY = window.innerHeight - rect.height;
-
-            moveInterval = setInterval(function() {
-                rect = button.getBoundingClientRect();
-                var left = rect.left + directionX * speed;
-                var top = rect.top + directionY * speed;
-
-                if (left <= 0) {
-                    directionX = 1;
-                } else if (left >= maxX) {
-                    directionX = -1;
-                }
-                if (top <= 0) {
-                    directionY = 1;
-                } else if (top >= maxY) {
-                    directionY = -1;
-                }
-
-                button.style.position = "fixed";
-                button.style.left = left + "px";
-                button.style.top = top + "px";
-            }, 20);
-        }
-
-        function increaseButtonSpeed() {
-            speed *= 2;
-        }
-
-        function UpdateParadise() {
-            fetch('https://api.github.com/repos/GalacticInterfaces/GodFolder/releases/latest')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch latest release');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Latest release data:', data);
-                    const latestVersion = data.tag_name;
-                    const latestVersionCheck = '5.0';
-
-                    if (latestVersion === latestVersionCheck) {
-                        alert('This button is here from the original Afterlife, but it is pointless for you because you have premium!!!!');
-                    } else {
-                        const asset = data.assets.find(asset => asset.name === 'Paradise.zip');
-                        if (asset) {
-                            const downloadLink = document.createElement('a');
-                            downloadLink.href = asset.browser_download_url;
-                            downloadLink.textContent = 'Download Paradise.zip';
-                            downloadLink.download = 'Paradise.zip';
-                            document.body.appendChild(downloadLink);
-                            downloadLink.click();
-                            document.body.removeChild(downloadLink);
-                        } else {
-                            console.error('File not found in the latest release.');
-                        }
-                    }
-                })
-                .catch(error => console.error('Error fetching latest release:', error));
         }
     </script>
 </body>
