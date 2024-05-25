@@ -2,6 +2,8 @@ const form = document.querySelector('form');
 const input = document.querySelector('input');
 const blacklist = ['tiktok.com']; // Array of blacklisted domains
 let iframe;
+let historyLog = [];
+let historyIndex = -1;
 
 form.addEventListener('submit', async event => {
     event.preventDefault();
@@ -49,8 +51,8 @@ function loadIframe(url) {
     navBar.style.zIndex = '1000';
 
     // Create buttons
-    const backButton = createButton('Back', () => sendIframeMessage('back'));
-    const forwardButton = createButton('Forward', () => sendIframeMessage('forward'));
+    const backButton = createButton('Back', () => navigateHistory(-1));
+    const forwardButton = createButton('Forward', () => navigateHistory(1));
     const reloadButton = createButton('Reload', () => iframe.contentWindow.location.reload());
     const homeButton = createButton('Home', () => window.location.reload());
     const launchButton = createButton('Launch', () => openSite('supernova.html'));
@@ -70,13 +72,8 @@ function loadIframe(url) {
     iframe.src = url;
     document.body.appendChild(iframe);
 
-    // Add a listener for messages from the iframe
-    window.addEventListener('message', (event) => {
-        if (event.source === iframe.contentWindow && event.data === 'loaded') {
-            // The iframe has loaded the new page, so update the history state
-            iframe.contentWindow.history.pushState({}, '', iframe.src);
-        }
-    });
+    // Add the current URL to history log
+    addToHistory(url);
 }
 
 function createButton(text, onClick) {
@@ -99,9 +96,21 @@ function createButton(text, onClick) {
     return button;
 }
 
-function sendIframeMessage(message) {
-    if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage(message, '*');
+function addToHistory(url) {
+    // Remove URLs after the current history index
+    historyLog = historyLog.slice(0, historyIndex + 1);
+    // Add the new URL to history
+    historyLog.push(url);
+    // Update the history index
+    historyIndex = historyLog.length - 1;
+}
+
+function navigateHistory(step) {
+    const newIndex = historyIndex + step;
+    if (newIndex >= 0 && newIndex < historyLog.length) {
+        historyIndex = newIndex;
+        const url = historyLog[historyIndex];
+        iframe.src = url;
     }
 }
 
@@ -119,12 +128,3 @@ function openSite(url) {
     iframe.src = url;
     win.document.body.appendChild(iframe);
 }
-
-// In the iframe content (example for `sw.js` or similar):
-window.addEventListener('message', (event) => {
-    if (event.data === 'back') {
-        history.back();
-    } else if (event.data === 'forward') {
-        history.forward();
-    }
-});
