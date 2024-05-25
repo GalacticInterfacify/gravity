@@ -68,12 +68,28 @@ function loadIframe(url) {
     iframe.allow = 'fullscreen';
     iframe.src = url;
     document.body.appendChild(iframe);
+
+    // Adjust iframe navigation controls
+    backButton.addEventListener('click', () => iframe.contentWindow.history.back());
+    forwardButton.addEventListener('click', () => iframe.contentWindow.history.forward());
 }
 
 function createButton(text, onClick) {
     const button = document.createElement('button');
     button.textContent = text;
     button.style.margin = '0 10px';
+    button.style.padding = '10px';
+    button.style.backgroundImage = 'url(https://64.media.tumblr.com/dafce2d653dd5bf33b8f750147c6e697/642b086ad140f9bb-2e/s400x600/62f3e294c7c3abf7bc871c8f2a9766a0955e9000.gif)';
+    button.style.backgroundSize = 'cover';
+    button.style.border = '4px solid black';
+    button.style.cursor = 'pointer';
+    button.style.transition = 'all 0.3s ease';
+    button.addEventListener('mouseover', () => {
+        button.style.transform = 'scale(1.1)';
+    });
+    button.addEventListener('mouseout', () => {
+        button.style.transform = 'scale(1)';
+    });
     button.addEventListener('click', onClick);
     return button;
 }
