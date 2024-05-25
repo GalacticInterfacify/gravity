@@ -6,143 +6,149 @@
     <title>Classroom</title>
     <link rel="icon" href="files/ok.png" type="image/png">
     <style>
-body {
-    display: none; /* Hide the body by default */
-    background-color: black; /* Set the background color to black */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fff; /* Set default text color */
-    font-family: Arial, sans-serif; /* Set font family */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-}
+        /* Existing CSS */
+        body {
+            display: none; /* Hide the body by default */
+            background-color: black; /* Set the background color to black */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff; /* Set default text color */
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
 
-/* CSS for navigation bar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 10px 20px;
-}
+        /* CSS for navigation bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px 20px;
+        }
 
-/* CSS for news textbox */
-.news-textbox {
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Limit maximum width */
-    margin: 0 auto; /* Center the textbox horizontally */
-    margin-top: 15px; /* bring it down a bit */
-    padding: 20px; /* Add padding */
-    font-size: 1em; /* Adjust font size */
-    border-radius: 10px; /* Add border radius */
-    position: relative; /* Position for pseudo-elements */
-    overflow: hidden; /* Hide overflowing border animation */
-    border: 2px solid #78FF00;
-}
+        /* CSS for news textbox */
+        .news-textbox {
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px; /* Limit maximum width */
+            margin: 0 auto; /* Center the textbox horizontally */
+            margin-top: 15px; /* bring it down a bit */
+            padding: 20px; /* Add padding */
+            font-size: 1em; /* Adjust font size */
+            border-radius: 10px; /* Add border radius */
+            position: relative; /* Position for pseudo-elements */
+            overflow: hidden; /* Hide overflowing border animation */
+            border: 2px solid #78FF00;
+        }
 
+        /* CSS for logo */
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #78FF00;
+            text-decoration: none; /* nothing */
+            display: flex;
+            align-items: center;
+        }
 
+        .logo img {
+            margin-right: 10px; /* Space between the logo and text */
+            height: 40px; /* Adjust the height of the logo */
+        }
 
+        .navtextThing {
+            font-size: 2em;
+            font-weight: bold;
+            color: #067bbf;
+        }
 
-/* CSS for logo */
-.logo {
-    font-size: 2em;
-    font-weight: bold;
-    color: #78FF00;
-    text-decoration: none; /* nothing */
-}
+        /* CSS for navigation bar buttons */
+        .navbar .button {
+            margin-left: 10px; /* Add some space between buttons */
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: 2px solid #78FF00;
+            border-radius: 15px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-.navtextThing {
-    font-size: 2em;
-    font-weight: bold;
-    color: #067bbf;
-}
+        /* CSS for button container */
+        .button-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Stack buttons vertically */
+        }
 
-/* CSS for navigation bar buttons */
-.navbar .button {
-    margin-left: 10px; /* Add some space between buttons */
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: 2px solid #78FF00;
-    border-radius: 15px; /* Rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+        /* CSS for buttons */
+        .button-container .button {
+            margin-top: 10px; /* Add some space between buttons */
+            padding: 20px 40px; /* Increase padding for larger buttons */
+            font-size: 1.2em; /* Increase font size for larger buttons */
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: 2px solid #78FF00;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-/* CSS for button container */
-.button-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column; /* Stack buttons vertically */
-}
+        /* CSS for button hover effect */
+        .button-container .button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
 
-/* CSS for buttons */
-.button-container .button {
-    margin-top: 10px; /* Add some space between buttons */
-    padding: 20px 40px; /* Increase padding for larger buttons */
-    font-size: 1.2em; /* Increase font size for larger buttons */
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    border: 2px solid #78FF00;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-        
-/* CSS for button hover effect */
-.button-container .button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #000;
-}
+        /* CSS for container */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
-/* CSS for container */
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
+        /* CSS for background content */
+        .background-content {
+            position: fixed; /* Position the content fixed so it remains in the background */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.html'); /* Set the background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
+            z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
+        }
 
-/* CSS for background content */
-.background-content {
-    position: fixed; /* Position the content fixed so it remains in the background */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('background.html'); /* Set the background */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
-    z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
-}
-      /* CSS for changelog container */
-.changelog-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 14px;
-}
+        /* CSS for changelog container */
+        .changelog-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+        }
 
-.changelog-container p {
-    margin-bottom: 5px;
-}
+        .changelog-container p {
+            margin-bottom: 5px;
+        }
 
-.changelog-container ul {
-    list-style-type: none;
-    padding: 0;
-}
+        .changelog-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-.changelog-container ul li {
-    margin-bottom: 5px;
-}
+        .changelog-container ul li {
+            margin-bottom: 5px;
+        }
 
     </style>
 </head>
@@ -151,40 +157,42 @@ body {
     <div class="background-content">
         <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
     </div>
-  
- <!--NAVIGATION -->
-<div class="navbar">
-    <a class="logo">GR4V1TY</a>
-    <a class="navtextThing">CURRENT PAGE: HOME</a>
-    <div class="navbar-buttons">
-        <button class="button" onclick="navigateTo('PARADISE.html')">Home</button>
-        <button class="button" onclick="navigateTo('lib/libraries.html')">Game Libraries</button>
-        <button class="button" onclick="OpenSite('supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
-        <button class="button" onclick="openHtmlInNewTab()">Chat</button>
 
+    <!--NAVIGATION -->
+    <div class="navbar">
+        <a class="logo">
+            <img src="files/gravity.png" alt="Gravity Logo">
+            GR4V1TY
+        </a>
+        <a class="navtextThing">CURRENT PAGE: HOME</a>
+        <div class="navbar-buttons">
+            <button class="button" onclick="navigateTo('PARADISE.html')">Home</button>
+            <button class="button" onclick="navigateTo('lib/libraries.html')">Game Libraries</button>
+            <button class="button" onclick="OpenSite('supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
+            <button class="button" onclick="openHtmlInNewTab()">Chat</button>
+        </div>
     </div>
-</div>
+
     <div class="news-textbox">
         <h2>R.I.P: Godfolder, Paradise.zip, and Afterlife.html.</h2>
     </div>
-   
-    
+
     <!-- Button column -->
     <div class="button-container">
         <h2>LINKS:</h2>
         <button class="button" onclick="openSite('https://forms.gle/JrhD79yqizE6JY5W8')">FEEDBACK</button>
-    
-    <!-- Changelog container -->
-<div class="changelog-container">
-    <p>Changelog V3.8:</p>
-    <ul>
-        <li> - Moved the news box down a bit so that it is no longer touching the navigation bar.</li>
-        <li> - Added a blue indicator of what page you're on in navigation.</li>
-        <li> - Afterlife was discontinued.</li>
-        <li> - Game libraries replaced with "Games"</li>
-    </ul>
-</div>
+    </div>
 
+    <!-- Changelog container -->
+    <div class="changelog-container">
+        <p>Changelog V3.8:</p>
+        <ul>
+            <li> - Moved the news box down a bit so that it is no longer touching the navigation bar.</li>
+            <li> - Added a blue indicator of what page you're on in navigation.</li>
+            <li> - Afterlife was discontinued.</li>
+            <li> - Game libraries replaced with "Games"</li>
+        </ul>
+    </div>
 
     <script>
         window.onload = function() {
@@ -225,9 +233,8 @@ body {
             window.open('https://classroom.google.com');
             window.location.href = 'about:blank';
         }
-    </script>
-     <script>
-         function openSite(url) {
+
+        function openSite(url) {
             var win = window.open();
             win.document.body.style.margin = "0";
             win.document.body.style.height = "100vh";
@@ -241,21 +248,21 @@ body {
             iframe.src = url;
             win.document.body.appendChild(iframe);
         }
-  function openHtmlInNewTab() {
-    // Read the HTML code from the file
-    fetch('chat-html.txt')
-        .then(response => response.text())
-        .then(htmlCode => {
-            var newTab = window.open('about:blank', '_blank');
-            newTab.document.open();
-            newTab.document.write(htmlCode);
-            newTab.document.close();
-        })
-        .catch(error => {
-            console.error('Error reading HTML file:', error);
-        });
-}
 
+        function openHtmlInNewTab() {
+            // Read the HTML code from the file
+            fetch('chat-html.txt')
+                .then(response => response.text())
+                .then(htmlCode => {
+                    var newTab = window.open('about:blank', '_blank');
+                    newTab.document.open();
+                    newTab.document.write(htmlCode);
+                    newTab.document.close();
+                })
+                .catch(error => {
+                    console.error('Error reading HTML file:', error);
+                });
+        }
     </script>
 </body>
 </html>
