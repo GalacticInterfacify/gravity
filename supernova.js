@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const blacklist = ['tiktok.com']; // Array of blacklisted domains
+let iframe;
 
 form.addEventListener('submit', async event => {
     event.preventDefault();
@@ -48,8 +49,8 @@ function loadIframe(url) {
     navBar.style.zIndex = '1000';
 
     // Create buttons
-    const backButton = createButton('Back', () => iframe.contentWindow.history.back());
-    const forwardButton = createButton('Forward', () => iframe.contentWindow.history.forward());
+    const backButton = createButton('Back', () => navigateIframe('back'));
+    const forwardButton = createButton('Forward', () => navigateIframe('forward'));
     const reloadButton = createButton('Reload', () => iframe.contentWindow.location.reload());
     const homeButton = createButton('Home', () => window.location.reload());
     const launchButton = createButton('Launch', () => openSite('supernova.html'));
@@ -59,7 +60,7 @@ function loadIframe(url) {
     document.body.appendChild(navBar);
 
     // Create iframe
-    const iframe = document.createElement('iframe');
+    iframe = document.createElement('iframe');
     iframe.style.border = 'none';
     iframe.style.width = '100%';
     iframe.style.height = '100vh';
@@ -68,10 +69,6 @@ function loadIframe(url) {
     iframe.allow = 'fullscreen';
     iframe.src = url;
     document.body.appendChild(iframe);
-
-    // Adjust iframe navigation controls
-    backButton.addEventListener('click', () => iframe.contentWindow.history.back());
-    forwardButton.addEventListener('click', () => iframe.contentWindow.history.forward());
 }
 
 function createButton(text, onClick) {
@@ -92,6 +89,10 @@ function createButton(text, onClick) {
     });
     button.addEventListener('click', onClick);
     return button;
+}
+
+function navigateIframe(direction) {
+    iframe.contentWindow.postMessage({ type: 'navigate', direction }, '*');
 }
 
 function openSite(url) {
