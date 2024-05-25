@@ -50,18 +50,7 @@ body {
     border: 6px solid transparent; /* Initial transparent border */
     border-radius: 10px; /* Match the border radius of the textbox */
     z-index: -1; /* Ensure it's behind the content */
-    animation: animateRainbowOutline 7s linear infinite; /* Animation properties */
-}
-
-/* Keyframes for animated rainbow outline */
-@keyframes animateRainbowOutline {
-    0% { border-color: rgba(255, 0, 0, 0.5); } /* Red */
-    16.67% { border-color: rgba(255, 127, 0, 0.5); } /* Orange */
-    33.33% { border-color: rgba(255, 255, 0, 0.5); } /* Yellow */
-    50% { border-color: rgba(0, 255, 0, 0.5); } /* Green */
-    66.67% { border-color: rgba(0, 0, 255, 0.5); } /* Blue */
-    83.33% { border-color: rgba(75, 0, 130, 0.5); } /* Indigo */
-    100% { border-color: rgba(143, 0, 255, 0.5); } /* Violet */
+    color: #78FF00
 }
 
 
@@ -70,6 +59,13 @@ body {
     font-size: 2em;
     font-weight: bold;
     color: #78FF00;
+    text-decoration: none; /* Remove underline */
+}
+
+.navtextThing {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff;
     text-decoration: none; /* Remove underline */
 }
 
@@ -170,8 +166,9 @@ body {
  <!--NAVIGATION -->
 <div class="navbar">
     <a class="logo">GR4V1TY</a>
+    <a class="logo">  | HOME</a>
     <div class="navbar-buttons">
-        <button class="button" onclick="navigateTo('PARADISE.html')">!!Home!!</button>
+        <button class="button" onclick="navigateTo('PARADISE.html')">Home</button>
         <button class="button" onclick="navigateTo('lib/libraries.html')">Game Libraries</button>
         <button class="button" onclick="OpenSite('supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
         <button class="button" onclick="openHtmlInNewTab()">Chat</button>
