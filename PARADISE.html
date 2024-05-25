@@ -152,6 +152,19 @@
 
     </style>
 </head>
+    <script>
+        // iframeNavigation.js
+window.addEventListener('message', (event) => {
+    if (event.data.type === 'navigate') {
+        if (event.data.direction === 'back') {
+            window.history.back();
+        } else if (event.data.direction === 'forward') {
+            window.history.forward();
+        }
+    }
+});
+
+    </script>
 <body>
     <!-- Background content -->
     <div class="background-content">
