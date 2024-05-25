@@ -49,8 +49,8 @@ function loadIframe(url) {
     navBar.style.zIndex = '1000';
 
     // Create buttons
-    const backButton = createButton('Back', () => navigateIframe('back'));
-    const forwardButton = createButton('Forward', () => navigateIframe('forward'));
+    const backButton = createButton('Back', () => sendIframeMessage('back'));
+    const forwardButton = createButton('Forward', () => sendIframeMessage('forward'));
     const reloadButton = createButton('Reload', () => iframe.contentWindow.location.reload());
     const homeButton = createButton('Home', () => window.location.reload());
     const launchButton = createButton('Launch', () => openSite('supernova.html'));
@@ -69,6 +69,14 @@ function loadIframe(url) {
     iframe.allow = 'fullscreen';
     iframe.src = url;
     document.body.appendChild(iframe);
+
+    // Add a listener for messages from the iframe
+    window.addEventListener('message', (event) => {
+        if (event.source === iframe.contentWindow && event.data === 'loaded') {
+            // The iframe has loaded the new page, so update the history state
+            iframe.contentWindow.history.pushState({}, '', iframe.src);
+        }
+    });
 }
 
 function createButton(text, onClick) {
@@ -91,8 +99,10 @@ function createButton(text, onClick) {
     return button;
 }
 
-function navigateIframe(direction) {
-    iframe.contentWindow.postMessage({ type: 'navigate', direction }, '*');
+function sendIframeMessage(message) {
+    if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage(message, '*');
+    }
 }
 
 function openSite(url) {
@@ -109,3 +119,12 @@ function openSite(url) {
     iframe.src = url;
     win.document.body.appendChild(iframe);
 }
+
+// In the iframe content (example for `sw.js` or similar):
+window.addEventListener('message', (event) => {
+    if (event.data === 'back') {
+        history.back();
+    } else if (event.data === 'forward') {
+        history.forward();
+    }
+});
