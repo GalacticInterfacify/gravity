@@ -59,9 +59,9 @@ function loadIframe(url) {
 
     // Create buttons
     const reloadButton = createButton('Reload', () => iframe.contentWindow.location.reload());
-    const reloadButton = createButton('Unable to construct URL fix', () => window.location.replace('supernovafix.html));
+    const reloadButton = createButton('Restart (use if page not working)', () => window.location.replace('supernovafix.html));
     const homeButton = createButton('Home', () => window.location.reload());
-    const launchButton = createButton('Launch', () => openSite(iframe.src));
+    const launchButton = createButton('About:blank', () => openSite(iframe.src));
 
     // Append buttons and center text to nav bar
     navBar.append(reloadButton, centerText, homeButton, launchButton);
