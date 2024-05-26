@@ -1,0 +1,25 @@
+GRAVITY V4.0
+
+
+- Moved the news box down a bit so that it is no longer touching the navigation bar.
+- Added a blue indicator of what page you're on in navigation.
+- Afterlife was discontinued.
+- Game libraries replaced with "Games"
+- Added GR4V1TY logo to navigation.
+- added apps section
+- fixed supernova bug on the main page and made supernova better.
+- Added games section
+- Added Funny Shooter 2 (GAMES ADDITION)
+- Added Flappy Bird (GAMES ADDITION
+- Added The Impossible Quiz (GAMES ADDITION)
+- Moved changelog to a TXT file.
+- I am beginning work on a web mod loader (so bassically I could design a mod for a website) (most mods would just be fun mods for GR4V1TY.) (Unlikely to ever actually come out)
+- Added windows 11 (APPS ADDITION)
+- Added 6xgames (APPS ADDITION)
+- There is NO MORE in-app gameplay, app loading, or supernova. GRAVITY is an app that runs along side the browser and allows you to launch games in your browser.
+- Changed the look of supernova.
+- Added a navigation bar to supernova.
+- Moved supernova to a dynamically loaded browser tab (about:blank)
+- Added GR4V1TY logo alongside GR4V1TY text.
+- I'm exhausted.
+- I need more game and app seggestions. If you are reading this please think of some I could add.
