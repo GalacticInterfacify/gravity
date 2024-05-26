@@ -45,7 +45,7 @@ function loadIframe(url) {
     navBar.style.position = 'fixed';
     navBar.style.top = '0';
     navBar.style.width = '100%';
-    navBar.style.backgroundColor = '#ccc';
+    navBar.style.backgroundColor = '#000000';
     navBar.style.padding = '10px';
     navBar.style.zIndex = '1000';
 
