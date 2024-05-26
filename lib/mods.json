@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Slope",
+        "pageUrl": "../slope/slope.html",
+        "scriptUrl": "https://example.com/scripts/slope-mod.js"
+    },
+    {
+        "name": "Tunnel Rush",
+        "pageUrl": "../tunnel/tunnel.html",
+        "scriptUrl": "https://example.com/scripts/tunnel-mod.js"
+    },
+    {
+        "name": "1v1 Lol",
+        "pageUrl": "../11-lol-main/1v1.html",
+        "scriptUrl": "https://example.com/scripts/1v1-mod.js"
+    },
+    // Add more mods as needed
+]
