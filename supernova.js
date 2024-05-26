@@ -51,7 +51,7 @@ function loadIframe(url) {
 
     // Create center text
     const centerText = document.createElement('div');
-    centerText.textContent = 'Ŝ̵̱̹͕̣͔̥̙͇̼̉͋͊́Ű̷͙͖̱̥͙͜P̸̬͔͖̐̎͌̍̏͛͊̅̆͠Ě̴̛̙̯͎͕̐R̸̨͍̼̹͔̭̭͔̩̊̐̍̆̾͜N̵̢̡̟͚͙͙̯͙͕̈́͊͒͒̈́̐O̸̧͉̰̟̰̝͇̱͙̪̍͗̌̈́V̶̼̟̍̊̐͐̏A̷͙͍̻̯̯̫͔͈̘͋͑́̿̍̐͜ UNBLOCKER';
+    centerText.textContent = 'S̸͔͌ͅṶ̷͂̚P̸̺̏Ḛ̶͊̋R̴̞͓̍̐N̴̟͊͌O̴͕͠V̵̠͘͝ͅA̶̧̅ UNBLOCKER';
     centerText.style.color = '#AB82FF'; // Light blueish-purple more on the purple side
     centerText.style.fontSize = '20px';
     centerText.style.textAlign = 'center';
@@ -69,9 +69,8 @@ function loadIframe(url) {
     // Create iframe
     iframe = document.createElement('iframe');
     iframe.style.border = 'none';
-    iframe.style.width = '100%';
+    iframe.style.width = '100vw';
     iframe.style.height = 'calc(100vh - 50px)'; // Adjust for navigation bar height
-    iframe.style.marginTop = '50px'; // Adjust for navigation bar height
     iframe.referrerpolicy = 'no-referrer';
     iframe.allow = 'fullscreen';
     iframe.src = url;
