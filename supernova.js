@@ -64,7 +64,7 @@ function loadIframe(url) {
     const launchButton = createButton('About:blank', () => openSite(iframe.src));
 
     // Append buttons and center text to nav bar
-    navBar.append(reloadButton, centerText, homeButton, launchButton);
+    navBar.append(reloadButton, homeButton, centerText, restartButton, launchButton);
     document.body.appendChild(navBar);
 
     // Create iframe
