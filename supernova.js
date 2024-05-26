@@ -48,6 +48,7 @@ function loadIframe(url) {
     navBar.style.backgroundColor = '#ccc';
     navBar.style.padding = '10px';
     navBar.style.zIndex = '1000';
+    navBar.style.boxSizing = 'border-box';
 
     // Create center text
     const centerText = document.createElement('div');
@@ -71,6 +72,9 @@ function loadIframe(url) {
     iframe.style.border = 'none';
     iframe.style.width = '100vw';
     iframe.style.height = 'calc(100vh - 50px)'; // Adjust for navigation bar height
+    iframe.style.position = 'fixed';
+    iframe.style.top = '50px'; // Below the navigation bar
+    iframe.style.left = '0';
     iframe.referrerpolicy = 'no-referrer';
     iframe.allow = 'fullscreen';
     iframe.src = url;
