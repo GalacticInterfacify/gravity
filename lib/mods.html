@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <link rel="icon" href="../files/ok.png" type="image/png">
+    <style>
+        /* Your existing CSS */
+        /* ... */
+    </style>
+</head>
+<body>
+    <!-- Background content -->
+    <div class="background-content">
+        <iframe src="../background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="navbar">
+        <a class="logo">
+            <img src="../files/gravity.png" alt="404 ERROR">
+            GR4V1TY
+        </a>
+        <a class="navtextThing">CURRENT PAGE: GAMES</a>
+        <div class="navbar-buttons">
+            <button class="button" onclick="navigateTo('../PARADISE.html')">Home</button>
+            <button class="button" onclick="navigateTo('wow.html')">Games</button>
+            <button class="button" onclick="navigateTo('libraries.html')">Apps</button>
+            <button class="button" onclick="openSite('../supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
+            <button class="button" onclick="openHtmlInNewTab()">Chat</button>
+        </div>
+    </div>
+
+    <!-- Button column -->
+    <div class="button-container" id="mod-buttons">
+        <!-- Buttons will be dynamically added here -->
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Check if the cookie named "ACCESS" exists and its value is true
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, do not display the body
+                document.body.style.display = "none";
+                // Redirect to another page if needed
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                // If the cookie is present and its value is true, display the body
+                document.body.style.display = "block";
+            }
+        };
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        // Function to navigate to the specified URL
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
+        // Function to fetch the mod configuration and create buttons
+        function loadModButtons() {
+            fetch('mods.json')
+                .then(response => response.json())
+                .then(mods => {
+                    const container = document.getElementById('mod-buttons');
+                    mods.forEach(mod => {
+                        const button = document.createElement('button');
+                        button.className = 'button';
+                        button.textContent = mod.name;
+                        button.onclick = () => applyMod(mod.pageUrl, mod.scriptUrl);
+                        container.appendChild(button);
+                    });
+                })
+                .catch(error => console.error('Error loading mod configuration:', error));
+        }
+
+        // Function to apply a mod by navigating to the page and injecting the script
+        function applyMod(pageUrl, scriptUrl) {
+            // Navigate to the new page
+            window.location.href = pageUrl;
+
+            // Listen for the load event to inject the script
+            window.addEventListener('load', () => {
+                const script = document.createElement('script');
+                script.src = scriptUrl;
+                script.onload = () => console.log('Mod script loaded:', scriptUrl);
+                document.head.appendChild(script);
+            });
+        }
+
+        // Load mod buttons on page load
+        loadModButtons();
+    </script>
+</body>
+</html>
