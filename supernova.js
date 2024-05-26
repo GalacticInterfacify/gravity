@@ -2,8 +2,6 @@ const form = document.querySelector('form');
 const input = document.querySelector('input');
 const blacklist = ['tiktok.com']; // Array of blacklisted domains
 let iframe;
-let historyLog = [];
-let historyIndex = -1;
 
 form.addEventListener('submit', async event => {
     event.preventDefault();
@@ -43,6 +41,7 @@ function loadIframe(url) {
     const navBar = document.createElement('div');
     navBar.style.display = 'flex';
     navBar.style.justifyContent = 'space-between';
+    navBar.style.alignItems = 'center';
     navBar.style.position = 'fixed';
     navBar.style.top = '0';
     navBar.style.width = '100%';
@@ -50,30 +49,33 @@ function loadIframe(url) {
     navBar.style.padding = '10px';
     navBar.style.zIndex = '1000';
 
+    // Create center text
+    const centerText = document.createElement('div');
+    centerText.textContent = 'Ŝ̵̱̹͕̣͔̥̙͇̼̉͋͊́Ű̷͙͖̱̥͙͜P̸̬͔͖̐̎͌̍̏͛͊̅̆͠Ě̴̛̙̯͎͕̐R̸̨͍̼̹͔̭̭͔̩̊̐̍̆̾͜N̵̢̡̟͚͙͙̯͙͕̈́͊͒͒̈́̐O̸̧͉̰̟̰̝͇̱͙̪̍͗̌̈́V̶̼̟̍̊̐͐̏A̷͙͍̻̯̯̫͔͈̘͋͑́̿̍̐͜ UNBLOCKER';
+    centerText.style.color = '#AB82FF'; // Light blueish-purple more on the purple side
+    centerText.style.fontSize = '20px';
+    centerText.style.textAlign = 'center';
+    centerText.style.flexGrow = '1';
+
     // Create buttons
-    const backButton = createButton('Back', () => navigateHistory(-1));
-    const forwardButton = createButton('Forward', () => navigateHistory(1));
     const reloadButton = createButton('Reload', () => iframe.contentWindow.location.reload());
     const homeButton = createButton('Home', () => window.location.reload());
-    const launchButton = createButton('Launch', () => openSite('supernova.html'));
+    const launchButton = createButton('Launch', () => openSite(iframe.src));
 
-    // Append buttons to nav bar
-    navBar.append(backButton, forwardButton, reloadButton, homeButton, launchButton);
+    // Append buttons and center text to nav bar
+    navBar.append(reloadButton, centerText, homeButton, launchButton);
     document.body.appendChild(navBar);
 
     // Create iframe
     iframe = document.createElement('iframe');
     iframe.style.border = 'none';
     iframe.style.width = '100%';
-    iframe.style.height = '100vh';
+    iframe.style.height = 'calc(100vh - 50px)'; // Adjust for navigation bar height
     iframe.style.marginTop = '50px'; // Adjust for navigation bar height
     iframe.referrerpolicy = 'no-referrer';
     iframe.allow = 'fullscreen';
     iframe.src = url;
     document.body.appendChild(iframe);
-
-    // Add the current URL to history log
-    addToHistory(url);
 }
 
 function createButton(text, onClick) {
@@ -81,11 +83,14 @@ function createButton(text, onClick) {
     button.textContent = text;
     button.style.margin = '0 10px';
     button.style.padding = '10px';
-    button.style.backgroundImage = 'url(https://64.media.tumblr.com/dafce2d653dd5bf33b8f750147c6e697/642b086ad140f9bb-2e/s400x600/62f3e294c7c3abf7bc871c8f2a9766a0955e9000.gif)';
-    button.style.backgroundSize = 'cover';
+    button.style.background = 'linear-gradient(to right, #ADD8E6, #AB82FF)'; // Gradient background
     button.style.border = '4px solid black';
+    button.style.color = 'black';
+    button.style.textShadow = '1px 1px 2px white';
     button.style.cursor = 'pointer';
     button.style.transition = 'all 0.3s ease';
+    button.style.outline = '2px solid white';
+    button.style.outlineOffset = '-2px';
     button.addEventListener('mouseover', () => {
         button.style.transform = 'scale(1.1)';
     });
@@ -94,24 +99,6 @@ function createButton(text, onClick) {
     });
     button.addEventListener('click', onClick);
     return button;
-}
-
-function addToHistory(url) {
-    // Remove URLs after the current history index
-    historyLog = historyLog.slice(0, historyIndex + 1);
-    // Add the new URL to history
-    historyLog.push(url);
-    // Update the history index
-    historyIndex = historyLog.length - 1;
-}
-
-function navigateHistory(step) {
-    const newIndex = historyIndex + step;
-    if (newIndex >= 0 && newIndex < historyLog.length) {
-        historyIndex = newIndex;
-        const url = historyLog[historyIndex];
-        iframe.src = url;
-    }
 }
 
 function openSite(url) {
