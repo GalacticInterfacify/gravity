@@ -161,21 +161,22 @@
     <!--NAVIGATION -->
     <div class="navbar">
         <a class="logo">
-            <img src="files/gravity.png" alt="404 ERROR">
+            <img src="../files/gravity.png" alt="404 ERROR">
             GR4V1TY
         </a>
         <a class="navtextThing">CURRENT PAGE: APPS</a>
         <div class="navbar-buttons">
-            <button class="button" onclick="navigateTo('PARADISE.html')">Home</button>
-            <button class="button" onclick="navigateTo('lib/libraries.html')">Apps</button>
-            <button class="button" onclick="openSite('supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
+            <button class="button" onclick="navigateTo('../PARADISE.html')">Home</button>
+            <button class="button" onclick="navigateTo('wow.html')">Games</button>
+            <button class="button" onclick="navigateTo('libraries.html')">Apps</button>
+            <button class="button" onclick="openSite('../supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
             <button class="button" onclick="openHtmlInNewTab()">Chat</button>
         </div>
     </div>
 
     <!-- Button column -->
     <div class="button-container">
-        <button class="button" onclick="openSite('win11')">Windows 11 in react js</button>
+        <button class="button" onclick="openSite('app/win11.html')">Windows 11 in react js</button>
     </div>
 
 
@@ -236,7 +237,7 @@
 
         function openHtmlInNewTab() {
             // Read the HTML code from the file
-            fetch('chat-html.txt')
+            fetch('../chat-html.txt')
                 .then(response => response.text())
                 .then(htmlCode => {
                     var newTab = window.open('about:blank', '_blank');
