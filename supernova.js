@@ -59,6 +59,7 @@ function loadIframe(url) {
 
     // Create buttons
     const reloadButton = createButton('Reload', () => iframe.contentWindow.location.reload());
+    const reloadButton = createButton('Unable to construct URL fix', () => window.location.replace('supernovafix.html));
     const homeButton = createButton('Home', () => window.location.reload());
     const launchButton = createButton('Launch', () => openSite(iframe.src));
 
