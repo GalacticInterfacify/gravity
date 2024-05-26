@@ -77,14 +77,15 @@
 
         /* CSS for button container */
         .button-container {
-            display: flex;
-            align-items: center;
-            flex-direction: column; /* Stack buttons vertically */
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Create columns that fill available space */
+            gap: 10px; /* Add space between buttons */
+            justify-items: center; /* Center buttons within grid cells */
+            padding: 20px;
         }
 
         /* CSS for buttons */
         .button-container .button {
-            margin-top: 10px; /* Add some space between buttons */
             padding: 20px 40px; /* Increase padding for larger buttons */
             font-size: 1.2em; /* Increase font size for larger buttons */
             background-color: rgba(0, 0, 0, 0.7);
@@ -93,6 +94,8 @@
             border-radius: 15px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%; /* Ensure buttons take full width of grid cell */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
         }
 
         /* CSS for button hover effect */
