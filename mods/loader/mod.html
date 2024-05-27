@@ -120,7 +120,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('../../background.html'); /* Set the background */
+            background: url('background.html'); /* Set the background */
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -169,10 +169,10 @@
         </a>
         <a class="navtextThing">CURRENT PAGE: GAMES</a>
         <div class="navbar-buttons">
-            <button class="button" onclick="navigateTo('../PARADISE.html')">Home</button>
-            <button class="button" onclick="navigateTo('wow.html')">Games</button>
-            <button class="button" onclick="navigateTo('libraries.html')">Apps</button>
-            <button class="button" onclick="openSite('../supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
+            <button class="button" onclick="navigateTo('../../PARADISE.html')">Home</button>
+            <button class="button" onclick="navigateTo('../../lib/wow.html')">Games</button>
+            <button class="button" onclick="navigateTo('../../lib/libraries.html')">Apps</button>
+            <button class="button" onclick="openSite('../../supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
             <button class="button" onclick="openHtmlInNewTab()">Chat</button>
         </div>
     </div>
@@ -200,6 +200,13 @@
 
             // Load mod buttons
             loadModButtons();
+
+            // Check if there's a script to inject
+            const scriptUrl = localStorage.getItem('modScriptUrl');
+            if (scriptUrl) {
+                injectScript(scriptUrl);
+                localStorage.removeItem('modScriptUrl'); // Clear the script URL after injecting
+            }
         };
 
         // Function to get the value of a cookie by its name
@@ -233,7 +240,6 @@
                     pageUrl: "../GAME.html",
                     scriptUrl: "https://example.com/scripts/game-mod.js"
                 }
-                // Add more mods as needed
             ];
 
             const container = document.getElementById('mod-buttons');
@@ -246,17 +252,52 @@
             });
         }
 
-        // Function to apply a mod by navigating to the specified page and running the script
+        // Function to apply the mod by navigating to the specified page and running the script
         function applyMod(pageUrl, scriptUrl) {
+            localStorage.setItem('modScriptUrl', scriptUrl);
             window.location.href = pageUrl;
+        }
 
-            // Listen for the load event to inject the script
-            window.addEventListener('load', () => {
-                const script = document.createElement('script');
-                script.src = scriptUrl;
-                script.onload = () => console.log('Mod script loaded:', scriptUrl);
-                document.head.appendChild(script);
-            });
+        // Function to inject the script into the current page
+        function injectScript(scriptUrl) {
+            const script = document.createElement('script');
+            script.src = scriptUrl;
+            script.onload = () => console.log('Mod script loaded:', scriptUrl);
+            document.head.appendChild(script);
+        }
+
+        function panic() {
+            window.open('https://classroom.google.com');
+            window.location.href = 'about:blank';
+        }
+
+        function openSite(url) {
+            var win = window.open();
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            var iframe = win.document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.margin = "0";
+            iframe.referrerpolicy = "no-referrer";
+            iframe.allow = "fullscreen";
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+        }
+
+        function openHtmlInNewTab() {
+            fetch('../../chat-html.txt')
+                .then(response => response.text())
+                .then(htmlCode => {
+                    var newTab = window.open('about:blank', '_blank');
+                    newTab.document.open();
+                    newTab.document.write(htmlCode);
+                    newTab.document.close();
+                })
+                .catch(error => {
+                    console.error('Error reading HTML file:', error);
+                });
         }
     </script>
 </body>
