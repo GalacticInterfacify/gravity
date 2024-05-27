@@ -231,7 +231,7 @@
             // Configuration for mods
             const mods = [
                 {
-                    name: "Font bomb",
+                    name: "Blow up GRAVITY home page",
                     pageUrl: "../../PARADISE.html",
                     scriptUrl: "https://fontbomb.ilex.ca/js/main.js"
                 },
@@ -255,11 +255,18 @@
         // Function to apply the mod by opening the specified page in a new tab and running the script
         function applyMod(pageUrl, scriptUrl) {
             const newTab = window.open(pageUrl, '_blank');
-            newTab.onload = function() {
-                const script = newTab.document.createElement('script');
-                script.src = scriptUrl;
-                newTab.document.head.appendChild(script);
-            };
+            const checkIfLoaded = setInterval(() => {
+                try {
+                    if (newTab.document.readyState === 'complete') {
+                        clearInterval(checkIfLoaded);
+                        const script = newTab.document.createElement('script');
+                        script.src = scriptUrl;
+                        newTab.document.head.appendChild(script);
+                    }
+                } catch (e) {
+                    console.log('Waiting for the new tab to load...');
+                }
+            }, 100);
         }
 
         // Function to inject the script into the current page
