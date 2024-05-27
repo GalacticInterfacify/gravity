@@ -21,5 +21,4 @@ GRAVITY V4.0
 - Added a navigation bar to supernova.
 - Moved supernova to a dynamically loaded browser tab (about:blank)
 - Added GR4V1TY logo alongside GR4V1TY text.
-- I'm exhausted.
-- I need more game and app seggestions. If you are reading this please think of some I could add.
+- Started work on a web mod loader that could possibly do extraordinary things. This is being done in the background so while it might seem like I'm making no progress that is not true. 
