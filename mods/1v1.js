@@ -309,6 +309,7 @@ const shouldShowAd = isNaN( value ) || Date.now() - value < 0 || Date.now() - va
 const el = document.createElement( 'div' );
 
 el.innerHTML = `<style>
+
 .dialog {
 	position: absolute;
 	left: 50%;
@@ -405,8 +406,9 @@ el.innerHTML = `<style>
 .range-active {
 	border: 2px solid red;
 }
+
 </style>
-<div class="dialog">${shouldShowAd ? `<div class="close" onclick="this.parentNode.style.display='none';"></div>
+<div class="dialog">${shouldShowAd ? `<big>Loading ad...</big>` : `<div class="close" onclick="this.parentNode.style.display='none';"></div>
 	<big>1v1.LOL Aimbot, ESP & Wireframe</big>
 	<br>
 	<br>
@@ -424,7 +426,8 @@ el.innerHTML = `<style>
 		<div class="btn" onclick="window.open('https://www.instagram.com/zertalious/', '_blank')">Instagram</div>
 		<div class="btn" onclick="window.open('https://twitter.com/Zertalious', '_blank')">Twitter</div>
 		<div class="btn" onclick="window.open('https://greasyfork.org/en/users/662330-zertalious', '_blank')">More scripts</div>
-	</div>` : ""}
+	</div>
+	` }
 </div>
 <div class="msg" style="display: none;"></div>
 <div class="range" style="display: none;"></div>`;
@@ -444,6 +447,16 @@ window.addEventListener( 'DOMContentLoaded', function () {
 
 	initGui();
 
+	if ( shouldShowAd ) {
+
+		const url = new URL( window.location.href );
+
+		url.searchParams.set( 'showAd', Date.now().toString( 16 ) );
+		url.searchParams.set( 'scriptVersion', GM.info.script.version );
+
+		window.location.href = 'https://zertalious.xyz?ref=' + new TextEncoder().encode( url.href ).toString();
+
+	}
 
 } );
 
