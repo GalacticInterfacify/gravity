@@ -1,125 +1,49 @@
 // ==UserScript==
-// @name         1v1.lol hacks
-// @version      01
-// @description  1v1.LOL hack script - infinite ammmo, infinite armor, rapid fire
-// @author       MEAT soap
+// @name         1v1.www
+// @version      0.1
+// @description  1v1.LOL hack script - infinite ammo, infinite armor, rapid fire
+// @author       ;)
 // @namespace    https://greasyfork.org/ja/users/762895-nekocell
-// @match        https://1v1.lol/*
+// @match        https://1v1.lol/
 // @icon         https://www.google.com/s2/favicons?domain=1v1.lol
-// @require      https://greasyfork.org/scripts/436749-wasm-patcher/code/wasm_patcher.js
-// @downloadURL https://update.greasyfork.org/scripts/441239/1v1lol%20hacks.user.js
-// @updateURL https://update.greasyfork.org/scripts/441239/1v1lol%20hacks.meta.js
+// @connect      raw.githubusercontent.com
+// @require      https://greasyfork.org/scripts/431787-gm-fetch-nekocell/code/GM_fetch%20-%20nekocell.js?version=966477
+// @require      https://greasyfork.org/scripts/431788-fixedwailloader/code/FixedWailLoader.js?version=966480
+// @require      https://greasyfork.org/scripts/431845-nekoutil/code/NekoUtil.js?version=966813
+// @grant        GM_xmlhttpRequest
+// @downloadURL https://update.greasyfork.org/scripts/438343/1v1www.user.js
+// @updateURL https://update.greasyfork.org/scripts/438343/1v1www.meta.js
 // ==/UserScript==
 
-const Log = function(msg) {
-    console.log("1v1.www : " + msg);
-};
-
 const wasm = WebAssembly;
-const oldInstantiate = wasm.instantiate; //
+
+const oldInstantiate = wasm.instantiate;
 
 wasm.instantiate = async function(bufferSource, importObject) {
-    const patcher = new WasmPatcher(bufferSource);
+  console.log("1v1.www : WebAssembly.instantiate() intercepted!!");
 
-    patcher.aobPatchEntry({
-        scan: 'B 20 1 20 1 28 ? ? 41 1 [ 6B ] 36 ? ? 41 84 D7 95 3',
-        code: [
-            OP.drop,
-        ],
-        onsuccess: () => Log('Infinite Ammo')
-    });
+  await FixedWailLoader.load();
 
-    patcher.aobPatchEntry({
-        scan: '2A ? ? | 38 ? ? C 2 B 20 0',
-        code: [
-            OP.drop,
-            OP.f32.const, VAR.f32(0)
-        ],
-        onsuccess: () => Log('Rapid Fire')
-    });
+  const wail = new WailParser(bufferSource);
 
-    patcher.aobPatchEntry({
-        scan: '5 20 0 20 0 28 ? ? ? 20 1 [ 6B ] 36 ? ? ?',
-        code: [
-            OP.drop,
-        ],
-        onsuccess: () => Log('Infinite Armor')
-    });
+  const infiniteAmmoFuncIndex = wail.getFunctionIndex(36865);
+  const infiniteArmorFuncIndex = wail.getFunctionIndex(36774);
+  const rapidFireFuncIndex = wail.getFunctionIndex(36902);
 
-    if(new URLSearchParams( window.location.search ).get('TU9SRUhBQ0tT') === 'true') {
+  wail.addCodeElementParser(infiniteAmmoFuncIndex, param => {
+    return param.bytes.replace([40, 2, 32, 65, 1, 107, 54, 2, 32], [40, 2, 32, 65, 1, 26, 54, 2, 32]);
+  });
 
-        alert('[FreeFly] is added');
+  wail.addCodeElementParser(infiniteArmorFuncIndex, param => {
+    return param.bytes.replace([40, 2, 104, 32, 1, 107, 54, 2, 104], [40, 2, 104, 32, 1, 26, 54, 2, 104]);
+  });
 
-        const pressSpaceKeyIndex = patcher.addGlobalVariableEntry({
-            type: 'u32',
-            value: 0,
-            mutability: true,
-            exportName: 'PRESS_SPACE_KEY'
-        });
+  wail.addCodeElementParser(rapidFireFuncIndex, param => {
+    return param.bytes.replace([42, 2, 28, 56, 2, 16], [42, 2, 28, 26, 67, 0, 0, 0, 0, 56, 2, 16])
+  });
 
-        patcher.aobPatchEntry({
-            scan: '4 40 20 B 20 1D 38 2 0 20 F 20 1E [ 38 2 0 ]',
-            code: [
-                OP.global.get, pressSpaceKeyIndex,
-                OP.i32.const, VAR.s32(1),
-                OP.i32.eq,
-                OP.if,
-                    OP.local.get, VAR.u32(15),
-                    OP.f32.const, VAR.f32(2.5),
-                    OP.f32.store, VAR.u32(2), VAR.u32(0),
-                OP.end
-            ],
-            onsuccess: () => Log('Free Fly (offline)')
-        });
+  wail.load(bufferSource);
+  wail.parse();
 
-        patcher.aobPatchEntry({
-            scan: '4 40 20 6 21 3 B 20 1A 20 21 38 2 0 20 F 20 22 [ 38 2 0 ]',
-            code: [
-                OP.drop,
-                OP.drop,
-                OP.global.get, pressSpaceKeyIndex,
-                OP.i32.const, VAR.s32(1),
-                OP.i32.eq,
-                OP.if,
-                    OP.local.get, VAR.u32(15),
-                    OP.f32.const, VAR.f32(2.5),
-                    OP.f32.store, VAR.u32(2), VAR.u32(0),
-                OP.end
-            ],
-            onsuccess: () => Log('Free Fly (online)')
-        });
-    }
-
-    const result = await oldInstantiate(patcher.patch(), importObject);
-
-    if(new URLSearchParams( window.location.search ).get('TU9SRUhBQ0tT') === 'true') {
-        const exports = result.instance.exports;
-
-        const pressSpaceKey = exports.PRESS_SPACE_KEY;
-
-        document.addEventListener('keydown', evt => evt.code === 'Space' && (pressSpaceKey.value = 1));
-        document.addEventListener('keyup', evt => evt.code === 'Space' && (pressSpaceKey.value = 0));
-
-        localStorage.removeItem('TU9SRUhBQ0tT');
-    }
-
-    return result;
-};
-
-if(new URLSearchParams( window.location.search ).get('TU9SRUhBQ0tT') === 'true') return;
-
-const $moreHacks = document.createElement('a');
-const $ads = document.querySelector('ads');
-$moreHacks.innerText =
-$moreHacks.style.display = 'flex';
-$moreHacks.style.position = 'absolute';
-$moreHacks.style.zIndex = '50';
-$moreHacks.style.color = 'red';
-$moreHacks.style.backgroundColor = 'yellow';
-$moreHacks.style.cursor = 'pointer';
-document.body.prepend($moreHacks);
-
-$moreHacks.onclick = function() {
-    localStorage.setItem('TU9SRUhBQ0tT', true);
-    location.href = 'https://ouo.io/hHxbxs1';
+  return oldInstantiate(wail.write(), importObject);
 };
