@@ -198,6 +198,7 @@ window.addEventListener('message', (event) => {
         <button class="button" onclick="openSite('https://forms.gle/JrhD79yqizE6JY5W8')">FEEDBACK</button>
         <button class="button" onclick="openSite('change/log.txt')">CHANGELOG</button>
         <button class="button" onclick="navigateTo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">Press to get rick rolled</button>
+        <button class="button" onclick="navigateTo()">OPEN NEW TAB</button>
     </div>
 
   
@@ -272,5 +273,22 @@ window.addEventListener('message', (event) => {
                 });
         }
     </script>
+    <script>
+function blankify() {
+	let blankifysite = window.location.href;
+	       if (blankifysite !== null) {
+        // Check if the input contains a scheme
+        if (!/^https?:\/\//i.test(blankifysite)) {
+            // If not, prepend "https://"
+            blankifysite = "https://" + blankifysite;
+        }
+        // Open the website
+        openSite(blankifysite);
+    } else {
+        // Handle cancel button click
+        console.log("User cancelled the operation.");
+    }
+}
+</script>
 </body>
 </html>
