@@ -275,7 +275,7 @@ window.addEventListener('message', (event) => {
     </script>
     <script>
 function blankify() {
-	let blankifysite = window.location.href;
+	let blankifysite = (window.location.href);
 	       if (blankifysite !== null) {
         // Check if the input contains a scheme
         if (!/^https?:\/\//i.test(blankifysite)) {
