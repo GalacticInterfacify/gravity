@@ -276,19 +276,7 @@ window.addEventListener('message', (event) => {
     <script>
 function blankify() {
 	let blankifysite = (window.location.href);
-	       if (blankifysite !== null) {
-        // Check if the input contains a scheme
-        if (!/^https?:\/\//i.test(blankifysite)) {
-            // If not, prepend "https://"
-            blankifysite = "https://" + blankifysite;
-        }
-        // Open the website
-        openSite(blankifysite);
-    } else {
-        // Handle cancel button click
-        console.log("User cancelled the operation.");
-    }
-}
+	openSite(blankifysite)
 </script>
 </body>
 </html>
