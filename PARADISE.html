@@ -201,8 +201,6 @@ window.addEventListener('message', (event) => {
         <button class="button" onclick="blankify()">Duplicate tab</button>
     </div>
 
-  
-
     <script>
         window.onload = function() {
             // Check if the cookie named "ACCESS" exists and its value is true
@@ -272,11 +270,11 @@ window.addEventListener('message', (event) => {
                     console.error('Error reading HTML file:', error);
                 });
         }
+
+        function blankify() {
+            let blankifysite = window.location.href;
+            openSite(blankifysite);
+        }
     </script>
-    <script>
-function blankify() {
-	let blankifysite = (window.location.href);
-	openSite(blankifysite)
-</script>
 </body>
 </html>
