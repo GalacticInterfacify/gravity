@@ -1,3 +1,27 @@
+GRAVITY V4.1
+
+
+- Fixed infinite craft. All progress should be back. Tell me if there is lost progress.
+- Fixed a UI bug in the apps section.
+- Changelog now allows you to see older updates down to V4.0
+
+
+
+
+
+       LATEST ↑
+_____________________________
+
+
+
+
+
+
+
+
+
+_____________________________
+
 GRAVITY V4.0
 
 
