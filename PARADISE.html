@@ -171,34 +171,15 @@ window.addEventListener('message', (event) => {
         <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
     </div>
 
-    <!--NAVIGATION -->
-    <div class="navbar">
-        <a class="logo">
-            <img src="files/gravity.png" alt="404 ERROR">
-            GR4V1TY
-        </a>
-        <a class="navtextThing">CURRENT PAGE: HOME</a>
-        <div class="navbar-buttons">
-            <button class="button" onclick="navigateTo('PARADISE.html')">Home</button>
-            <button class="button" onclick="navigateTo('lib/wow.html')">Games</button>
-            <button class="button" onclick="navigateTo('lib/libraries.html')">Apps</button>
-            <button class="button" onclick="navigateTo('mods/loader/mod.html')">Mod Loader</button>
-            <button class="button" onclick="openSite('supernova.html')">S̶͕̆U̸Ṗ̸̯Ė̴͇R̷͌͜N̸̤̈O̶͎͆V̶̻͘Ä̶̻́</button>
-            <button class="button" onclick="openHtmlInNewTab()">Chat</button>
-        </div>
-    </div>
+   
 
     <div class="news-textbox">
-        <h2>I was gonna update but I forgor 😭</h2>
+        <h2>Please press the button below to start GR4V1TY.</h2>
     </div>
 
     <!-- Button column -->
     <div class="button-container">
-        <h2>LINKS:</h2>
-        <button class="button" onclick="openSite('https://forms.gle/JrhD79yqizE6JY5W8')">FEEDBACK</button>
-        <button class="button" onclick="openSite('change/log.txt')">CHANGELOG</button>
-        <button class="button" onclick="navigateTo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">Press to get rick rolled</button>
-        <button class="button" onclick="blankify()">Launch Gr4v1ty in browser (RECOMMENDED and will be required in an update soon)</button>
+        <button class="button" onclick="crazy()">START</button>
     </div>
 
     <script>
@@ -256,6 +237,13 @@ window.addEventListener('message', (event) => {
             win.document.body.appendChild(iframe);
         }
 
+        function crazy() {
+            console.log('function started')
+            openSite('HOME.html')
+            console.log('site opened????')
+            
+            
+
         function openHtmlInNewTab() {
             // Read the HTML code from the file
             fetch('chat-html.txt')
@@ -272,7 +260,7 @@ window.addEventListener('message', (event) => {
         }
 
         function blankify() {
-            let blankifysite = window.location.href;
+            let blankifysite = 'about:blank#gravity-launched-seccessfully-restart-app-to-start-a-new-session-but-only-if-your-session-closed';
             openSite(blankifysite);
         }
     </script>
