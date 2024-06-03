@@ -241,6 +241,8 @@ window.addEventListener('message', (event) => {
             console.log('function started')
             openSite('HOME.html')
             console.log('site opened????')
+            console.log('removing current tab')
+            blankify()
             
             
 
@@ -260,7 +262,7 @@ window.addEventListener('message', (event) => {
         }
 
         function blankify() {
-            let blankifysite = 'about:blank#gravity-launched-seccessfully-restart-app-to-start-a-new-session-but-only-if-your-session-closed';
+            let blankifysite = 'about:blank';
             openSite(blankifysite);
         }
     </script>
