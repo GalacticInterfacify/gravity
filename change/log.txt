@@ -1,9 +1,18 @@
-GRAVITY V4.1
+
+GRAVITY V4.5
+
+- Bassically fixed blocking unless someone tries to get it blocked on purpose.
+- Changed the very long button to now just say "duplicate tab"
+- Added a Brawl Stars clone.
+- Made 2 more links
+- Mod loader temporarily down (probably for a while cuz it kinda sucks.)
 
 
-- Fixed infinite craft. All progress should be back. Tell me if there is lost progress.
-- Fixed a UI bug in the apps section.
-- Changelog now allows you to see older updates down to V4.0
+
+
+
+
+
 
 
 
@@ -13,7 +22,12 @@ GRAVITY V4.1
 _____________________________
 
 
+GRAVITY V4.1
 
+
+- Fixed infinite craft. All progress should be back. Tell me if there is lost progress.
+- Fixed a UI bug in the apps section.
+- Changelog now allows you to see older updates down to V4.0
 
 
 
