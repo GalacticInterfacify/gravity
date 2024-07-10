@@ -6,7 +6,7 @@ form.addEventListener('submit', async event => {
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
-        let url = 'https://playhop.com/dist-app/253517?skip-guard=1&header=no&flags={%22adv_sticky_banner_disabled%22:true}'; // Set the URL to always use "https://gr4vity.pages.dev/portal"
+        let url = 'https://bit.ly/4bBpnA8'; 
         
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
