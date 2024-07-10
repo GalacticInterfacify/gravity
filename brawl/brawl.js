@@ -6,7 +6,7 @@ form.addEventListener('submit', async event => {
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
-        let url = 'https://bit.ly/4bBpnA8'; 
+        let url = 'https://example.com'; 
         
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
