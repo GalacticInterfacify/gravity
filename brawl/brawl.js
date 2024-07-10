@@ -11,5 +11,3 @@ form.addEventListener('submit', async event => {
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
 });
-
-// Remove the isUrl function as it's not needed anymore
