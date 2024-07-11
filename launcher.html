@@ -20,18 +20,29 @@
         }
 
         /* CSS for navigation bar */
+        .navbar-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px; /* Add padding for rounded corners */
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.85);
+            border-radius: 30px; /* Rounded corners on the inside */
+        }
+
         .navbar {
             display: flex;
             justify-content: center; /* Center the content horizontally */
             align-items: center;
             background-color: rgba(0, 0, 0, 0.85);
             padding: 10px 20px;
-            border-radius: 0 0 30px 30px; /* Rounded corners on the bottom */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1;
+            border-radius: 30px; /* Rounded corners */
         }
 
         /* CSS for logo */
@@ -151,11 +162,13 @@
     </div>
 
     <!--NAVIGATION -->
-    <div class="navbar">
-        <a class="logo">
-            <img src="files/gravity.png" alt="404 ERROR">
-            GR4V1TY
-        </a>
+    <div class="navbar-wrapper">
+        <div class="navbar">
+            <a class="logo">
+                <img src="files/gravity.png" alt="404 ERROR">
+                GR4V1TY
+            </a>
+        </div>
     </div>
 
     <div class="news-textbox">
