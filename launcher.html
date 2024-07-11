@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <link rel="icon" href="files/ok.png" type="image/png">
+    <style>
+        /* Existing CSS */
+        body {
+            display: none; /* Hide the body by default */
+            background-color: black; /* Set the background color to black */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff; /* Set default text color */
+            font-family: Arial, sans-serif; /* Set font family */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* CSS for navigation bar */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px 20px;
+            border-radius: 0 0 30px 30px; /* Rounded corners on the bottom */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* CSS for logo */
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #78FF00;
+            text-decoration: none; /* nothing */
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            margin-right: 10px; /* Space between the logo and text */
+            height: 40px; /* Adjust the height of the logo */
+        }
+
+        /* CSS for news textbox */
+        .news-textbox {
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px; /* Limit maximum width */
+            margin: 0 auto; /* Center the textbox horizontally */
+            margin-top: 80px; /* Adjust top margin to avoid overlap with navbar */
+            padding: 20px; /* Add padding */
+            font-size: 1em; /* Adjust font size */
+            border-radius: 10px; /* Add border radius */
+            position: relative; /* Position for pseudo-elements */
+            overflow: hidden; /* Hide overflowing border animation */
+            border: 2px solid #78FF00;
+        }
+
+        .navtextThing {
+            display: none; /* Hide this element */
+        }
+
+        /* CSS for button container */
+        .button-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Stack buttons vertically */
+        }
+
+        /* CSS for buttons */
+        .button-container .button {
+            margin-top: 10px; /* Add some space between buttons */
+            padding: 20px 40px; /* Increase padding for larger buttons */
+            font-size: 1.2em; /* Increase font size for larger buttons */
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: 2px solid #78FF00;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* CSS for button hover effect */
+        .button-container .button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
+
+        /* CSS for container */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* CSS for background content */
+        .background-content {
+            position: fixed; /* Position the content fixed so it remains in the background */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.html'); /* Set the background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
+            z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
+        }
+
+        /* CSS for changelog container */
+        .changelog-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .changelog-container p {
+            margin-bottom: 5px;
+        }
+
+        .changelog-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .changelog-container ul li {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Background content -->
+    <div class="background-content">
+        <iframe src="background.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+    </div>
+
+    <!--NAVIGATION -->
+    <div class="navbar">
+        <a class="logo">
+            <img src="files/gravity.png" alt="404 ERROR">
+            GR4V1TY
+        </a>
+    </div>
+
+    <div class="news-textbox">
+        <h2>Idk what to put here....</h2>
+    </div>
+
+    <!-- Button column -->
+    <div class="button-container">
+        <h2>LINKS:</h2>
+        <button class="button" onclick="blankify()">Duplicate Tab</button>
+        <button class="button" onclick="openSite('https://forms.gle/JrhD79yqizE6JY5W8')">FEEDBACK</button>
+        <button class="button" onclick="openSite('change/log.txt')">CHANGELOG</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Check if the cookie named "ACCESS" exists and its value is true
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                // Cookie doesn't exist or its value is not true, do not display the body
+                document.body.style.display = "none";
+                // Redirect to another page if needed
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                // If the cookie is present and its value is true, display the body
+                document.body.style.display = "block";
+            }
+        };
+
+        // Function to get the value of a cookie by its name
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) { // Corrected the condition here
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        // Function to navigate to the specified URL
+        function navigateTo(url) {
+            // Navigate to the specified URL
+            window.location.href = url;
+        }
+
+        function panic() {
+            window.open('https://classroom.google.com');
+            window.location.href = 'about:blank';
+        }
+
+        function openSite(url) {
+            var win = window.open();
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            var iframe = win.document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.margin = "0";
+            iframe.referrerpolicy = "no-referrer";
+            iframe.allow = "fullscreen";
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+        }
+
+        function openHtmlInNewTab() {
+            // Read the HTML code from the file
+            fetch('chat-html.txt')
+                .then(response => response.text())
+                .then(htmlCode => {
+                    var newTab = window.open('about:blank', '_blank');
+                    newTab.document.open();
+                    newTab.document.write(htmlCode);
+                    newTab.document.close();
+                })
+                .catch(error => {
+                    console.error('Error reading HTML file:', error);
+                });
+        }
+
+        function blankify() {
+            let blankifysite = window.location.href;
+            openSite(blankifysite);
+        }
+    </script>
+</body>
+</html>
