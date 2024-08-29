@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
-const blacklist = ['tiktok.com']; // Array of blacklisted domains
+const blacklist = ['tiktok.com', 'snapchat.com', 'x.com', 'twitter.com']; // Array of blacklisted domains
 let iframe;
 
 form.addEventListener('submit', async event => {
@@ -12,7 +12,7 @@ form.addEventListener('submit', async event => {
         
         // Blacklist check
         if (isBlacklisted(url)) {
-            alert('You are not allowed to use this URL with SUPERNOVA. Be smart with what you use.');
+            alert('nuh uh');
             return;
         }
         
