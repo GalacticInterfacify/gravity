@@ -51,7 +51,7 @@ function loadIframe(url) {
 
     // Create center text
     const centerText = document.createElement('div');
-    centerText.textContent = 'S̸͔͌ͅṶ̷͂̚P̸̺̏Ḛ̶͊̋R̴̞͓̍̐N̴̟͊͌O̴͕͠V̵̠͘͝ͅA̶̧̅ UNBLOCKER';
+    centerText.textContent = 'S̸͔͌ͅṶ̷͂̚P̸̺̏Ḛ̶͊̋R̴̞͓̍̐N̴̟͊͌O̴͕͠V̵̠͘͝ͅA̶̧̅  by GR4V1TY';
     centerText.style.color = '#AB82FF'; // Light blueish-purple more on the purple side
     centerText.style.fontSize = '20px';
     centerText.style.textAlign = 'center';
