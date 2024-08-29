@@ -224,6 +224,7 @@ window.addEventListener('message', (event) => {
             console.log('function started')
             openSite('HOME.html')
             console.log('site opened????')
+            window.close();
             console.log('removing current tab')
             blankify()
         }
@@ -249,6 +250,7 @@ window.addEventListener('message', (event) => {
        
 
         setTimeout(function() {
+        window.close();
         blankify();
         }, 10000);
 
@@ -263,7 +265,8 @@ window.addEventListener('message', (event) => {
 
                 if (timer <= 0) {
                     clearInterval(interval);
-                    display.textContent = "Time's up!";
+                    display.textContent = "Error";
+                    location.reload();
                 } else {
                     timer--;
                 }
