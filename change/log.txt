@@ -38,7 +38,7 @@ _____________________________
 
 GRAVITY V4.0
 
-
+- Credit to StaticUNBLCKER
 - Moved the news box down a bit so that it is no longer touching the navigation bar.
 - Added a blue indicator of what page you're on in navigation.
 - Afterlife was discontinued.
