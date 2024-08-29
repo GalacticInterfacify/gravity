@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classroom</title>
     <link rel="icon" href="files/ok.png" type="image/png">
+   <style>
+        #timer {
+            color: red;
+        }
+    </style>
     <style>
         body {
             display: none;
@@ -159,7 +164,7 @@ window.addEventListener('message', (event) => {
     </div>
 
     <div class="news-textbox">
-        <h2>Imagine using art class</h2>
+        <h2>Exiting in <span id="timer"></span></h2>
     </div>
 
     <div class="button-container">
@@ -198,6 +203,7 @@ window.addEventListener('message', (event) => {
             window.open('https://classroom.google.com');
             window.location.href = 'about:blank';
         }
+        
 
         function openSite(url) {
             var win = window.open();
@@ -240,6 +246,31 @@ window.addEventListener('message', (event) => {
             let blankifysite = 'about:blank';
             navigateTo(blankifysite);
         }
+       
+
+        setTimeout(function() {
+        blankify();
+        }, 10000);
+
+    </script>
+    <script>
+        function startCountdown(duration) {
+            let timer = duration;
+            const display = document.getElementById('timer');
+
+            const interval = setInterval(() => {
+                display.textContent = timer;
+
+                if (timer <= 0) {
+                    clearInterval(interval);
+                    display.textContent = "Time's up!";
+                } else {
+                    timer--;
+                }
+            }, 1000);
+        }
+
+        startCountdown(10);
     </script>
 </body>
 </html>
