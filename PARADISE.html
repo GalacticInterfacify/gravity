@@ -221,11 +221,11 @@ window.addEventListener('message', (event) => {
         }
 
         function crazy() {
-            console.log('function started')
+            console.log('Button pressed')
             openSite('HOME.html')
-            console.log('site opened????')
+            console.log('Site Launched')
             window.close();
-            console.log('removing current tab')
+            console.log('Close tab failed. Redirecting to about:blank...')
             blankify()
         }
             
