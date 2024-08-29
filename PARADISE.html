@@ -256,24 +256,25 @@ window.addEventListener('message', (event) => {
 
     </script>
     <script>
-        function startCountdown(duration) {
+       function startCountdown(duration) {
             let timer = duration;
             const display = document.getElementById('timer');
 
             const interval = setInterval(() => {
-                display.textContent = timer;
+                display.textContent = (timer / 1000).toFixed(3); 
 
                 if (timer <= 0) {
                     clearInterval(interval);
                     display.textContent = "Error";
-                    location.reload();
+                    location.reload(); 
                 } else {
-                    timer--;
+                    timer -= 10; 
                 }
-            }, 1000);
+            }, 10); 
         }
 
-        startCountdown(10);
+        startCountdown(10000);
+    
     </script>
 </body>
 </html>
