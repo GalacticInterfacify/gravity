@@ -1,3 +1,18 @@
+GRAVITY 5.0Starter
+
+- The launch Gravity page now automattically closes if you wait to long to avoid people leaving it open.
+- Added the Gravity logo to the 1v1 Lol loading screen.
+- Upgraded the Gravity logo in the Tunnel Rush loading screen.
+- Small changes made to Supernova UI.
+- Nobody is actually reading this lol.
+- Renamed "Ascend" to "Launch" in the Gravity launch screen.
+- The full version of Gravity V5 is coming out soon. It aims to make Gravity feel more premium, and to make some games feel more like they are part of Gravity.
+
+
+       LATEST ↑
+_____________________________
+
+
 GRAVITY V4.6
 
 - I got a good clone of Brawl Stars to work!!!!!!
@@ -5,9 +20,6 @@ GRAVITY V4.6
 
 
 
-
-       LATEST ↑
-_____________________________
 
 
 GRAVITY V4.5
