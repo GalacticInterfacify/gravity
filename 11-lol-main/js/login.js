@@ -29,7 +29,7 @@ function retrieveIdToken(successCallback, errorCallback) {
 function anonymousLogin(successCallback, errorCallback) {
 	var resultObj = {
 		token: "",
-		displayName: "Geust"
+		displayName: "Gravity"
 	};
 
 	if (successCallback !== undefined) {
