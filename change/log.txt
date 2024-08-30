@@ -1,4 +1,4 @@
-GRAVITY V5.0Starter
+GRAVITY V5.0mini
 
 - The launch Gravity page now automattically closes if you wait to long to avoid people leaving it open.
 - Added the Gravity logo to the 1v1 Lol loading screen.
