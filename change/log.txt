@@ -1,6 +1,6 @@
 GRAVITY V5.0mini
 
-- The launch Gravity page now automattically closes if you wait to long to avoid people leaving it open.
+- The launch Gravity page now automattically closes if you wait too long to avoid people leaving it open.
 - Added the Gravity logo to the 1v1 Lol loading screen.
 - Upgraded the Gravity logo in the Tunnel Rush loading screen.
 - Small changes made to Supernova UI.
