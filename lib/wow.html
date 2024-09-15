@@ -225,6 +225,7 @@ window.addEventListener('message', (event) => {
         <button class="button" onclick="openSite('../brawl/brawl.html')">Brawl Stars Clone</button>
         <button class="button" onclick="openSite('https://d21u3ic0kp9e91.cloudfront.net/elasticman/0/index.html')">Elastic Man</button>
         <button class="newgame" onclick="openSite('../retro-bowl/index.html')">Retro Bowl 1</button>
+        <button class="newgame" onclick="openSite('../retro.html')">Retro Bowl 2</button>
     </div>
     
     <script>
@@ -236,7 +237,7 @@ window.addEventListener('message', (event) => {
                 document.body.style.display = "none";
                 // Redirect to another page if needed
                 setTimeout(function() {
-                    window.location.replace("denied.html");
+                    window.location.replace("denied.html");        
                 }, 2000); // Redirect after 2 seconds
             } else {
                 // If the cookie is present and its value is true, display the body
