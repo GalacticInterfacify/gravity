@@ -1,0 +1,19 @@
+name = "your-project-name"
+type = "javascript"
+
+[build]
+command = "npm run build"
+directory = "dist"
+
+[dev]
+command = "npm run dev"
+port = 8787
+
+[[routes]]
+pattern = "your-domain.com/unlock/*"
+zone_id = "your-zone-id"
+script = "your-project-name"
+
+[[rewrites]]
+from = "unlock/*"
+to = "/unlock/index.html"
