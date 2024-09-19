@@ -10,11 +10,7 @@ command = "npm run dev"
 port = 8787
 
 [[routes]]
-pattern = "your-domain.com/unlock/*"
-zone_id = "your-zone-id"
-script = "your-project-name"
-
-[[routes]]
 pattern = "*/unlock/*"
 zone_id = "your-zone-id"
 script = "your-project-name"
+
