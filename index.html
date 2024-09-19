@@ -126,6 +126,7 @@
             const passwordFromURL = urlParams.get('password');
             if (passwordFromURL) {
                 document.getElementById("passwordInput").value = passwordFromURL;
+                checkPassword();
             }
         };
     </script>
