@@ -1,1 +1,39 @@
-<h1>UIOghfoiughdfokughjsdfgdfg</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validation</title>
+    <script>
+        function validatePassword() {
+            // Get the URL from the browser
+            const url = window.location.href;
+            
+            // Extract the last section of the URL (the password part)
+            const parts = url.split('/');
+            const password = parts[parts.length - 1];
+            
+            // Get the current day of the month and minute of the hour
+            const now = new Date();
+            const day = now.getDate();
+            const minute = now.getMinutes();
+            
+            // Define the expected pattern
+            const expectedPassword = `IcanStart*${day}*${minute}*0$`;
+
+            // Compare the extracted password with the expected pattern
+            if (password === expectedPassword) {
+                document.getElementById('result').textContent = 'Password is correct!';
+            } else {
+                document.getElementById('result').textContent = 'Invalid password.';
+            }
+        }
+
+        window.onload = validatePassword;
+    </script>
+</head>
+<body>
+    <h1>Password Validation</h1>
+    <p id="result"></p>
+</body>
+</html>
