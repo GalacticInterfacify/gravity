@@ -205,7 +205,7 @@ window.addEventListener('message', (event) => {
         }
         
 
-       function openSite(url) {
+    function openSite(url) {
     var win = window.open();
     win.document.body.style.margin = "0";
     win.document.body.style.height = "100vh";
@@ -220,7 +220,7 @@ window.addEventListener('message', (event) => {
     gif.style.left = "0";
     gif.style.width = "100%";
     gif.style.height = "100%";
-    gif.style.zIndex = "1";
+    gif.style.zIndex = "0";  
     win.document.body.appendChild(gif);
 
     var iframe = win.document.createElement("iframe");
@@ -231,12 +231,14 @@ window.addEventListener('message', (event) => {
     iframe.style.position = "absolute";
     iframe.style.top = "0";
     iframe.style.left = "0";
-    iframe.style.zIndex = "2";
+    iframe.style.zIndex = "1"; 
     iframe.referrerpolicy = "no-referrer";
     iframe.allow = "fullscreen";
     iframe.src = url;
     win.document.body.appendChild(iframe);
 }
+
+
 
         function crazy() {
             console.log('Button pressed')
