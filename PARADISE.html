@@ -205,32 +205,38 @@ window.addEventListener('message', (event) => {
         }
         
 
-        function openSite(url) {
-            var win = window.open();
-            win.document.body.style.margin = "0";
-            win.document.body.style.height = "100vh";
-            var gif = win.document.createElement("div");
-            gif.style.backgroundImage = "url('transition.gif')";
-            gif.style.backgroundSize = "cover"; 
-             gif.style.backgroundPosition = "center";
-            gif.style.position = "absolute";
-            gif.style.top = "0";
-            gif.style.left = "0";
-            gif.style.width = "100%";
-            gif.style.height = "100%";
-            gif.style.zIndex = "1";
-            win.document.body.appendChild(gif);
-            var iframe = win.document.createElement("iframe");
-            iframe.style.border = "none";
-            iframe.style.width = "100%";
-            iframe.style.height = "100%";
-            iframe.style.margin = "0";
-            iframe.style.zIndex = "2";
-            iframe.referrerpolicy = "no-referrer";
-            iframe.allow = "fullscreen";
-            iframe.src = url;
-            win.document.body.appendChild(iframe);
-        }
+       function openSite(url) {
+    var win = window.open();
+    win.document.body.style.margin = "0";
+    win.document.body.style.height = "100vh";
+    win.document.body.style.position = "relative";
+
+    var gif = win.document.createElement("div");
+    gif.style.backgroundImage = "url('transition.gif')";
+    gif.style.backgroundSize = "cover"; 
+    gif.style.backgroundPosition = "center";
+    gif.style.position = "absolute";
+    gif.style.top = "0";
+    gif.style.left = "0";
+    gif.style.width = "100%";
+    gif.style.height = "100%";
+    gif.style.zIndex = "1";
+    win.document.body.appendChild(gif);
+
+    var iframe = win.document.createElement("iframe");
+    iframe.style.border = "none";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.margin = "0";
+    iframe.style.position = "absolute";
+    iframe.style.top = "0";
+    iframe.style.left = "0";
+    iframe.style.zIndex = "2";
+    iframe.referrerpolicy = "no-referrer";
+    iframe.allow = "fullscreen";
+    iframe.src = url;
+    win.document.body.appendChild(iframe);
+}
 
         function crazy() {
             console.log('Button pressed')
