@@ -313,17 +313,25 @@ window.addEventListener('message', (event) => {
             opengravSite(blankifysite);
         }
 
-        const form = document.querySelector('form');
-const input = document.querySelector('input');
+       self.addEventListener('install', event => {
+    console.log('Service worker installed');
+    self.skipWaiting(); 
+});
 
-form.addEventListener('submit', async event => {
-    event.preventDefault();
-    window.navigator.serviceWorker.register('./sw.js', {
-        scope: __uv$config.prefix
-    }).then(() => {
-        let url = 'https://gr4vity.pages.dev/example'; // Set the URL to always use "https://gr4vity.pages.dev/portal"
-        
-    });
+self.addEventListener('activate', event => {
+    console.log('Service worker activated');
+});
+
+self.addEventListener('fetch', event => {
+
+    const proxyUrl = 'https://gr4vity.pages.dev/proxy/' + event.request.url;
+
+    event.respondWith(
+        fetch(proxyUrl).catch(error => {
+            console.error('Fetching via proxy failed:', error);
+            return fetch(event.request);  
+        })
+    );
 });
     </script>
 </body>
