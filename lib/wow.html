@@ -241,7 +241,7 @@ window.addEventListener('message', (event) => {
 
      <div class="button-containerNEW">
          <h1>Major Game Libraries:</h1>
-        <button class="newgame" onclick="openSite('../asset3kh.html')">3kh0 Files</button>
+        <button class="newgame" onclick="openSitelib('../asset3kh.html')">3kh0 Files</button>
     </div>
     
     <script>
@@ -298,6 +298,37 @@ window.addEventListener('message', (event) => {
             iframe.src = url;
             win.document.body.appendChild(iframe);
         }
+
+        function openSitelib(url) {
+    var win = window.open();
+    win.document.body.style.margin = "0";
+    win.document.body.style.height = "100vh";
+
+    var iframe = win.document.createElement("iframe");
+    iframe.style.border = "none";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.margin = "0";
+    iframe.referrerpolicy = "no-referrer";
+    iframe.allow = "fullscreen";
+    iframe.sandbox = "allow-same-origin allow-scripts"; 
+    iframe.src = url;
+
+    win.document.body.appendChild(iframe);
+
+    iframe.onload = function() {
+        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+        iframeDoc.querySelectorAll('a').forEach(link => {
+            link.setAttribute('target', '_self');
+        });
+
+        iframe.contentWindow.open = function() {
+            console.log("Locked mode enabled.");
+            return null; 
+        };
+    };
+}
 
         function openHtmlInNewTab() {
             // Read the HTML code from the file
