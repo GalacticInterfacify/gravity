@@ -298,8 +298,7 @@ window.addEventListener('message', (event) => {
             iframe.src = url;
             win.document.body.appendChild(iframe);
         }
-
-        function openSitelib(url) {
+function openSitelib(url) {
     var win = window.open();
     win.document.body.style.margin = "0";
     win.document.body.style.height = "100vh";
@@ -311,21 +310,27 @@ window.addEventListener('message', (event) => {
     iframe.style.margin = "0";
     iframe.referrerpolicy = "no-referrer";
     iframe.allow = "fullscreen";
-    iframe.sandbox = "allow-same-origin allow-scripts"; 
+    iframe.sandbox = "allow-same-origin allow-scripts"; // Add sandbox restrictions to prevent new tabs
     iframe.src = url;
 
     win.document.body.appendChild(iframe);
 
+    // Wait for the iframe to load, then remove target="_blank" from links and modify window.open
     iframe.onload = function() {
         var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
+        // Remove only target="_blank" to ensure links open within the iframe
         iframeDoc.querySelectorAll('a').forEach(link => {
-            link.setAttribute('target', '_self');
+            if (link.getAttribute('target') === '_blank') {
+                link.setAttribute('target', '_self'); // Change target to open in the same iframe
+            }
         });
 
-        iframe.contentWindow.open = function() {
-            console.log("Locked mode enabled.");
-            return null; 
+        // Override window.open within the iframe to prevent external tab opening
+        iframe.contentWindow.open = function(url, name, specs) {
+            // Redirect any attempt to open a new window back to the iframe
+            iframe.src = url;
+            return iframe.contentWindow; // Keep it within the iframe context
         };
     };
 }
