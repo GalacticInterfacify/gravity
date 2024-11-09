@@ -310,29 +310,30 @@ function openSitelib(url) {
     iframe.style.margin = "0";
     iframe.referrerpolicy = "no-referrer";
     iframe.allow = "fullscreen";
-    iframe.sandbox = "allow-same-origin allow-scripts allow-forms"; // Add 'allow-forms' to enable form submission
+    iframe.sandbox = "allow-same-origin allow-scripts allow-forms"; // Allow forms but prevent new tabs
     iframe.src = url;
 
     win.document.body.appendChild(iframe);
 
-    // Ensure links open in the same iframe
+    // Once the iframe loads, apply additional controls
     iframe.onload = function() {
         var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-        // Change target="_blank" to "_self" to keep links within the iframe
+        // Remove target="_blank" from all links to keep them within the iframe
         iframeDoc.querySelectorAll('a').forEach(link => {
             if (link.getAttribute('target') === '_blank') {
-                link.setAttribute('target', '_self');
+                link.setAttribute('target', '_self'); // Open in the same frame
             }
         });
 
-        // Override window.open to keep links within the iframe
+        // Override window.open in the iframe to prevent opening new tabs
         iframe.contentWindow.open = function(url) {
             iframe.src = url; // Redirect to open within the iframe itself
-            return iframe.contentWindow; // Maintain iframe context
+            return iframe.contentWindow; // Return the iframe context
         };
     };
 }
+
 
 
         function openHtmlInNewTab() {
