@@ -241,7 +241,7 @@ window.addEventListener('message', (event) => {
 
      <div class="button-containerNEW">
          <h1>Major Game Libraries:</h1>
-        <button class="newgame" onclick="openSitelib('../asset3kh.html')">3kh0 Files</button>
+        <button class="newgame" onclick="openSite('../asset3kh.html')">3kh0 Files</button>
     </div>
     
     <script>
@@ -298,41 +298,6 @@ window.addEventListener('message', (event) => {
             iframe.src = url;
             win.document.body.appendChild(iframe);
         }
-function openSitelib(url) {
-    var win = window.open();
-    win.document.body.style.margin = "0";
-    win.document.body.style.height = "100vh";
-
-    var iframe = win.document.createElement("iframe");
-    iframe.style.border = "none";
-    iframe.style.width = "100%";
-    iframe.style.height = "100%";
-    iframe.style.margin = "0";
-    iframe.referrerpolicy = "no-referrer";
-    iframe.allow = "fullscreen";
-    iframe.sandbox = "allow-same-origin allow-scripts allow-forms"; // Allow forms but prevent new tabs
-    iframe.src = url;
-
-    win.document.body.appendChild(iframe);
-
-    // Once the iframe loads, apply additional controls
-    iframe.onload = function() {
-        var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-
-        // Remove target="_blank" from all links to keep them within the iframe
-        iframeDoc.querySelectorAll('a').forEach(link => {
-            if (link.getAttribute('target') === '_blank') {
-                link.setAttribute('target', '_self'); // Open in the same frame
-            }
-        });
-
-        // Override window.open in the iframe to prevent opening new tabs
-        iframe.contentWindow.open = function(url) {
-            iframe.src = url; // Redirect to open within the iframe itself
-            return iframe.contentWindow; // Return the iframe context
-        };
-    };
-}
 
 
 
