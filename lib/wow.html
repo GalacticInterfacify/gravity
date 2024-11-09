@@ -84,6 +84,20 @@
             padding: 20px;
         }
 
+        .button-containerNEW {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    padding: 20px;
+
+    position: fixed;  /* Fix position relative to the viewport */
+    bottom: 0;        /* Align to the bottom of the viewport */
+    left: 0;
+    width: 100%;      /* Make it span the full width */
+    box-sizing: border-box; /* Include padding in the element's total width */
+}
+
         /* CSS for buttons */
         .button-container .button {
             padding: 20px 40px; /* Increase padding for larger buttons */
@@ -98,7 +112,7 @@
             box-sizing: border-box; /* Include padding and border in element's total width and height */
         }
 
-        .button-container .newgame {
+        .button-containerNEW .newgame {
             padding: 20px 40px; /* Increase padding for larger buttons */
             font-size: 1.2em; /* Increase font size for larger buttons */
             background-color: rgba(0, 0, 0, 0.7);
@@ -225,20 +239,7 @@ window.addEventListener('message', (event) => {
         <button class="button" onclick="openSite('../retro-bowl/index.html')">Retro Bowl 1</button>
     </div>
 
-     <div class="button-container">
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
+     <div class="button-containerNEW">
          <h1>Major Game Libraries:</h1>
         <button class="newgame" onclick="openSite('../asset3kh.html')">3kh0 Files</button>
     </div>
