@@ -32,10 +32,19 @@ GRAVITY V5.0
 _____________________________
 
 
-OLD VERSIONS
+
+
+
+VERSION HISTORY
 
 |
 V
+
+
+
+
+
+
 
 
 
@@ -93,7 +102,6 @@ GRAVITY V4.1
 
 
 
-_____________________________
 
 GRAVITY V4.0
 
@@ -120,6 +128,12 @@ GRAVITY V4.0
 - Added GR4V1TY logo alongside GR4V1TY text.
 - Started work on a web mod loader that could possibly do extraordinary things. This is being done in the background so while it might seem like I'm making no progress that is not true. 
 
+
+
+_____________________________
+
+Beyond this point was early development of Gravity.
+-------------------------
 
 
 
