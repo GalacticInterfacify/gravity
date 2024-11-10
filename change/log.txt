@@ -20,6 +20,8 @@ GRAVITY V5.0
 
 - Removed the Dino Game option in the access denied page.
 
+- Made the changelog go all the way back to when it was first added. Its pretty cool to see the progression of Gravity. If you want to see this just scroll down!
+
 
 
 
@@ -117,11 +119,11 @@ GRAVITY V4.0
 - Moved supernova to a dynamically loaded browser tab (about:blank)
 - Added GR4V1TY logo alongside GR4V1TY text.
 - Started work on a web mod loader that could possibly do extraordinary things. This is being done in the background so while it might seem like I'm making no progress that is not true. 
-- Changed formatting of the version number because I can.
 
-(The reason this version number is different is because I changed the format of it in the next update)
 
-GRAVITY V1.4.0
+
+
+GRAVITY V3.9
         
 - Moved the news box down a bit so that it is no longer touching the navigation bar.
  - Added a blue indicator of what page you're on in navigation.
@@ -130,7 +132,56 @@ GRAVITY V1.4.0
 - Added GR4V1TY logo to navigation.
 - added apps section
 - fixed supernova bug on the main page and made supernova better.
- 
-  
 
-*I lost the changelog to older versions and for really old versions there wasnt even a changelog yet. :(*
+
+
+
+GRAVITY V3.8:
+       
+- Moved the news box down a bit so that it is no longer touching the navigation bar.
+- Added a blue indicator of what page you're on in navigation.
+- Afterlife was discontinued.
+- Game libraries replaced with "Games"
+
+
+
+
+
+
+GRAVITY V3:
+  
+- Added 2048</li>
+- Added hyperjump. IF THIS IS NOT WORKING FOR YOU TELL ME AND I CAN FIX IT.
+- Sorry about infinitecraft progress loss. I will continue to have the old infinitecraft with your old progress :D
+
+
+
+
+
+
+
+GRAVITY V2.63:  
+ - Added 2048
+- Added hyperjump. IF THIS IS NOT WORKING FOR YOU TELL ME AND I CAN FIX IT.
+
+
+
+
+
+
+
+GRAVITY V2.6:    
+- Changed the app icon. hopefully working but doesnt matter much
+- Fixed some things
+- Added this changelog & decided a version number based on my updates so far.
+
+
+
+
+
+GRAVITY V0-2.59:
+- All versions before 2.6 did not contain a changelog for me to display here.
+- Bassically, this was really really early Gravity that didn't even compete with afterlife.
+
+
+CHANGELOG END
