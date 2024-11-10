@@ -6,20 +6,19 @@
     <title>Classroom</title>
     <link rel="icon" href="../files/ok.png" type="image/png">
     <style>
-        /* Existing CSS */
         body {
-            display: none; /* Hide the body by default */
-            background-color: black; /* Set the background color to black */
+            display: none; 
+            background-color: black; 
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            color: #fff; /* Set default text color */
-            font-family: Arial, sans-serif; /* Set font family */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            color: #fff; 
+            font-family: Arial, sans-serif;
+            margin: 0; 
+            padding: 0;
         }
 
-        /* CSS for navigation bar */
+    
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -28,33 +27,33 @@
             padding: 10px 20px;
         }
 
-        /* CSS for news textbox */
+   
         .news-textbox {
-            width: 80%; /* Adjust width as needed */
-            max-width: 600px; /* Limit maximum width */
-            margin: 0 auto; /* Center the textbox horizontally */
-            margin-top: 15px; /* bring it down a bit */
-            padding: 20px; /* Add padding */
-            font-size: 1em; /* Adjust font size */
-            border-radius: 10px; /* Add border radius */
-            position: relative; /* Position for pseudo-elements */
-            overflow: hidden; /* Hide overflowing border animation */
+            width: 80%;
+            max-width: 600px; 
+            margin: 0 auto; 
+            margin-top: 15px; 
+            padding: 20px; 
+            font-size: 1em; 
+            border-radius: 10px; 
+            position: relative; 
+            overflow: hidden;
             border: 2px solid #78FF00;
         }
 
-        /* CSS for logo */
+      
         .logo {
             font-size: 2em;
             font-weight: bold;
             color: #78FF00;
-            text-decoration: none; /* nothing */
+            text-decoration: none;
             display: flex;
             align-items: center;
         }
 
         .logo img {
-            margin-right: 10px; /* Space between the logo and text */
-            height: 40px; /* Adjust the height of the logo */
+            margin-right: 10px;
+            height: 40px; 
         }
 
         .navtextThing {
@@ -63,24 +62,24 @@
             color: #067bbf;
         }
 
-        /* CSS for navigation bar buttons */
+        
         .navbar .button {
-            margin-left: 10px; /* Add some space between buttons */
+            margin-left: 10px; 
             padding: 10px 20px;
             background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
             border: 2px solid #78FF00;
-            border-radius: 15px; /* Rounded corners */
+            border-radius: 15px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* CSS for button container */
+    
         .button-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Create columns that fill available space */
-            gap: 10px; /* Add space between buttons */
-            justify-items: center; /* Center buttons within grid cells */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 10px;
+            justify-items: center; 
             padding: 20px;
         }
 
@@ -91,47 +90,57 @@
     justify-items: center;
     padding: 20px;
 
-    position: fixed;  /* Fix position relative to the viewport */
-    bottom: 0;        /* Align to the bottom of the viewport */
+    position: fixed; 
+    bottom: 0;       
     left: 0;
-    width: 100%;      /* Make it span the full width */
-    box-sizing: border-box; /* Include padding in the element's total width */
+    width: 100%;   
+    box-sizing: border-box; 
 }
 
-        /* CSS for buttons */
+      
         .button-container .button {
-            padding: 20px 40px; /* Increase padding for larger buttons */
-            font-size: 1.2em; /* Increase font size for larger buttons */
+            padding: 20px 40px; 
+            font-size: 1.2em; 
             background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
             border: 2px solid #78FF00;
             border-radius: 15px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
-            width: 100%; /* Ensure buttons take full width of grid cell */
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .button-containerNEW .newgame {
-            padding: 20px 40px; /* Increase padding for larger buttons */
-            font-size: 1.2em; /* Increase font size for larger buttons */
+            padding: 20px 40px; 
+            font-size: 1.2em; 
             background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            border: 2px solid #FFD700;
+            border: 2px solid #00ebf7;
             border-radius: 15px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
-            width: 100%; /* Ensure buttons take full width of grid cell */
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            width: 100%; 
+            box-sizing: border-box;
+        }
+        .button-container .newgame {
+            padding: 20px 40px;
+            font-size: 1.2em; 
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: 6px solid #FFD700;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%; 
+            box-sizing: border-box; 
         }
 
-        /* CSS for button hover effect */
         .button-container .button:hover {
             background-color: rgba(255, 255, 255, 0.5);
             color: #000;
         }
 
-        /* CSS for container */
         .container {
             position: absolute;
             top: 50%;
@@ -140,22 +149,21 @@
             text-align: center;
         }
 
-        /* CSS for background content */
         .background-content {
-            position: fixed; /* Position the content fixed so it remains in the background */
+            position: fixed; 
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.html'); /* Set the background */
+            background: url('background.html'); 
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
-            z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
+            pointer-events: none;
+            z-index: -1;
         }
 
-        /* CSS for changelog container */
+      
         .changelog-container {
             position: fixed;
             bottom: 20px;
@@ -183,7 +191,7 @@
     </style>
 </head>
     <script>
-        // iframeNavigation.js
+    
 window.addEventListener('message', (event) => {
     if (event.data.type === 'navigate') {
         if (event.data.direction === 'back') {
@@ -225,7 +233,7 @@ window.addEventListener('message', (event) => {
     <div class="button-container">
         <button class="button" onclick="openSite('../slope/slope.html')">Slope</button>
         <button class="button" onclick="openSite('../tunnel/tunnel.html')">Tunnel Rush</button>
-        <button class="button" onclick="openSite('../1v1-lol-folder/index.htm')">1v1 Lol</button>
+        <button class="newgame" onclick="openSite('../11lol.html')">1v1 Lol | FIXED :D</button>
         <button class="button" onclick="openSite('../cookie.html')">Cookie Clicker</button>
         <button class="button" onclick="openSite('../infinitestartup.html')">Infinite Craft</button>
         <button class="button" onclick="openSite('../numberstartup.html')">2048</button>
