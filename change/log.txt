@@ -115,9 +115,20 @@ GRAVITY V4.0
 - Moved supernova to a dynamically loaded browser tab (about:blank)
 - Added GR4V1TY logo alongside GR4V1TY text.
 - Started work on a web mod loader that could possibly do extraordinary things. This is being done in the background so while it might seem like I'm making no progress that is not true. 
+- Changed formatting of the version number because I can.
 
+(The reason this version number is different is because I changed the format of it in the next update)
 
-
-
+GRAVITY V1.4.0
+        
+- Moved the news box down a bit so that it is no longer touching the navigation bar.
+ - Added a blue indicator of what page you're on in navigation.
+ - Afterlife was discontinued.
+ - Game libraries replaced with "Games"
+- Added GR4V1TY logo to navigation.
+- added apps section
+- fixed supernova bug on the main page and made supernova better.
+ 
+  
 
 *I lost the changelog to older versions and for really old versions there wasnt even a changelog yet. :(*
