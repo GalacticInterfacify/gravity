@@ -18,6 +18,8 @@ GRAVITY V5.0
 
 - V5.1 coming next weekend!
 
+- Removed the Dino Game option in the access denied page.
+
 
 
 
