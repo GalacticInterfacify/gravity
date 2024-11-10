@@ -24,25 +24,35 @@
             text-align: center;
         }
 
-      button.start-button:hover {
+      button.start-button {
+            width: 220px;
+            height: 40px;
+            border: 2px solid #78FF00;
+            border-radius: 12px;
+            background-color: rgba(0, 0, 0, 0.7);
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+
+        button.start-button:hover {
             border: 2px solid #78FF00;
             background-color: rgba(0, 0, 0, 0.7);
             transform: scale(1.1);
         }
         
-        
+           /* CSS for background content */
         .background-content {
-            position: fixed; 
+            position: fixed; /* Position the content fixed so it remains in the background */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.html'); 
+            background: url('background.html'); /* Set the background */
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            pointer-events: none; 
-            z-index: -1; 
+            pointer-events: none; /* Ensure the content doesn't interfere with mouse events */
+            z-index: -1; /* Set a negative z-index to ensure it stays behind other elements */
         }
     </style>
 </head>
@@ -55,7 +65,7 @@
     
 
     <div class="desc">
-        <h1 class="title">1v1 Lol</h1>
+        <h1 class="title">1V1 lol</h1>
     </div>
     <form id="searchForm">
         <input class="search-input" id="searchInput" placeholder="Search the web freely..." disabled>
@@ -89,8 +99,7 @@
     <script>
         function startProxy() {
             var input = document.getElementById("https://let3r45jj02l930rzh903me09f3g9lhh5fz66play356hhjz30.com/lol/").value;
-            // Perform actions to start the proxy
-            console.log("badabababa", input);
+            console.log("asgasdfgasdg:", input);
         }
     </script>
 </body>
