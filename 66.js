@@ -6,7 +6,7 @@ form.addEventListener('submit', async event => {
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
-        let url = 'https://66games.com';
+        let url = 'https://66games.io';
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
 });
