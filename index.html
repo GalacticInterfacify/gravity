@@ -72,10 +72,10 @@
             var minute = now.getMinutes();
             
             // Predefined string for the password
-            var basePassword = "IcanStart";
+            var basePassword = "IcantStart";
             
             // Generate password by concatenating the base password with the current day of the month, minute, "0", and "$"
-            var expectedPassword = basePassword + day + minute + "0" + "$";
+            var expectedPassword = basePassword + day + minute + "00" + "$";
             
             // Get the password entered by the user
             var enteredPassword = document.getElementById("passwordInput").value;
