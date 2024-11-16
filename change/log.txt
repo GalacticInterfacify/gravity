@@ -1,3 +1,36 @@
+GRAVITY V5.1
+
+- Added 6x and 66 games major libraries.
+
+- lioght mode update
+
+
+
+ 
+
+
+
+
+
+VERSION HISTORY
+
+|
+V
+
+
+
+
+
+
+
+
+
+
+      LATEST ↑
+_____________________________
+
+
+
 
 
 GRAVITY V5.0
@@ -21,29 +54,6 @@ GRAVITY V5.0
 - Removed the Dino Game option in the access denied page.
 
 - Made the changelog go all the way back to when it was first added. Its pretty cool to see the progression of Gravity. If you want to see this just scroll down!
-
-
-
-
-
-
-
-       LATEST ↑
-_____________________________
-
-
-
-
-
-VERSION HISTORY
-
-|
-V
-
-
-
-
-
 
 
 
