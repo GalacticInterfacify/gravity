@@ -19,11 +19,13 @@ canvas {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #181818;
-    background-image: url("");
+    background-color: #181818; /* Default dark mode */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
+}
+.light-mode {
+    background-color: #f0f0f0; /* Light mode background */
 }
 /* ---- stats.js ---- */
 .count-particles {
@@ -63,13 +65,33 @@ canvas {
 <!-- particles.js container -->
 <div id="particles-js"></div>
 
-
 <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <!-- stats.js lib -->
 <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 
 <script>
+    // Function to get cookie by name
+    function getCookie(name) {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            const [key, value] = cookie.split('=');
+            if (key.trim() === name) {
+                return decodeURIComponent(value);
+            }
+        }
+        return null;
+    }
+
+    // Check for "light" cookie
+    const isLightMode = getCookie('light') === 'true';
+
+    // Apply light mode styles if "light" cookie is true
+    if (isLightMode) {
+        document.getElementById('particles-js').classList.add('light-mode');
+    }
+
+    // Initialize particles.js
     particlesJS("particles-js", {
         "particles": {
             "number": {
@@ -80,7 +102,7 @@ canvas {
                 }
             },
             "color": {
-                "value": "#ffffff"
+                "value": isLightMode ? "#000000" : "#ffffff" // Change particle color for light mode
             },
             "shape": {
                 "type": "circle",
@@ -120,7 +142,7 @@ canvas {
             "line_linked": {
                 "enable": true,
                 "distance": 150,
-                "color": "#ffffff",
+                "color": isLightMode ? "#000000" : "#ffffff", // Change link color for light mode
                 "opacity": 0.4,
                 "width": 1
             },
