@@ -4,8 +4,6 @@ GRAVITY V5.1
 
 - Added a panic button to Grav bar (called classroom)
 
-- Panic button also in supernova.
-
 - uhh im not rlly done yet.
 
 
