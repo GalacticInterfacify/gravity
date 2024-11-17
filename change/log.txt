@@ -2,6 +2,8 @@ GRAVITY V5.1
 
 - Added 6x and 66 games major libraries.
 
+- Added a panic button (called classroom)
+
 - uhh im not rlly done yet.
 
 
