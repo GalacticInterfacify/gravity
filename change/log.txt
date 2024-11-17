@@ -2,7 +2,9 @@ GRAVITY V5.1
 
 - Added 6x and 66 games major libraries.
 
-- Added a panic button (called classroom)
+- Added a panic button to Grav bar (called classroom)
+
+- Panic button also in supernova.
 
 - uhh im not rlly done yet.
 
