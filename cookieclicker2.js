@@ -6,7 +6,7 @@ form.addEventListener('submit', async event => {
     window.navigator.serviceWorker.register('./sw.js', {
         scope: __uv$config.prefix
     }).then(() => {
-        let url = 'https://assets.3kh0.net/projects/cookie-clicker/'; 
+        let url = 'https://assets.3kh0.net/cookie-clicker/'; 
         
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
