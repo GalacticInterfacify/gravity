@@ -6,6 +6,8 @@ GRAVITY V5.1
 - Added animations that were previously missing in different buttons in the games screen.
 - Added animations that were previously missing in the navigation bar buttons.
 - Added an seggestions channel to Grav Chat.
+- Added Gr4v1ty tutorials (buttton is on the home page.) This shows you how to use GR4V1TY for things nobody knew you could do before!
+- I will add more tutorials in the future.
 
 
 
