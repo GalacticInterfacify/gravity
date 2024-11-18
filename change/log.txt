@@ -4,6 +4,7 @@ GRAVITY V5.1
 - Grav Chat is now back.
 - Added game slots. This can only be applied to a select few games but I will add it for every game I can.
 - Added animations that were previously missing in different buttons in the games screen.
+- Added animations that were previously missing in the navigation bar buttons.
 - Added an seggestions channel to Grav Chat.
 
 
