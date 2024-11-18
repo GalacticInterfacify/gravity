@@ -8,6 +8,7 @@ GRAVITY V5.1
 - Added an seggestions channel to Grav Chat.
 - Added Gr4v1ty tutorials (buttton is on the home page.) This shows you how to use GR4V1TY for things nobody knew you could do before!
 - I will add more tutorials in the future.
+- Gravitys probably gonna stand still for a bit (unless there ends up being a bunch of seggestions in the new channel!)
 
 
 
