@@ -1,6 +1,5 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
-const blacklist = ['tiktok.com', 'snapchat.com', 'x.com', 'twitter.com']; // Array of blacklisted domains
 let iframe;
 
 form.addEventListener('submit', async event => {
