@@ -326,21 +326,11 @@ function UpdateParadise() {
             const latestVersion = data.tag_name; // Get the tag name of the latest release
             const latestVersionCheck = '5.0'; // Define the predefined value for the latest version
             
-            if (latestVersion === latestVersionCheck) {
-                alert("You already have the latest version! (bro's really checking for updates. not ever happening. 💀)");
-            } else {
-                const asset = data.assets.find(asset => asset.name === 'Paradise.zip');
-                if (asset) {
-                    // Construct the download link
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = asset.browser_download_url;
-                    downloadLink.textContent = 'Download Paradise.zip';
-                    downloadLink.download = 'Paradise.zip'; // Optional: Set the filename for download
-                    document.body.appendChild(downloadLink);
-                    downloadLink.click(); // Optional: Automatically trigger the download
-                    document.body.removeChild(downloadLink); // Optional: Remove the link after download
+                alert("You already have the latest version! (I don't think thats how this version of Afterlife works)");
+            
                 } else {
-                    console.error('File not found in the latest release.');
+                 alert("You already have the latest version! (I don't think thats how this version of Afterlife works)");
+
                 }
             }
         })
