@@ -194,7 +194,7 @@ button:hover
  <!-- third column of buttons -->
     <div class="button-column">
         <!-- TERMS -->
-        <div><button onclick="openSiteInNewTab('https://docs.google.com/document/d/1U2QvNvc_xOadcbd5mXYFzYERtN9RrbX_mdISTW-QeQU/edit?usp=sharing')">TERMS OF SERVICE</button></div>
+        <div><button onclick="openSite('afterlifeterms.txt')">TERMS OF SERVICE</button></div>
 
 	<!-- Quit -->
         <div><button onclick="rebirth();">Close Tab</button></div>
@@ -291,7 +291,7 @@ function blankify() {
 function githubPassword() {
     let passwordgit = prompt("Please enter the developer password", "");
     if (passwordgit !== null) {
-        if (passwordgit === 'This button was disabled and now just leads to example.com haha L BOZO.') {  
+        if (passwordgit === 'This button was disabled and now just leads to example.com.') {  
             // Open the website
             openSiteInNewTab('https://example.com');
         } else {
