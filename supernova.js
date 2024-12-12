@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
-const blacklist = [''];
+const blacklist = ['Thislinkdoesnotexist.com'];
 let iframe;
 
 form.addEventListener('submit', async event => {
