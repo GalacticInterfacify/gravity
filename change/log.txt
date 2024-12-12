@@ -1,11 +1,11 @@
 
-GRAVITY V5.12
+GRAVITY V5.14
 
 - Removed Supernova blocker for social sites. 
 - I am sorry for the pause in updates.
 - Please suggest games if you want any.
 - Updated the site to fit the fact the "new" things arnt new anymore.
-
+- Removed some apps that are in the game library section too.
 
 
 
