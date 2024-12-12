@@ -1,5 +1,6 @@
 const form = document.querySelector('form');
 const input = document.querySelector('input');
+const blacklist = [''];
 let iframe;
 
 form.addEventListener('submit', async event => {
@@ -11,7 +12,7 @@ form.addEventListener('submit', async event => {
         
         // Blacklist check
         if (isBlacklisted(url)) {
-            alert('nuh uh');
+            alert('Error: Link Invalid');
             return;
         }
         
