@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://ragdoll-archers.com/game-file-ragdollarchers/ragdoll-archers/ -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="./Ragdoll Archers_files/gameloader-helper.js.download"></script>
+
+<script src="./Ragdoll Archers_files/cloakGame.js.download"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Ragdoll Archers</title>
+
+<link rel="stylesheet" href="./Ragdoll Archers_files/style.css">
+<script src="./Ragdoll Archers_files/crazygames-sdk-v2.js.download"></script><style>
+.crazy-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style></head><body>
+  <div id="listLink" style="width: 100%; text-align: center; position: absolute; top: 0px; z-index: 999; background: rgb(119, 119, 255); opacity: 0.8;">
+
+    <ul style="color: #ffffff; padding: 0px; margin: 0px; font-size: 20px;">
+        <li style="padding: 5px; display: inline-block; float: left;">
+        <a href="https://ragdoll-archers.com/" style="color: #ffffff; text-decoration: none;">Ragdoll Archers</a>
+        </li>
+        <li style="padding: 5px; display: inline-block; float: right;">
+        <a onclick="return closeBacklinks();" style="color: #ffffff; text-decoration: none;">❌</a>
+        </li>
+    </ul>
+</div>
+<div id="unity-container" class="unity-desktop">
+<canvas id="unity-canvas" style="cursor: default;" width="1920" height="917"></canvas>
+</div>
+<div id="loading-cover" style="display: none;">
+<div id="unity-loading-bar">
+<div id="unity-logo"><img src="./Ragdoll Archers_files/logo.jpeg"></div>
+<div class="progress-spinner-container">
+<div class="spinner-left"><img src="./Ragdoll Archers_files/spinner.png"></div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full" style="width: 100%;"></div>
+</div>
+<div class="spinner-right"><img src="./Ragdoll Archers_files/spinner.png"></div>
+</div>
+</div>
+</div>
+<script>
+    const buildUrl = "Build";
+    const loaderUrl = buildUrl + "/v111.loader.js";
+    const config = {
+      dataUrl: buildUrl + "/6697b6deba8b617c67b69c55dcd07cb1.data.unityweb",
+      frameworkUrl: buildUrl + "/0be3c3ee7115b26e1ae28e643afdf1f2.js.unityweb",
+      codeUrl: buildUrl + "/b3397c29f6878557c1c614cbf9e196ea.wasm.unityweb",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Ericetto",
+      productName: "Ragdoll Archers",
+      productVersion: "0.1",
+    };
+
+    const container = document.querySelector("#unity-container");
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingCover = document.querySelector("#loading-cover");
+    const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      container.className = "unity-mobile";
+    }
+    
+    loadingCover.style.display = "";
+
+    const unityLoader = document.createElement("script");
+    unityLoader.src = loaderUrl;
+    unityLoader.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        progressBarEmpty.style.display = "";
+        progressBarFull.style.width = `${100 * progress}%`;
+      }).then((unityInstance) => {
+        window.unityInstance = unityInstance;
+        loadingCover.style.display = "none";
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+    document.body.appendChild(unityLoader);
+
+    document.addEventListener("pointerdown", () => {
+      container.focus();
+      window.focus();
+      canvas.focus();
+    });
+
+  </script><script src="./Ragdoll Archers_files/v111.loader.js.download"></script>
+<script src="blob:https://ragdoll-archers.com/19fc5a62-aa70-4dfb-9545-9a535e10c9ad"></script></body></html>
