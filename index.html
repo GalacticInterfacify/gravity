@@ -121,22 +121,26 @@
                 window.location.href = "PARADISE.html";
             }
 
-            // Get the password from URL parameters and set it in the input field
             const urlParams = new URLSearchParams(window.location.search);
-            const passwordFromURL = urlParams.get('VIIpassword');
-            if (passwordFromURL) {
-                document.getElementById("passwordInput").value = passwordFromURL;
-                checkPassword();
-            
-                if (urlParams.has('password')) {  
-            alert('Please get an updated Gravity-RitzCracker.');
-            window.close();
-                }
 
+    const passwordFromURL = urlParams.get('VIIpassword'); 
+    if (passwordFromURL) {
+        let passwordInput = document.getElementById("passwordInput");
+        if (passwordInput) {
+            passwordInput.value = passwordFromURL;
+            checkPassword();
+        }
+    }
 
-            }
-            
-        };
+    const passwordFromURL2 = urlParams.get('password');
+    if (passwordFromURL2) {
+        console.log("Old RitzCracker detected!");  // Log to see it's triggered
+        alert('Please get an updated Ritzcracker.');
+        window.close();
+    } else {
+        console.log("No RitzCracker Error");
+    }
+});
     </script>
 </head>
 <body style="background-image: url('https://raw.githubusercontent.com/GalacticInterfaces/GodFolder/main/developer%20files/authentication.png');">
