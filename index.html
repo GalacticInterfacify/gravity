@@ -97,9 +97,8 @@
                 // Wait for 8 seconds before redirecting (instead of 11 seconds)
                 setTimeout(function() {
                     window.location.href = "PARADISE.html";
-                }, 2000); // 2 seconds in milliseconds
+                }, 2000); // 2 seconds for animatino
 
-                // Delete the form elements after they fade out
                 var authenticationForm = document.getElementById("authentication-form");
                 var ascendButton = document.getElementById("ascendButton");
                 authenticationForm.style.display = "none";
@@ -109,24 +108,27 @@
                 alert("Authentication failed! Please try again.");
             }
 
-            // For demonstration, logging ascension-completion to console
             console.log("Ascension Completion:", ascensionCompletion);
         }
 
-        // Check for access cookie when the page loads
         window.onload = function() {
             var accessCookie = document.cookie.split(';').find(cookie => cookie.trim().startsWith('ACCESS='));
             if (accessCookie) {
-                // Redirect to PARADISE.html if the access cookie exists
                 window.location.href = "PARADISE.html";
             }
 
-            // Get the password from URL parameters and set it in the input field
             const urlParams = new URLSearchParams(window.location.search);
-            const passwordFromURL = urlParams.get('pass');
+            const passwordFromURL = urlParams.get('code');
             if (passwordFromURL) {
                 document.getElementById("passwordInput").value = passwordFromURL;
                 checkPassword();
+            }
+           
+            const urlPparams = new URLSearchParams(window.location.search);
+            const ppasswordFromURL = urlPparams.get('password');
+            if (ppasswordFromURL) {
+                alert('Old RitzCracker detected. Please download the new Password Cracker (RitzCracker');
+                window.close();
             }
         };
     </script>
