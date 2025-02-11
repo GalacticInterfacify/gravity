@@ -128,6 +128,11 @@
                 document.getElementById("passwordInput").value = passwordFromURL;
                 checkPassword();
             }
+             const urlParamsc = new URLSearchParams(window.location.search);
+            const wrongpasswordFromURL = urlParams.get('password');
+            if (passwordFromURL) {
+            alert('Please get an updated RitzCracker')                
+            }
         };
     </script>
 </head>
