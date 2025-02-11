@@ -121,24 +121,26 @@
                 window.location.href = "PARADISE.html";
             }
 
-            const urlParams = new URLSearchParams(window.location.search);
+              const urlParams = new URLSearchParams(window.location.search);
 
+    // Check for 'VIIpassword' in the URL
     const passwordFromURL = urlParams.get('VIIpassword'); 
     if (passwordFromURL) {
+        console.log("VIIpassword found:", passwordFromURL);  
         let passwordInput = document.getElementById("passwordInput");
         if (passwordInput) {
-            passwordInput.value = passwordFromURL;
-            checkPassword();
+            passwordInput.value = passwordFromURL; 
+            checkPassword(); 
         }
     }
 
     const passwordFromURL2 = urlParams.get('password');
     if (passwordFromURL2) {
-        console.log("Old RitzCracker detected!");  // Log to see it's triggered
-        alert('Please get an updated Ritzcracker.');
+        console.log("Old RitzCracker detected!"); 
+        alert('Please update your RitzCracker. Email me or talk to me in person for the new file.');
         window.close();
     } else {
-        console.log("No RitzCracker Error");
+        console.log("No old RitzCracker found."); 
     }
 });
     </script>
