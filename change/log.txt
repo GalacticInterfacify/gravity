@@ -1,11 +1,11 @@
 
-GRAVITY V5.14
+GRAVITY V5.5 (BIG UPDATE!)
 
-- Removed Supernova blocker for social sites. 
-- I am sorry for the pause in updates.
-- Please suggest games if you want any.
-- Updated the site to fit the fact the "new" things arnt new anymore.
-- Removed some apps that are in the game library section too.
+- Added download and upload buttons allowing saving of game data. This is extremly useful.
+- Created RitzCracker, a tool for getting into Gravity. It has customizable options too.
+- Made many changes that users will not notice that allow Gravity to be compatible with RitzCracker.
+
+
 
 
 
@@ -16,7 +16,6 @@ GRAVITY V5.14
 _____________________________
 
 
-
 VERSION HISTORY
 
 |
@@ -25,6 +24,13 @@ V
 
 
 
+GRAVITY V5.14
+
+- Removed Supernova blocker for social sites. 
+- I am sorry for the pause in updates.
+- Please suggest games if you want any.
+- Updated the site to fit the fact the "new" things arnt new anymore.
+- Removed some apps that are in the game library section too.
 
 
 GRAVITY V5.1
