@@ -105,14 +105,14 @@
                 window.location.href = "PARADISE.html";
             }
 
-            const urlParams = new URLSearchParams(window.location.search);
+            var urlParams = new URLSearchParams(window.location.search);
             const passwordFromURL = urlParams.get('code');
             if (passwordFromURL) {
                 document.getElementById("passwordInput").value = passwordFromURL;
                 checkPassword();
             }
            
-            const urlParams = new URLSearchParams(window.location.search);
+            var urlParams = new URLSearchParams(window.location.search);
             const passwordFromURL = urlParams.get('password');
             if (passwordFromURL) {
                 alert('Old RitzCracker detected. Please download the new Password Cracker (RitzCracker');
