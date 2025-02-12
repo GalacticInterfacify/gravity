@@ -106,14 +106,14 @@
             }
 
             var urlParams == new URLSearchParams(window.location.search);
-            const passwordFromURL = urlParams.get('code');
+            var passwordFromURL = urlParams.get('code');
             if (passwordFromURL) {
                 document.getElementById("passwordInput").value = passwordFromURL;
                 checkPassword();
             }
            
             var urlParams == new URLSearchParams(window.location.search);
-            const passwordFromURL = urlParams.get('password');
+            var passwordFromURL = urlParams.get('password');
             if (passwordFromURL) {
                 alert('Old RitzCracker detected. Please download the new Password Cracker (RitzCracker');
                 window.close();
