@@ -112,9 +112,9 @@
                 checkPassword();
             }
            
-            const urlPparams = new URLSearchParams(window.location.search);
-            const ppasswordFromURL = urlPparams.get('password');
-            if (ppasswordFromURL) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const passwordFromURL = urlParams.get('password');
+            if (passwordFromURL) {
                 alert('Old RitzCracker detected. Please download the new Password Cracker (RitzCracker');
                 window.close();
             }
