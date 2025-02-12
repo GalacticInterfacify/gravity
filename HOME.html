@@ -207,8 +207,8 @@ window.addEventListener('message', (event) => {
         <button class="button" onclick="openSite('change/log.txt')">Changelog</button>
         <button class="button" onclick="window.open(' https://docs.google.com/presentation/d/1AP926tl-JRMapEUzE1rJtz6eQ8e7RQNpdXhbgFi7AoI/present')">Tutorials</button>
         <button class="button" onclick="location.reload()">Refresh Page</button>
-        <button class="button" onclick="downloadCookies()">Backup all data</button>
-        <input class="button" type="file" onchange="uploadCookies(event)"/>
+        <button onclick="downloadSiteData()">Download Site Data</button>
+        <input type="file" onchange="uploadSiteData(event)" />
 
        
     </div>
@@ -300,21 +300,64 @@ window.addEventListener('message', (event) => {
     win.document.body.appendChild(iframe);
 }
 
-        function downloadCookies() {
-    const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
-        const [name, value] = cookie.split("=");
-        acc[name] = value;
-        return acc;
-    }, {});
+       async function downloadSiteData() {
+    const siteData = {
+        cookies: document.cookie.split("; ").reduce((acc, cookie) => {
+            const [name, value] = cookie.split("=");
+            acc[name] = value;
+            return acc;
+        }, {}),
+        localStorage: { ...localStorage },
+        sessionStorage: { ...sessionStorage }
+    };
 
-    const blob = new Blob([JSON.stringify(cookies)], { type: "application/json" });
+    const zip = new JSZip();
+    zip.file("cookies.json", JSON.stringify(siteData.cookies, null, 2));
+    zip.file("localStorage.json", JSON.stringify(siteData.localStorage, null, 2));
+    zip.file("sessionStorage.json", JSON.stringify(siteData.sessionStorage, null, 2));
+
+    const content = await zip.generateAsync({ type: "blob" });
+
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "cookies_backup.json";
+    a.href = URL.createObjectURL(content);
+    a.download = "site_backup.zip";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
 }
+
+        function uploadSiteData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = async function (e) {
+        const zip = await JSZip.loadAsync(e.target.result);
+        
+        const cookies = JSON.parse(await zip.file("cookies.json").async("text"));
+        const localData = JSON.parse(await zip.file("localStorage.json").async("text"));
+        const sessionData = JSON.parse(await zip.file("sessionStorage.json").async("text"));
+
+        // Restore cookies
+        for (const [name, value] of Object.entries(cookies)) {
+            document.cookie = `${name}=${value}; path=/;`;
+        }
+
+        // Restore localStorage
+        for (const [key, value] of Object.entries(localData)) {
+            localStorage.setItem(key, value);
+        }
+
+        // Restore sessionStorage
+        for (const [key, value] of Object.entries(sessionData)) {
+            sessionStorage.setItem(key, value);
+        }
+
+        alert("Site data restored!");
+    };
+    reader.readAsArrayBuffer(file);
+}
+
 
 
         function openHtmlInNewTab() {
