@@ -157,10 +157,13 @@
             margin-bottom: 5px;
         }
 
+        #fileInput {
+    display: none; 
+  }
+
     </style>
 </head>
     <script>
-        // iframeNavigation.js
 window.addEventListener('message', (event) => {
     if (event.data.type === 'navigate') {
         if (event.data.direction === 'back') {
@@ -208,7 +211,10 @@ window.addEventListener('message', (event) => {
         <button class="button" onclick="window.open(' https://docs.google.com/presentation/d/1AP926tl-JRMapEUzE1rJtz6eQ8e7RQNpdXhbgFi7AoI/present')">Tutorials</button>
         <button class="button" onclick="location.reload()">Refresh Page</button>
         <button class="button" onclick="downloadSiteData()">Download Site Data</button>
-        <input class="button" type="file" onchange="uploadSiteData(event)" />
+       <label class="custom-upload">
+  Upload Backup
+  <input class="button" type="file" id="fileInput" onchange="uploadSiteData(event)">
+</label>
 
        
     </div>
