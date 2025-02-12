@@ -300,6 +300,23 @@ window.addEventListener('message', (event) => {
     win.document.body.appendChild(iframe);
 }
 
+        function downloadCookies() {
+    const cookies = document.cookie.split("; ").reduce((acc, cookie) => {
+        const [name, value] = cookie.split("=");
+        acc[name] = value;
+        return acc;
+    }, {});
+
+    const blob = new Blob([JSON.stringify(cookies)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "cookies_backup.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+
         function openHtmlInNewTab() {
             // Read the HTML code from the file
             fetch('chat-html.txt')
