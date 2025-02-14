@@ -1,7 +1,7 @@
 {
   "name": "Gravity M",
   "short_name": "Grav",
-  "start_url": "/index.html",
+  "start_url": "HOME.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
