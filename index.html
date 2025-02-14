@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Classroom</title>
+    <link rel="icon" href="files/ok.png" type="image/png">
+    <style>
+        body {
+            display: none;
+            background-color: black;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .news-textbox {
+            width: 90%;
+            max-width: 400px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #78FF00;
+            margin-bottom: 20px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 10px 0;
+        }
+
+        .button {
+            padding: 10px 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: 2px solid #78FF00;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GR4V1TY</h1>
+        <div class="news-textbox">
+            <h2>V6 RELEASE. Added downloading and uploading Grav data allowing backups.</h2>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <button class="button" onclick="navigateTo('HOME.html')">Home</button>
+        <button class="button" onclick="navigateTo('lib/wow.html')">Games</button>
+        <button class="button" onclick="navigateTo('lib/libraries.html')">Apps</button>
+        <button class="button" onclick="openSite('supernova.html')">Supernova</button>
+        <button class="button" onclick="location.reload()">Refresh</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var accessCookie = getCookie("ACCESS");
+            if (!accessCookie || accessCookie !== "true") {
+                document.body.style.display = "none";
+                setTimeout(function() {
+                    window.location.replace("denied.html");
+                }, 2000);
+            } else {
+                document.body.style.display = "block";
+            }
+        };
+
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+
+        function openSite(url) {
+            var win = window.open();
+            win.document.body.style.margin = "0";
+            win.document.body.style.height = "100vh";
+            var iframe = win.document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+        }
+    </script>
+</body>
+</html>
