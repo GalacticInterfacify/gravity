@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Prevent scrolling */
+            overflow: hidden;
         }
 
         .container {
@@ -74,15 +74,69 @@
             background-color: rgba(172, 40, 255, 0.5);
             color: #000;
         }
+
+        .title-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.title-bar img {
+    height: 24px;
+}
+
+.title-bar h1 {
+    font-size: 16px;
+    color: white;
+    font-weight: normal;
+}
+
+.title-bar .highlight {
+    color: yellow;
+    font-weight: bold;
+    text-shadow: 0 0 4px purple;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.app-button {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>GR4V1TY</h1>
-        <div class="news-textbox">
-            <h2>Grav Mobile</h2>
-        </div>
-    </div>
+    <div class="title-bar">
+    <img src="files/gravity.png" alt="Gravity Logo">
+    <h1>GR4V1TY <span class="highlight">M</span></h1>
+</div>
+
 
     <div class="bottom-nav">
         <button class="currentpage" onclick="navigateTo('HOME.html')">Home</button>
