@@ -79,16 +79,7 @@
 
     <script>
         window.onload = function() {
-            var accessCookie = getCookie("ACCESS");
-            if (!accessCookie || accessCookie !== "true") {
-                document.body.style.display = "none";
-                setTimeout(function() {
-                    window.location.replace("denied.html");
-                }, 2000);
-            } else {
-                document.body.style.display = "block";
-            }
-        };
+            
 
         function getCookie(name) {
             var cookies = document.cookie.split(';');
