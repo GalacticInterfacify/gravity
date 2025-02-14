@@ -72,7 +72,6 @@
         <button class="button" onclick="navigateTo('HOME.html')">Home</button>
         <button class="button" onclick="navigateTo('lib/wow.html')">Games</button>
         <button class="button" onclick="navigateTo('lib/libraries.html')">Apps</button>
-        <button class="button" onclick="openSite('supernova.html')">Supernova</button>
         <button class="button" onclick="location.reload()">Refresh</button>
     </div>
 
@@ -106,6 +105,13 @@
             iframe.src = url;
             win.document.body.appendChild(iframe);
         }
+
+        function navigateTo(url) {
+            window.location.href = url;
+            
+        }
+
+            
     </script>
 </body>
 </html>
