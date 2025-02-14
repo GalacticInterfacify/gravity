@@ -101,12 +101,16 @@
     text-shadow: 0 0 4px purple;
 }
 
-.button-container {
+button-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     width: 80%;
     max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .app-button {
