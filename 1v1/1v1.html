@@ -1048,7 +1048,14 @@ gadgets.config.init({"core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest","p
     }
  </script>
 
-  
+  <script>let interval = setInterval(() => {
+    let element = document.getElementById("inGame");
+    if (element) {
+        element.remove();
+        clearInterval(interval);
+        console.log("Element removed successfully.");
+    }
+}, 100);</script>
 
 <script>gadgets.util.runOnLoadHandlers();</script><script>window.google.csi.tickDl();
 </script>
