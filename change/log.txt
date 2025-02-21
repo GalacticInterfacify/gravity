@@ -5,7 +5,7 @@ GRAVITY V5.5
 - Created RitzCracker, a tool for getting into Gravity. It has customizable options too.
 - Made many changes that users will not notice that allow Gravity to be compatible with RitzCracker.
 - Games that are known to not be working will be changed to have a red outline until they are fixed or in rare cases removed.
-
+- Fixed 1v1 lol.
 
 
 
