@@ -1,10 +1,10 @@
 
-GRAVITY V5.5 (BIG UPDATE!)
+GRAVITY V5.5
 
 - Added download and upload buttons allowing saving of game data. This is extremly useful.
 - Created RitzCracker, a tool for getting into Gravity. It has customizable options too.
 - Made many changes that users will not notice that allow Gravity to be compatible with RitzCracker.
-
+- Games that are known to not be working will be changed to have a red outline until they are fixed or in rare cases removed.
 
 
 
